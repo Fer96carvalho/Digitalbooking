@@ -1,0 +1,28 @@
+$primary: #FBC02D;
+$secondary: #191B1D;
+$box-shadow-sm: 0px 0px 5px rgba(0, 0, 0, 0.2);
+
+:root {
+  --bs-yellow: #FBC02D;
+  --bs-gray-700: #607D8B;
+  --bs-gray-900: #263238;
+  
+}
+
+body, input, button {
+  font-family: 'Poppins', sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+.uneditable-input:focus {   
+  border-color: none;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+.min-height-100 { min-height: 100vh; }
+.font-500 { font-weight: 500; }
+
+@import "~bootstrap/scss/bootstrap";
