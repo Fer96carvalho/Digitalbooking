@@ -1,40 +1,40 @@
 import React from "react";
-import { Nav, Navbar, Container } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
+import { } from 'bootstrap';
 import logo from "../../../../Assets/img/logo1.png"
-import './style.css'
+import './style.css';
 
 function Header() {
     return (
         <>
             <header>
-                <Navbar bg="dark" variant="dark" expand="xl">
-                    <Container>
-                        <Navbar.Brand class="container-logo" as={Link} to="/">
-                            <div>
-                            <figure>
-                                <img src={logo} className="m-2" alt="Logo da Digital Booking" width="50" height="50" />
-                            </figure>
-                            </div>
-                            <div>
-                                <h2>Sinta-se em casa</h2>
-                            </div>                            
+                <nav>
+                    <div class="div-logo">
+                        <figure>
+                            <Link to="/"><img src={logo} class="logo" alt="Logo da Digital Booking" width="50" height="50" /></Link>
                             
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                            <Nav>
-                                <Nav.Link as={Link} to="/register">
-                                    Criar conta
-                                </Nav.Link>
-                                <Nav.Link as={Link} to={'/login'}>
-                                    Iniciar Sessão
-                                </Nav.Link>
+                        </figure>
+                        <Link to="/"><h2>Digital Booking</h2></Link>
+                        
+                    </div>
+                    <div class= "menu-mobile">
+                        <div class="line 1"></div>
+                        <div class="line 2"></div>
+                        <div class="line 3"></div>
+
+                    </div>
+                    <div class="div-list">
+                        <ul class="nav-list">
+                            <li>
+                                <Link  to="/register">Criar conta</Link>
+                            </li>
+                            <li>
+                            <Link to="/login">Iniciar Sessão</Link>
                                 
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </header>
         </>
     )
