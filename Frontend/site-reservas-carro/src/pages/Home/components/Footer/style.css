@@ -1,0 +1,30 @@
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FBC02D;
+    padding: 20px;
+    max-height: 65px;
+}
+
+.rodape .rodape__Copyright p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.rodape .rodape__Social ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodape .rodape__Social ul li {
+    list-style: none;
+    margin: 0 10px;
+    padding: 5px;
+}
+
+.rodape .rodape__Social ul li img {
+    width: 100%;
+    max-width: 25px;
+}
