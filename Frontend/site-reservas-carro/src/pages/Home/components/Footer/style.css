@@ -32,4 +32,5 @@
 .rodape .rodape__Social ul li img {
     width: 100%;
     max-width: 25px;
+    cursor: pointer;
 }

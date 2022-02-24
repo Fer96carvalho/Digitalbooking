@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.css';
 
-function Corpo () {
+function Main () {
     return (
         <>
             <div class="container">
@@ -67,4 +67,4 @@ function Corpo () {
     )
 }
 
-export default Corpo;
+export default Main;
