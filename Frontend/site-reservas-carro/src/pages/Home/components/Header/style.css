@@ -4,15 +4,17 @@
 }
 
 header{
-    height: 8vh;
+    height: 10%;
+    position: fixed;
+    width: 100%;
 }
 
-nav {
+header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ccc;
     padding: 20px;
     max-height: 75px;
 }
