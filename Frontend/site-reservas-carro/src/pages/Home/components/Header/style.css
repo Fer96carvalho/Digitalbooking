@@ -5,8 +5,10 @@
 
 header{
     height: 10%;
-    position: fixed;
+    position: sticky;
+    top: 0;
     width: 100%;
+    z-index: 1;
 }
 
 header nav {
