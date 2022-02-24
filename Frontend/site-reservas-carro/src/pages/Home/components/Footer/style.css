@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #FBC02D;
-    padding: 20px;
+    padding: 20px 20px 10px;
     max-height: 65px;
 }
 
@@ -15,6 +15,7 @@
 
 .rodape .rodape__Social ul {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
