@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Form, Button, Container } from 'react-bootstrap';
 
-export function Login() {
+function Login() {
   const [error, setError] = useState(true);
 
   return (
@@ -40,3 +40,5 @@ export function Login() {
     </Container>
   )
 }
+
+export default Login;

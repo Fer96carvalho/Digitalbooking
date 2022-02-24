@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "../pages/Home/index.js";
-import { Login } from "../pages/Login";
+import Home from "../pages/Home/";
+import Login from "../pages/Login";
 import { Register } from "../pages/Register";
 import { HelmetProvider } from 'react-helmet-async';
-export function Router() {
+
+function Router() {
   return (
     <BrowserRouter>
       <HelmetProvider>  
@@ -17,5 +18,7 @@ export function Router() {
     </BrowserRouter>
   )
 }
+
+export default Router;
 
 
