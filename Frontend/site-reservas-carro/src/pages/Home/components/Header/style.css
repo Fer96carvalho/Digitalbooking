@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: 10%;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    max-height: 75px;
+}
+
+
+h2 {
+    width: 100%;
+    margin-left: 30px;
+    letter-spacing: 4px;
+
+}
+.div-logo  {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    
+}
+
+.div-logo a {
+    color: #FBC02D;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.div-logo .logo {
+    width: 60px; 
+    height: 50px;
+    margin-top: 15px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li {
+    color: #FBC02D;
+    width: 150px;
+    margin-top: 30px;
+    margin-right: 20px;
+    padding: 5px 20px;
+    border: 1px solid #FBC02D;
+    border-radius: 5px;
+    background-color:#fff;
+    text-align: center;
+    
+}
+
+.nav-list a {
+    color: #FBC02D;
+    text-decoration: none;
+}
+
+.menu-mobile {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-mobile div {
+    width: 32px;
+    height: 2px;
+    background: #FBC02D;
+    margin:8px;
+}
+.menu-mobile .logo-menu {
+    width: 45px;
+}
+
+@media (max-width: 767px) {
+
+    .div-nomepagina {
+        display: none;
+    }
+    .nav-list {
+        position: absolute;
+        right: 0;
+        bottom: -100vh;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        background:#FBC02D;
+        z-index: -1;
+    }
+
+    .nav-list {
+        padding: 0;
+    }
+
+    .nav-list li {
+        margin-right: 0;
+    }
+
+    .menu-mobile {
+        position: absolute;
+        left: 85%;
+        display: block;
+
+    }
+
+
+}
