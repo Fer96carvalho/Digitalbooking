@@ -1,30 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from 'react-router-dom';
 import { } from 'bootstrap';
 import logo from "../../../../Assets/img/logo1.png"
+import menu from '../../../../Assets/img/Menu.png'
 import './style.css';
 
 function Header() {
-    return (
+
+   return (
         <>
             <header>
                 <nav>
-                    <div class="div-logo">
+                    <div className="div-logo">
                         <figure>
-                            <Link to="/"><img src={logo} class="logo" alt="Logo da Digital Booking" width="50" height="50" /></Link>
+                            <Link to="/"><img src={logo} className="logo" alt="Logo da Digital Booking" width="60" height="50" /></Link>
                             
                         </figure>
+                        <div className="div-nomepagina">
                         <Link to="/"><h2>Digital Booking</h2></Link>
+
+                        </div>
                         
                     </div>
-                    <div class= "menu-mobile">
-                        <div class="line 1"></div>
-                        <div class="line 2"></div>
-                        <div class="line 3"></div>
+                    <div className= "menu-mobile">
+                        <img className='logo-menu' src={menu} alt="Logo do Menu"/>
 
                     </div>
-                    <div class="div-list">
-                        <ul class="nav-list">
+                    <div className="div-list">
+                        <ul className="nav-list">
                             <li>
                                 <Link  to="/register">Criar conta</Link>
                             </li>
