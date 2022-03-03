@@ -1,0 +1,17 @@
+*{
+    font-family: 'Poppins', sans-serif;
+
+}
+div .slogan h1{
+    display: flex;
+    justify-content: center;
+    padding-top:5px;
+    font-size: 24pt;
+    color: #263238;
+}
+
+div .div-search {
+    background-color:#FBC02D;
+
+}
+

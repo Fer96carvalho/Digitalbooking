@@ -9,8 +9,7 @@ function Header() {
    return (
         <>
             <header>
-                <nav>
-                    <div className="div-logo">
+            <div className="div-logo">
                         <figure>
                             <Link to="/"><img src={logo} className="logo" alt="Logo da Digital Booking" width="60" height="50" /></Link>
                             
@@ -21,6 +20,8 @@ function Header() {
                         </div>
                         
                     </div>
+                <nav>
+                    
                     <div className= "menu-mobile">
                         <img className='btn-menu' src={menu} alt="Logo do Menu"/>
                     </div>
