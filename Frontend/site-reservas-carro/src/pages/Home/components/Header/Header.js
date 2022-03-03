@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import {Link} from 'react-router-dom';
-import { } from 'bootstrap';
 import logo from "../../../../Assets/img/logo1.png"
 import menu from '../../../../Assets/img/Menu.png'
 import './style.css';
@@ -23,8 +22,7 @@ function Header() {
                         
                     </div>
                     <div className= "menu-mobile">
-                        <img className='logo-menu' src={menu} alt="Logo do Menu"/>
-
+                        <img className='btn-menu' src={menu} alt="Logo do Menu"/>
                     </div>
                     <div className="div-list">
                         <ul className="nav-list">
