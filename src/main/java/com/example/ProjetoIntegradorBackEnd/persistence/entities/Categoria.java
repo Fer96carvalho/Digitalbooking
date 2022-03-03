@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -15,6 +16,8 @@ public class Categoria {
     @SequenceGenerator(name = "categoria_sequencia", sequenceName = "categoria_sequencia", allocationSize = 1)
     private Integer id;
     private Integer qualificacao;
+    @Lob
     private String descricao;
+    @Lob
     private String urlImagem;
 }
