@@ -3,6 +3,7 @@ import Home from "../pages/Home/";
 import Login from "../pages/Login";
 import { Register } from "../pages/Register";
 import { HelmetProvider } from 'react-helmet-async';
+import Search from "../pages/Home/components/Search/Search";
 
 function Router() {
   return (
@@ -12,6 +13,7 @@ function Router() {
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
+          <Route path="/busca" element={<Search />}/>
         </Routes>
 
       </HelmetProvider>
