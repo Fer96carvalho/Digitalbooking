@@ -1,44 +1,56 @@
-import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { Form, Button, Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Form } from 'react-bootstrap';
+import * as yup from 'yup';
 
-function Login() {
-  const [error, setError] = useState(true);
+import { Input } from '../../components/Input';
+import { InputPassword } from '../../components/InputPassword';
+import { BoxForm } from "../../components/Form";
+
+export function Login() {
+  const schema = yup.object({
+    email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
+    password: yup.string().min(6, "Mínimo de 6 dígitos.").required("Campo obrigatório.")
+  });
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  function dataForm(data) {
+    console.log(data)
+  }
 
   return (
-    <Container 
+    <Container
       className="
-        min-height-100 
-        d-flex 
-        justify-content-center 
+        min-height-100
+        d-flex
+        justify-content-center
         align-items-center"
     >
-      <Form className="w-100" style={{maxWidth: "350px"}}>
-        <Form.Text className="d-block text-primary text-center fs-2 font-500 mb-5">Iniciar Sessão</Form.Text>
-        <Form.Group className="mb-1">
-          <Form.Label >E-mail</Form.Label>
-          <Form.Control 
-            className={error ? "border-1 border-danger shadow-sm" : "border-0"}
-            type="email" 
-            placeholder="Digite seu e-mail" 
-          />
-          <Form.Text className="text-danger">Campo obrigatório.</Form.Text>
-        </Form.Group>
+      <BoxForm handleSubmit={handleSubmit} dataForm={dataForm}>
+        <Form.Text
+          as="p"
+          className="d-block text-primary text-center fs-2 font-500 mb-5"
+        >
+          Iniciar Sessão
+        </Form.Text>
+        <Input type="text" name="email" label="E-mail" error={errors?.email} register={register}/>
 
-        <Form.Group className="mb-1">
-          <Form.Label>Senha</Form.Label>
-          <Form.Control className="shadow-sm border-0" type="password" placeholder="Digite sua senha" />
-        </Form.Group>
+        <InputPassword name="password" label="Senha" error={errors?.password} register={register}/>
+
         <Button className="w-100 text-white fw-bold mt-4" variant="primary" type="submit">
           Entrar
         </Button>
         <Form.Text className="text-center d-block text-secondary mt-3">
-          Ainda não tem conta? 
+          Ainda não tem conta?
           <Link className="text-decoration-none" to="/register"> Registre-se</Link>
         </Form.Text>
-      </Form>
+      </BoxForm>
     </Container>
   )
 }
 
-export default Login;

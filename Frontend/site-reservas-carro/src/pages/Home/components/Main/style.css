@@ -1,12 +1,13 @@
-.container {
+.main__Container {
     width: 100%;
     height: 100%;
     background-color: #ccc;
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+
+    align-items: flex-start;
 
     margin-top: 100px 10px;
 
@@ -14,9 +15,38 @@
 
 
 }
-.container .card {
-    width: 100px;
-    height: 100px;
-    background-color: #FBC02D;
+.main__Container .sugestaoBusca {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__Container .sugestaoBusca p {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.main__Container .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 300px;
     margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main__Container .card img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.main__Container .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
+
+.main__Container .card .legenda {
+    padding: 2px 16px;
 }
