@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import './style.css';
 
@@ -40,6 +40,144 @@ function Main () {
                     </div>
                     
                 </div>
+
+                <div className="blocoLista">
+
+                    <h2>
+                        Recomendações
+                    </h2>
+
+                    <div className="cartao">
+
+                        <div className="cartaoImg">
+                            <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        </div>
+
+                        <div className="cartaoDados">
+                            <span>Categoria</span>
+                            <h4>Fusca</h4>
+                            <p>Rio de Janeiro</p>
+                            <p>Descrição</p>
+                            <button>Ver descrição</button>
+                        </div>
+                        
+                    </div>
+
+                    <div className="cartao">
+
+                        <div className="cartaoImg">
+                            <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        </div>
+
+                        <div className="cartaoDados">
+                            <span>Categoria</span>
+                            <h4>Fusca</h4>
+                            <p>Rio de Janeiro</p>
+                            <p>Descrição</p>
+                            <button>Ver descrição</button>
+                        </div>
+
+                    </div>
+
+                    <div className="cartao">
+
+                    <div className="cartaoImg">
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                    </div>
+
+                    <div className="cartaoDados">
+                        <span>Categoria</span>
+                        <h4>Fusca</h4>
+                        <p>Rio de Janeiro</p>
+                        <p>Descrição</p>
+                        <button>Ver descrição</button>
+                    </div>
+
+                    </div>
+
+                    <div className="cartao">
+
+                    <div className="cartaoImg">
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                    </div>
+
+                    <div className="cartaoDados">
+                        <span>Categoria</span>
+                        <h4>Fusca</h4>
+                        <p>Rio de Janeiro</p>
+                        <p>Descrição</p>
+                        <button>Ver descrição</button>
+                    </div>
+
+                    </div>
+
+                    <div className="cartao">
+
+                    <div className="cartaoImg">
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                    </div>
+
+                    <div className="cartaoDados">
+                        <span>Categoria</span>
+                        <h4>Fusca</h4>
+                        <p>Rio de Janeiro</p>
+                        <p>Descrição</p>
+                        <button>Ver descrição</button>
+                    </div>
+
+                    </div>
+
+                    <div className="cartao">
+
+                    <div className="cartaoImg">
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                    </div>
+
+                    <div className="cartaoDados">
+                        <span>Categoria</span>
+                        <h4>Fusca</h4>
+                        <p>Rio de Janeiro</p>
+                        <p>Descrição</p>
+                        <button>Ver descrição</button>
+                    </div>
+
+                    </div>
+
+                    <div className="cartao">
+
+                    <div className="cartaoImg">
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                    </div>
+
+                    <div className="cartaoDados">
+                        <span>Categoria</span>
+                        <h4>Fusca</h4>
+                        <p>Rio de Janeiro</p>
+                        <p>Descrição</p>
+                        <button>Ver descrição</button>
+                    </div>
+
+                    </div>
+
+                    <div className="cartao">
+
+                    <div className="cartaoImg">
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                    </div>
+
+                    <div className="cartaoDados">
+                        <span>Categoria</span>
+                        <h4>Fusca</h4>
+                        <p>Rio de Janeiro</p>
+                        <p>Descrição</p>
+                        <button>Ver descrição</button>
+                    </div>
+
+                    </div>
+
+                </div>
+
+
                                 
             </div>
         </>

@@ -7,10 +7,10 @@ import Search from "./components/Search/Search";
 function Home() {
     return (
         <>
-        <Header/>
-        <Search/>
-        <Main/>
-        <Footer/>
+            <Header/>
+            <Search/>
+            <Main/>
+            <Footer/>
         </>
     )
 }

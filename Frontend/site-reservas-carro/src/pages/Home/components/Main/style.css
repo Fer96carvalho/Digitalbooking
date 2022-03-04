@@ -1,3 +1,9 @@
+:root {
+    --cor-padrao: #FBC02D;
+    --sombra-padrao: 0 4px 8px 0 rgba(0, 0, 0, 0.2);;
+    --sombra-hover: 0 8px 16px 0 rgba(0, 0, 0, 0.2);;
+}
+
 .main__Container {
     width: 100%;
     height: 100%;
@@ -29,7 +35,7 @@
 }
 
 .main__Container .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: var(--sombra-padrao);
     transition: 0.3s;
     width: 300px;
     margin: 10px;
@@ -43,10 +49,71 @@
 }
 
 .main__Container .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: var(--sombra-hover);
     opacity: 0.8;
 }
 
 .main__Container .card .legenda {
     padding: 2px 16px;
+}
+
+.main__Container .blocoLista {
+    width: 100%;
+    padding: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main__Container .blocoLista h2 {
+    width: 100%;
+    padding: 10px;
+}
+
+.main__Container .blocoLista .cartao {
+    width: 48%;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    margin-top: 10px;
+}
+
+.main__Container .blocoLista .cartao .cartaoImg {
+    float: left;
+}
+
+.main__Container .blocoLista .cartao .cartaoImg img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.main__Container .blocoLista .cartao .cartaoDados {
+    float: right;
+    padding: 20px;
+    width: 100%;
+}
+
+.main__Container .blocoLista .cartao .cartaoDados p {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10px;
+}
+
+.main__Container .blocoLista .cartao .cartaoDados button {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    background-color: var(--cor-padrao);
+    box-shadow: var(--sombra-padrao);
+    color: #fff;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main__Container .blocoLista .cartao .cartaoDados button:hover {
+    box-shadow: var(--sombra-hover);
 }

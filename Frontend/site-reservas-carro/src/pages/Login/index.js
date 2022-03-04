@@ -9,6 +9,7 @@ import { Input } from '../../components/Input';
 import { InputPassword } from '../../components/InputPassword';
 import { BoxForm } from "../../components/Form";
 import Header from "../Home/components/Header/Header";
+import Footer from "../Home/components/Footer/Footer";
 
 export function Login() {
   const schema = yup.object({
@@ -54,6 +55,7 @@ export function Login() {
         </Form.Text>
       </BoxForm>
     </Container>
+    <Footer/>
     </>
   )
 }
