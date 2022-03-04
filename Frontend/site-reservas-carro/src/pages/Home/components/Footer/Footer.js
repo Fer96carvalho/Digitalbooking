@@ -13,7 +13,6 @@ function Footer () {
                 <div className="rodape__Copyright">
                     <p>@2021 Digital Booking</p>
                 </div>
-
                 <div className="rodape__Social">
                     <ul>
                         <li><img src={facebook} alt="Facebook" /></li>

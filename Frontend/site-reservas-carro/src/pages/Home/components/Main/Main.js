@@ -50,7 +50,7 @@ function Main () {
                     <div className="cartao">
 
                         <div className="cartaoImg">
-                            <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                            <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                         </div>
 
                         <div className="cartaoDados">
@@ -66,7 +66,7 @@ function Main () {
                     <div className="cartao">
 
                         <div className="cartaoImg">
-                            <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                            <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                         </div>
 
                         <div className="cartaoDados">
@@ -82,7 +82,7 @@ function Main () {
                     <div className="cartao">
 
                     <div className="cartaoImg">
-                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                     </div>
 
                     <div className="cartaoDados">
@@ -98,7 +98,7 @@ function Main () {
                     <div className="cartao">
 
                     <div className="cartaoImg">
-                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                     </div>
 
                     <div className="cartaoDados">
@@ -114,7 +114,7 @@ function Main () {
                     <div className="cartao">
 
                     <div className="cartaoImg">
-                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                     </div>
 
                     <div className="cartaoDados">
@@ -130,7 +130,7 @@ function Main () {
                     <div className="cartao">
 
                     <div className="cartaoImg">
-                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                     </div>
 
                     <div className="cartaoDados">
@@ -146,7 +146,7 @@ function Main () {
                     <div className="cartao">
 
                     <div className="cartaoImg">
-                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                     </div>
 
                     <div className="cartaoDados">
@@ -162,7 +162,7 @@ function Main () {
                     <div className="cartao">
 
                     <div className="cartaoImg">
-                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" />
+                        <img src="http://blogadhesivoindustrial.com/wp-content/uploads/2018/04/vida-util-pecas-carro-2.jpg" alt=""/>
                     </div>
 
                     <div className="cartaoDados">

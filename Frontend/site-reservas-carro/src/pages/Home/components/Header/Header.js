@@ -1,38 +1,33 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from "../../../../Assets/img/logo1.png"
 import menu from '../../../../Assets/img/Menu.png'
 import './style.css';
 
 function Header() {
 
-   return (
+    return (
         <>
             <header>
-            <div className="div-logo">
-                        <figure>
-                            <Link to="/"><img src={logo} className="logo" alt="Logo da Digital Booking" width="60" height="50" /></Link>
-                            
-                        </figure>
-                        <div className="div-nomepagina">
+                <div className="div-logo">
+                    <figure>
+                        <Link to="/"><img src={logo} className="logo" alt="Logo da Digital Booking" width="60" height="50" /></Link>
+                    </figure>
+                    <div className="div-nomepagina">
                         <Link to="/"><h2>Digital Booking</h2></Link>
-
-                        </div>
-                        
                     </div>
+                </div>
                 <nav>
-                    
-                    <div className= "menu-mobile">
-                        <img className='btn-menu' src={menu} alt="Logo do Menu"/>
+                    <div className="menu-mobile">
+                        <img className='btn-menu' src={menu} alt="Logo do Menu" />
                     </div>
                     <div className="div-list">
                         <ul className="nav-list">
                             <li>
-                                <Link  to="/register">Criar conta</Link>
+                                <Link to="/register">Criar conta</Link>
                             </li>
                             <li>
-                            <Link to="/login">Iniciar Sessão</Link>
-                                
+                                <Link to="/login">Iniciar Sessão</Link>
                             </li>
                         </ul>
                     </div>
