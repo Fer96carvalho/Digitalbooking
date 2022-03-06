@@ -6,11 +6,19 @@ $box-shadow-sm: 0px 0px 5px rgba(0, 0, 0, 0.2);
   --bs-yellow: #FBC02D;
   --bs-gray-700: #607D8B;
   --bs-gray-900: #263238;
-  
 }
 
  header, body, input, button {
   font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
 }
 
 input[type="text"]:focus,
@@ -22,7 +30,7 @@ input[type="email"]:focus,
   outline: 0 none;
 }
 
-.min-height-100 { min-height: 100vh; }
+.min-height-100 { min-height: calc(98vh - 140px); }
 .font-500 { font-weight: 500; }
 .font-size-14 {
   font-size: 14px;

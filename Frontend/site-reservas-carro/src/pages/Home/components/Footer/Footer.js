@@ -11,7 +11,7 @@ function Footer () {
         <>
             <footer className="rodape">
                 <div className="rodape__Copyright">
-                    <p>@2021 Digital Booking</p>
+                    <p>@2022 Digital Booking</p>
                 </div>
                 <div className="rodape__Social">
                     <ul>
