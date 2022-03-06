@@ -1,0 +1,150 @@
+.menu-mobile {
+    display: none;
+}
+.div-user-mobile, .user-logo-mobile, .div-btn-mobile, .rodape_Social, .user-logout-mobile{
+    display: none;  
+}
+
+@media (max-width:736px){
+
+.menu-mobile{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #fff;
+    position: absolute;
+    min-width: 230px;
+    width: 300px;
+    right: 0px;
+    top: 0px;
+    
+}
+
+.div-menu-mobile{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    background-color: #FBC02D;
+}
+
+.logo-menu-mobile{
+
+    width: 45px;
+    height: 45px;
+}
+
+.div-user-mobile {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 10px;
+    background-color: #FBC02D;
+
+}
+
+.div-avatar-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+p.avatar-name {
+    align-items: center;
+    justify-self: center;
+    font-size: 15px;
+    margin: 0;
+}
+
+p.saudacao2{
+    align-items: center;
+    justify-self: center;
+    font-size: 15px;
+    color: #fff;
+    margin: 0;
+    
+}
+
+p.nick-name {
+    align-items: center;
+    justify-self: center;
+    font-size: 15px;
+    color: #263238;
+    letter-spacing: 0.5px;
+}
+
+.div-avatar-mobile {
+    display: flex;
+
+}
+
+.div-btn-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    background-color: #fff;
+}
+
+.div-btn-mobile2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 95%;
+    height: 50vh;
+    border-top: 1px solid #263238;
+    border-bottom: 1px solid #263238;
+
+    background-color: #fff;
+}
+
+.div-btn-mobile button {
+    color: #FBC02D;
+    padding: 5px 10px ;
+    border: transparent;
+    background-color:#fff;
+    text-align: center;    
+}
+button.btn-mobile2 {
+    color: #FBC02D;
+    width: 100%;
+    padding: 5px 10px ;
+    border: transparent;
+    background-color:#fff;
+    text-align: right;    
+}
+
+.user-logout-mobile{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    height: 25px;
+    top: 80vh;
+    border-top: 1px solid #263238;
+    margin: 0 0 10px 0;
+    padding: 0 10px  100% 10px;
+
+}
+a.logout-link{
+    text-decoration: none;
+
+    
+}
+
+}
+
+@media (max-width:384px){
+    .menu-mobile{
+        width: 245px;
+    }
+}
