@@ -1,0 +1,29 @@
+.nav {
+  height: 11vh;
+  padding: 0 1rem;
+ 
+
+
+  > div {
+    height: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    a img {
+      max-width: 175px;
+      width: 100%;
+
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu_toggle {
+    display: none;
+  }
+}
