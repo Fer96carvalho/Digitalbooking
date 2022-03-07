@@ -1,4 +1,5 @@
 import React from "react";
+import DoubleCalendar from '../../../../components/DoubleCalendar';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import './style.css';
 
@@ -40,6 +41,7 @@ function Search() {
                 </Row>
             </Form>
         </Container >
+        <DoubleCalendar/>
         </div>
   
     )
