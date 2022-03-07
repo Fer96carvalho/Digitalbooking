@@ -77,16 +77,19 @@
     border-radius: 10px;
     overflow: hidden;
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .main__Container .blocoLista .cartao .cartaoImg {
     float: left;
+    width: 100%;
+    max-height: 250px;
+    max-width: 400px;
 }
 
 .main__Container .blocoLista .cartao .cartaoImg img {
-    width: 100%;
-    max-width: 500px;
+    max-height: 250px;
+    max-width: 400px;
 }
 
 .main__Container .blocoLista .cartao .cartaoDados {
@@ -97,8 +100,11 @@
 
 .main__Container .blocoLista .cartao .cartaoDados p {
     font-size: 14px;
-    font-weight: bold;
-    line-height: 10px;
+    
+    max-width: 25ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .main__Container .blocoLista .cartao .cartaoDados button {
