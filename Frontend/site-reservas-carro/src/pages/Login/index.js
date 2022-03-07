@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import {Helmet} from "react-helmet-async";
 import { Button, Container, Spinner, Alert } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -41,6 +42,10 @@ export function Login() {
   }
 
   return (
+    <>
+    <Helmet>
+        <title> Digital Booking | Login</title>
+            </Helmet>
     <Container
       className="
         d-flex
@@ -78,6 +83,7 @@ export function Login() {
         </Form.Text>
       </BoxForm>
     </Container>
+    </>
   )
 }
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import {Helmet} from "react-helmet-async";
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -31,6 +32,9 @@ export function Register() {
 
   return (
     <>
+    <Helmet>
+        <title> Digital Booking | Registre-se</title>
+            </Helmet>
     <Container
       className="
         min-height-100
