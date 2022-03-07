@@ -1,9 +1,13 @@
-import React from "react";
+import DatePicker from "react-datepicker";
+import React, {useState} from "react";
+
+
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import './style.css';
 
 function Search() {
-    
+    const [dateRange, setDateRange] = useState([null,null]);
+    const [startDate,endDate] = dateRange;
     return (
         <div className="div-search">
             <Container fluid >
@@ -40,6 +44,8 @@ function Search() {
                 </Row>
             </Form>
         </Container >
+        <DatePicker
+          />
         </div>
   
     )
