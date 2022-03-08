@@ -11,10 +11,13 @@
     bottom: 0;
 }
 
-.rodape .rodape__Copyright p {
+.rodape .rodape__Copyright p.copyright {
     font-size: 14px;
     font-weight: 400;
     color: #fff;
+}
+p.copyright {
+    align-items: center;
 }
 
 .rodape .rodape__Social ul {

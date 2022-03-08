@@ -1,0 +1,136 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    max-height: 75px;
+    border-bottom: 1px solid #ccc;
+    z-index: 1;
+}
+
+header nav {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    max-height: 75px;
+}
+
+.div-logo  {
+    width: 50%;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 0;   
+}
+
+.div-logo h2 {
+    width: 100%;
+    margin-left: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 0px;
+}
+
+.div-logo a {
+    color: #FBC02D;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.div-logo .logo {
+    width: 60px; 
+    height: 50px;
+    margin-top: 15px;
+}
+
+div .div-btn {
+    display: none;
+}
+
+.div-btn button {
+    color: #FBC02D;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #FBC02D;
+    border-radius: 5px;
+    background-color:#fff;
+    text-align: center;
+
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.062);
+transition: all 0.3s ease-in-out;
+    
+}
+
+.div-btn button:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.div-user {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+}
+
+.div-user p {
+    margin: 0 10px;
+    font-size: 15px;
+    color: #FBC02D;
+    letter-spacing: 0.2px;
+}
+
+p.saudacao {
+    color: #263238;
+}
+.div-avatar p {
+    align-items: center;
+    justify-self: center;
+    font-size: 15px;
+    color: #263238;
+    letter-spacing: 0.5px;
+}
+
+.user-logout p {
+    font-size: 18px;
+    font-weight:500;
+    margin: -20px 0 0 -3px;
+    color: #263238;
+}
+
+.user-logout2 {
+    display: none;
+    font-size: 20px;
+    text-decoration: none;
+    margin: -10px 0 0 -3px;
+    color: #263238;
+}
+
+div .div-user .div-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #FBC02D;
+    border-radius: 50%;
+}
+
+@media (max-width: 736px) {
+    .div-logo  {
+        width: 21%;
+    }
+
+    .div-nomepagina, .div-user{
+        display: none;
+    }
+    
+    
+}
+
+
