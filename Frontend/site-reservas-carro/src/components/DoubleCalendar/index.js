@@ -1,101 +1,41 @@
 import React, {useState}from "react";
 import DatePicker from "react-datepicker";
+import { registerLocale } from  "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import './style.css';
+import  pt  from  'date-fns/locale/pt-BR' ; 
+registerLocale ( 'pt' ,  pt );
 
 
 function DoubleCalendar() {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
-
+    var sizeScreen = 2;
+    if (window.screen.availWidth < 768){
+      sizeScreen = 1;
+    } else{
+      sizeScreen = 2
+    }
+  console.log(sizeScreen)
   return (
     <DatePicker
-
-        locale="pt-BR"
+        locale="pt"
         // showTimeSelect
         // timeFormat="HH:mm"
         // timeIntervals={15}
-        placeholderText="Retirada e devolução"
-        minDateTime={new Date()}
+        placeholderText="Data do checkin | Checkout "
+        minDate={new Date()}
         selectsRange={true}
         startDate={startDate}
-        numberOfMonths={2}
+        monthsShown={sizeScreen}
         endDate={endDate}
         dateFormat="dd/MM/yyyy"
-        onChange={update => setDateRange(update)}
+        onChange={update => {setDateRange(update)}}
+        className="form-control form-control-sm"
+        isClearable
 
     />
   );
 }
 
 export default DoubleCalendar;
-
-
-
-
-
-
-// import React, {useState}from "react";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-
-
-// function DoubleCalendar() {
-//     const [startDate, setStartDate] = useState(new Date());
-//     return (
-//           <DatePicker
-//             renderCustomHeader={({
-//               monthDate,
-//               customHeaderCount,
-//               decreaseMonth,
-//               increaseMonth,
-//             }) => (
-//               <div>
-//                 <button
-//                   aria-label="Previous Month"
-//                   className={
-//                     "react-datepicker__navigation react-datepicker__navigation--previous"
-//                   }
-//                   style={customHeaderCount === 1 ? { visibility: "hidden" } : null}
-//                   onClick={decreaseMonth}
-//                 >
-//                   <span
-//                     className={
-//                       "react-datepicker__navigation-icon react-datepicker__navigation-icon--previous"
-//                     }
-//                   >
-//                     {"<"}
-//                   </span>
-//                 </button>
-//                 <span className="react-datepicker__current-month">
-//                   {monthDate.toLocaleString("en-US", {
-//                     month: "long",
-//                     year: "numeric",
-//                   })}
-//                 </span>
-//                 <button
-//                   aria-label="Next Month"
-//                   className={
-//                     "react-datepicker__navigation react-datepicker__navigation--next"
-//                   }
-//                   style={customHeaderCount === 0 ? { visibility: "hidden" } : null}
-//                   onClick={increaseMonth}
-//                 >
-//                   <span
-//                     className={
-//                       "react-datepicker__navigation-icon react-datepicker__navigation-icon--next"
-//                     }
-//                   >
-//                     {">"}
-//                   </span>
-//                 </button>
-//               </div>
-//             )}
-//             selected={startDate}
-//             onChange={(date) => setStartDate(date)}
-//             dateFormat="dd-MM-yyy"
-//             monthsShown={2}
-//           />
-//         );
-//       };
-
-// export default DoubleCalendar;
