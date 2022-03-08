@@ -65,6 +65,9 @@ export function Register() {
           <Link className="text-decoration-none" to="/login"> Iniciar sessão</Link>
         </Form.Text>
       </BoxForm>
+
+      <a href="/" className="fechar__Login">X</a>
+
     </Container>
     </>
   )

@@ -82,6 +82,9 @@ export function Login() {
           <Link className="text-decoration-none font-500 text-primary" to="/register"> Registre-se</Link>
         </Form.Text>
       </BoxForm>
+
+      <a href="/" className="fechar__Login">X</a>
+
     </Container>
     </>
   )
