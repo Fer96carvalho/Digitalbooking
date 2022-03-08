@@ -9,6 +9,7 @@ function MobileCalendar() {
 
     return (
           <DatePicker
+            locale="pt-BR"
             placeholderText="Retirada e devolução"
             minDate={new Date()}
             selectsRange={true}
