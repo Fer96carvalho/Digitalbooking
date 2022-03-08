@@ -83,7 +83,7 @@ export function Login() {
         </Form.Text>
       </BoxForm>
 
-      <a href="/" className="fechar__Login">X</a>
+      <Link className="fechar__Login" to="/"> X </Link>
 
     </Container>
     </>
