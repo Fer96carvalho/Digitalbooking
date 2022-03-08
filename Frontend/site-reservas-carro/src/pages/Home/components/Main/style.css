@@ -69,22 +69,23 @@
 .main__Container .blocoLista h2 {
     width: 100%;
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .main__Container .blocoLista .cartao {
-    width: 48%;
+    width: 620px;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 
 .main__Container .blocoLista .cartao .cartaoImg {
-    float: left;
-    width: 100%;
+    width: 330px;
     max-height: 250px;
-    max-width: 400px;
 }
 
 .main__Container .blocoLista .cartao .cartaoImg img {
@@ -95,7 +96,7 @@
 .main__Container .blocoLista .cartao .cartaoDados {
     float: right;
     padding: 20px;
-    width: 100%;
+    width: 290px;
 }
 
 .main__Container .blocoLista .cartao .cartaoDados p {
@@ -122,4 +123,10 @@
 
 .main__Container .blocoLista .cartao .cartaoDados button:hover {
     box-shadow: var(--sombra-hover);
+}
+
+@media screen and (max-width: 768px) {
+    .main__Container .blocoLista .cartao {
+        width: 330px;
+    }
 }

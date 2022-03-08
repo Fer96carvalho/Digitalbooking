@@ -34,3 +34,16 @@
     max-width: 25px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+
+    .rodape {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rodape .rodape__Social {
+        display: none;
+    }
+
+}

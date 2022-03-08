@@ -8,6 +8,7 @@ export function server() {
 
     seeds(server) {
       server.create("user", { id: 1, name: "Brunno", lastname: "Faria", email: "brunnofaria@gmail.com", password: "123456" });
+      
     },
 
     routes() {

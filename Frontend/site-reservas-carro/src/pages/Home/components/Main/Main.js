@@ -2,6 +2,66 @@ import React from "react";
 
 import './style.css';
 
+const cartaoList = [
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202202/20220211/volkswagen-voyage-1.6-msi-totalflex-4p-manual-wmimagem09153952423.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro Sedan",
+        title: "VOLKSWAGEN VOYAGE",
+        localizacao: "Rio de Janeiro  -RJ",
+        descricao: "1.6 MSI TOTALFLEX 4P MANUAL"
+    },
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202111/20211110/volkswagen-voyage-1.6-mi-comfortline-8v-flex-4p-manual-wmimagem12254559271.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro Sedan",
+        title: "VOLKSWAGEN VOYAGE",
+        localizacao: "São carlos - SP",
+        descricao: "1.6 MI COMFORTLINE 8V FLEX 4P MANUAL"
+    },
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202202/20220203/chevrolet-tracker-1.2-turbo-flex-premier-automatico-wmimagem10142539237.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro SUV",
+        title: "CHEVROLET TRACKER",
+        localizacao: "São Paulo - SP",
+        descricao: "1.2 TURBO FLEX PREMIER AUTOMÁTICO"
+    },
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202201/20220108/ford-focus-2.0-se-fastback-16v-flex-4p-powershift-wmimagem12093590834.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro Sedan",
+        title: "FORD FOCUS",
+        localizacao: "São Paulo - SP",
+        descricao: "2.0 SE FASTBACK 16V FLEX 4P POWERSHIFT"
+    },    
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202201/20220120/chevrolet-s10-2.5-ltz-4x2-cd-16v-flex-4p-automatico-wmimagem17254076413.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro Picape",
+        title: "CHEVROLET S10",
+        localizacao: "São Paulo - SP",
+        descricao: "2.5 LTZ 4X2 CD 16V FLEX 4P AUTOMÁTICO"
+    },    
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211228/ford-fusion-2.0-titanium-awd-16v-gasolina-4p-automatico-wmimagem11290167140.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro Sedan",
+        title: "FORD FUSION",
+        localizacao: "Cascavel - PR",
+        descricao: "2.0 TITANIUM AWD 16V GASOLINA 4P AUTOMÁTICO"
+    },
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211223/ford-mustang-5.0-v8-tivct-gasolina-gt-premium-selectshift-wmimagem11433457411.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro Sedan",
+        title: "FORD MUSTANG",
+        localizacao: "São José dos Campos - SP",
+        descricao: "5.0 V8 TI-VCT GASOLINA GT PREMIUM SELECTSHIFT"
+    },
+    {
+        img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202203/20220302/ford-ecosport-1.6-se-16v-flex-4p-powershift-wmimagem14091502613.jpg?s=fill&w=552&h=414&q=60",
+        categoria: "Carro SUV",
+        title: "FORD ECOSPORT",
+        localizacao: "Campinas - SP",
+        descricao: "1.6 SE 16V FLEX 4P POWERSHIFT"
+    }
+]
+
+
 function Main () {
     return (
         <>
@@ -47,137 +107,25 @@ function Main () {
                         Recomendações
                     </h2>
 
-                    <div className="cartao">
+                    {cartaoList.map(({img, categoria, title, localizacao, descricao}) => {
+                        return (
+                            <div className="cartao">
+                                <div className="cartaoImg">
+                                    <img src={img} alt="" />
+                                </div>
 
-                        <div className="cartaoImg">
-                            <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202202/20220211/volkswagen-voyage-1.6-msi-totalflex-4p-manual-wmimagem09153952423.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                        </div>
-
-                        <div className="cartaoDados">
-                            <span>Carro Sedan</span>
-                            <h4>VOLKSWAGEN VOYAGE</h4>
-                            <p>Rio de Janeiro  -RJ</p>
-                            <p>1.6 MSI TOTALFLEX 4P MANUAL</p>
-                            <button>Ver descrição</button>
-                        </div>
-                        
-                    </div>
-
-                    <div className="cartao">
-
-                        <div className="cartaoImg">
-                            <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202111/20211110/volkswagen-voyage-1.6-mi-comfortline-8v-flex-4p-manual-wmimagem12254559271.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                        </div>
-
-                        <div className="cartaoDados">
-                            <span>Carro Sedan</span>
-                            <h4>VOLKSWAGEN VOYAGE</h4>
-                            <p>São carlos - SP</p>
-                            <p>1.6 MI COMFORTLINE 8V FLEX 4P MANUAL</p>
-                            <button>Ver descrição</button>
-                        </div>
-
-                    </div>
-
-                    <div className="cartao">
-
-                    <div className="cartaoImg">
-                        <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202202/20220203/chevrolet-tracker-1.2-turbo-flex-premier-automatico-wmimagem10142539237.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                    </div>
-
-                    <div className="cartaoDados">
-                        <span>Carro SUV</span>
-                        <h4>CHEVROLET TRACKER</h4>
-                        <p>São Paulo - SP</p>
-                        <p>1.2 TURBO FLEX PREMIER AUTOMÁTICO</p>
-                        <button>Ver descrição</button>
-                    </div>
-
-                    </div>
-
-                    <div className="cartao">
-
-                    <div className="cartaoImg">
-                        <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202201/20220108/ford-focus-2.0-se-fastback-16v-flex-4p-powershift-wmimagem12093590834.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                    </div>
-
-                    <div className="cartaoDados">
-                        <span>Carro Sedan</span>
-                        <h4>FORD FOCUS</h4>
-                        <p>São Paulo - SP</p>
-                        <p>2.0 SE FASTBACK 16V FLEX 4P POWERSHIFT</p>
-                        <button>Ver descrição</button>
-                    </div>
-
-                    </div>
-
-                    <div className="cartao">
-
-                    <div className="cartaoImg">
-                        <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202201/20220120/chevrolet-s10-2.5-ltz-4x2-cd-16v-flex-4p-automatico-wmimagem17254076413.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                    </div>
-
-                    <div className="cartaoDados">
-                        <span>Carro Picape</span>
-                        <h4>CHEVROLET S10</h4>
-                        <p>São Paulo - SP</p>
-                        <p>2.5 LTZ 4X2 CD 16V FLEX 4P AUTOMÁTICO</p>
-                        <button>Ver descrição</button>
-                    </div>
-
-                    </div>
-
-                    <div className="cartao">
-
-                    <div className="cartaoImg">
-                        <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211228/ford-fusion-2.0-titanium-awd-16v-gasolina-4p-automatico-wmimagem11290167140.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                    </div>
-
-                    <div className="cartaoDados">
-                        <span>Carro Sedan</span>
-                        <h4>FORD FUSION</h4>
-                        <p>Cascavel - PR</p>
-                        <p>2.0 TITANIUM AWD 16V GASOLINA 4P AUTOMÁTICO</p>
-                        <button>Ver descrição</button>
-                    </div>
-
-                    </div>
-
-                    <div className="cartao">
-
-                    <div className="cartaoImg">
-                        <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211223/ford-mustang-5.0-v8-tivct-gasolina-gt-premium-selectshift-wmimagem11433457411.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                    </div>
-
-                    <div className="cartaoDados">
-                        <span>Carro Sedan</span>
-                        <h4>FORD MUSTANG</h4>
-                        <p>São José dos Campos - SP</p>
-                        <p>5.0 V8 TI-VCT GASOLINA GT PREMIUM SELECTSHIFT</p>
-                        <button>Ver descrição</button>
-                    </div>
-
-                    </div>
-
-                    <div className="cartao">
-
-                    <div className="cartaoImg">
-                        <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2022/202203/20220302/ford-ecosport-1.6-se-16v-flex-4p-powershift-wmimagem14091502613.jpg?s=fill&w=552&h=414&q=60" alt=""/>
-                    </div>
-
-                    <div className="cartaoDados">
-                        <span>Carro SUV</span>
-                        <h4>FORD ECOSPORT</h4>
-                        <p>Campinas - SP</p>
-                        <p>1.6 SE 16V FLEX 4P POWERSHIFT</p>
-                        <button>Ver descrição</button>
-                    </div>
-
-                    </div>
+                                <div className="cartaoDados">
+                                    <span>{categoria}</span>
+                                    <h4>{title}</h4>
+                                    <p>{localizacao}</p>
+                                    <p>{descricao}</p>
+                                    <button>Ver descrição</button>
+                                </div>
+                            </div>
+                        );
+                    })}
 
                 </div>
-
-
                                 
             </div>
         </>
