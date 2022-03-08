@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-function DoubleCalendar() {
+function MobileCalendar() {
     const [dateRange, setDateRange] = useState([null,null]);
     const [startDate,endDate] = dateRange;
 
@@ -14,11 +14,11 @@ function DoubleCalendar() {
             selectsRange={true}
             startDate={startDate}
             endDate={endDate}
-            numberOfMonths={2}
+            numberOfMonths={1}
             dateFormat="dd-MM-yyy"
             onChange={(update) => {setDateRange(update)}}
           />
         );
       };
 
-export default DoubleCalendar;
+export default MobileCalendar;

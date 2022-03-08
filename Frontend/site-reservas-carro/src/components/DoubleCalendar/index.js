@@ -13,7 +13,7 @@ function DoubleCalendar() {
         minDate={new Date()}
         selectsRange={true}
         startDate={startDate}
-        monthsShown={2}
+        numberOfMonths={2}
         endDate={endDate}
         dateFormat="dd/MM/yyyy"
         onChange={(update) => {
