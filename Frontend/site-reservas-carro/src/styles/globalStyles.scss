@@ -52,4 +52,9 @@ input[type="email"]:focus,
   cursor: pointer;
 }
 
+//Temporário - para exibição
+.react-datepicker__input-container {
+  display: none;
+}
+
 @import "~bootstrap/scss/bootstrap";
