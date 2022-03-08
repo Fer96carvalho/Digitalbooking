@@ -21,7 +21,9 @@ function Search() {
                     </Form.Group>
                     </Col>
                     <Col>
-                        <Form.Group className="mb-1">
+                    <Form.Label>Checkin | Checkout</Form.Label>
+                    <DoubleCalendar/>
+                        {/* <Form.Group className="mb-1">
                             <Form.Label>Data e Hora da retirada</Form.Label>
                             <Form.Control  size = "sm" className="shadow-sm border-0" type="datetime-local" />
                         </Form.Group>
@@ -30,7 +32,7 @@ function Search() {
                         <Form.Group className="mb-1">
                             <Form.Label>Data e Hora da devolução</Form.Label>
                             <Form.Control size = "sm" className="shadow-sm border-0" type="datetime-local" />
-                        </Form.Group>
+                        </Form.Group> */}
                     </Col>
                     <Col>
                     <Form.Group className=" d-flex justify-content-center">
@@ -42,8 +44,7 @@ function Search() {
                 </Row>
             </Form>
         </Container >
-        {/* <MobileCalendar/>
-        <DoubleCalendar/> */}
+        {/* <DoubleCalendar/> */}
         </div>
   
     )
