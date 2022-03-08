@@ -57,4 +57,12 @@ input[type="email"]:focus,
   display: none;
 }
 
+.fechar__Login {
+  position: absolute;
+  float: right;
+  top: 100px;
+  right: 80px;
+  text-decoration: none;
+}
+
 @import "~bootstrap/scss/bootstrap";
