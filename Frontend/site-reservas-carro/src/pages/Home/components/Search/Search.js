@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import DoubleCalendar from '../../../../components/DoubleCalendar';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import './style.css';
 
 function Search() {
-    const [dateRange, setDateRange] = useState([null, null]);
-    const [startDate,endDate] = dateRange;
+    
     return (
         <div className="div-search">
             <Container fluid >
