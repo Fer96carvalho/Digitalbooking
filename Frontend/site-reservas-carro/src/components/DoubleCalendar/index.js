@@ -9,16 +9,20 @@ function DoubleCalendar() {
 
   return (
     <DatePicker
+
+        locale="pt-BR"
+        // showTimeSelect
+        // timeFormat="HH:mm"
+        // timeIntervals={15}
         placeholderText="Retirada e devolução"
-        minDate={new Date()}
+        minDateTime={new Date()}
         selectsRange={true}
         startDate={startDate}
         monthsShown={2}
         endDate={endDate}
         dateFormat="dd/MM/yyyy"
-        onChange={(update) => {
-          setDateRange(update);
-        }}
+        onChange={update => setDateRange(update)}
+
     />
   );
 }

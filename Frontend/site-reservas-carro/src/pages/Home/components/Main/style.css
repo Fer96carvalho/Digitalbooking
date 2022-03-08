@@ -51,6 +51,7 @@
 .main__Container .card:hover {
     box-shadow: var(--sombra-hover);
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .main__Container .card .legenda {

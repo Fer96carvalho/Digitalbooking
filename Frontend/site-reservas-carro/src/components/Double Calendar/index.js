@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function DoubleCalendar() {
     const [dateRange, setDateRange] = useState([null,null]);
-    const [startDate,endDate] = dateRange;
+    const [startDate, endDate] = dateRange;
 
     return (
           <DatePicker
@@ -16,7 +16,7 @@ function DoubleCalendar() {
             endDate={endDate}
             numberOfMonths={2}
             dateFormat="dd-MM-yyy"
-            onChange={(update) => setDateRange(update)}
+            onChange={update => setDateRange(update)}
           />
         );
       };
