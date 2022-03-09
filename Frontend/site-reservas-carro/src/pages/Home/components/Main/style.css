@@ -102,11 +102,11 @@
 
 .main__Container .blocoLista .cartao .cartaoDados p {
     font-size: 14px;
-    
-    max-width: 25ch;
+    word-break: break-all;
+    /* max-width: 25ch; */
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
 }
 
 .main__Container .blocoLista .cartao .cartaoDados button {
