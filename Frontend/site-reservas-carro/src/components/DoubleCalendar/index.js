@@ -1,10 +1,9 @@
 import React, {useState}from "react";
-import DatePicker from "react-datepicker";
-import { registerLocale } from  "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 import './style.css';
-import  pt  from  'date-fns/locale/pt-BR' ; 
-registerLocale ( 'pt' ,  pt );
+
+import 'rsuite/dist/rsuite.css';
+import { DateRangePicker } from 'rsuite';
 
 
 function DoubleCalendar() {
@@ -16,25 +15,21 @@ function DoubleCalendar() {
     } else{
       sizeScreen = 2
     }
-  console.log(sizeScreen)
-  return (
-    <DatePicker
-        locale="pt"
-        // showTimeSelect
-        // timeFormat="HH:mm"
-        // timeIntervals={15}
-        placeholderText="Data do checkin | Checkout "
-        minDate={new Date()}
-        selectsRange={true}
-        startDate={startDate}
-        monthsShown={sizeScreen}
-        endDate={endDate}
-        dateFormat="dd/MM/yyyy"
-        onChange={update => {setDateRange(update)}}
-        className="form-control form-control-sm"
-        isClearable
 
-    />
+  console.log(sizeScreen)
+
+  return (
+    
+    <DateRangePicker
+      appearance="default" 
+      format="dd/MM/yyyy hh:mm aa"
+      startDate={startDate}
+      endDate={endDate}
+      onChange={update => {setDateRange(update)}}
+      placeholder="Selecione um intervalo"
+      size="sm"
+      showMeridian />
+
   );
 }
 
