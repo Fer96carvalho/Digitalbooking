@@ -102,8 +102,8 @@
 
 .main__Container .blocoLista .cartao .cartaoDados p {
     font-size: 14px;
-    word-break: break-all;
-    /* max-width: 25ch; */
+    word-break: normal;
+    max-width: 35ch;
     overflow: hidden;
     /* text-overflow: ellipsis; */
     /* white-space: nowrap; */

@@ -57,7 +57,7 @@ const cartaoList = [
         categoria: "Carro Sedan",
         title: "FORD MUSTANG",
         localizacao: "São José dos Campos - SP",
-        descricao: "5.0 V8 TI-VCT GASOLINA GT PREMIUM SELECTSHIFT"
+        descricao: "5.0 V8 TI-VCT GASOLINA GT PREMIUM SELECTSHIFT teste teste e teste"
     },
     {
         id: "08",
@@ -115,7 +115,7 @@ function Main () {
                         Recomendações
                     </h2>
 
-                    {cartaoList.map(({id,img, categoria, title, localizacao, descricao}) => {
+                    {cartaoList.map(({id, img, categoria, title, localizacao, descricao}) => {
                         return (
                             <div className="cartao" key={id}>
                                 <div className="cartaoImg">
@@ -126,7 +126,7 @@ function Main () {
                                     <span>{categoria}</span>
                                     <h4>{title}</h4>
                                     <p>{localizacao}</p>
-                                    <p>{descricao}</p>
+                                    <p>{ descricao.length > 57 ? descricao.slice(0, 57) + "..." : descricao } </p>
                                     <button>Ver descrição</button>
                                 </div>
                             </div>

@@ -1,35 +1,43 @@
-import React, {useState}from "react";
-
+import React, { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+// import { registerLocale } from  "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import './style.css';
-
-import 'rsuite/dist/rsuite.css';
-import { DateRangePicker } from 'rsuite';
+// import  pt  from  'date-fns/locale/pt-BR' ; 
+// import { setDate } from "rsuite/esm/utils/dateUtils";
+// registerLocale ( 'pt' ,  pt );
 
 
 function DoubleCalendar() {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
-    var sizeScreen = 2;
-    if (window.screen.availWidth < 768){
+  
+    let sizeScreen = 0;
+
+    if (window.screen.availWidth < 768) {
       sizeScreen = 1;
     } else{
-      sizeScreen = 2
+      sizeScreen = 2;
     }
 
-  console.log(sizeScreen)
-
   return (
-    
-    <DateRangePicker
-      appearance="default" 
-      format="dd/MM/yyyy hh:mm aa"
-      startDate={startDate}
-      endDate={endDate}
-      onChange={update => {setDateRange(update)}}
-      placeholder="Selecione um intervalo"
-      size="sm"
-      showMeridian />
+    <DatePicker
+        locale="pt"
+        // showTimeSelect
+        // timeFormat="HH:mm"
+        // timeIntervals={15}
+        placeholderText="Data do checkin | Checkout "
+        minDate={new Date()}
+        selectsRange={true}
+        startDate={startDate}
+        // monthsShown={sizeScreen}
+        endDate={endDate}
+        dateFormat="dd/MM/yyyy"
+        onChange={update => {setDateRange(update)}}
+        className="form-control form-control-sm"
+        isClearable
 
+    />
   );
 }
 
