@@ -3,7 +3,6 @@ import Home from "../pages/Home/";
 import {Login} from "../pages/Login";
 import { Register } from "../pages/Register";
 import { HelmetProvider } from 'react-helmet-async';
-import Search from "../pages/Home/components/Search/Search";
 import { Header } from "../pages/Home/components/Header";
 import Footer from "../pages/Home/components/Footer/Footer";
 
@@ -16,7 +15,10 @@ function Router() {
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
-          <Route path="/busca" element={<Search />}/>
+          {/* <Route path="/categories" element={Category}/> */}
+          {/* <Route path="/category/:category" element={Category}/> */}
+          {/* <Route path="/product/:id" element={Details}/> */}
+
         </Routes>
         <Footer/>
       </HelmetProvider>
