@@ -3,10 +3,7 @@ package com.example.ProjetoIntegradorBackEnd.persistence.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Entity
 @Setter@Getter
@@ -18,4 +15,8 @@ public class Imagem {
     private String titulo;
     @Lob
     private String url;
+
+    @ManyToOne
+    private Produto produto;
+    
 }

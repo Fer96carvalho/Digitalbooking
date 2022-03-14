@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Setter@Getter
@@ -27,5 +29,9 @@ public class Produto {
     @JoinColumn(name = "categoria_id", foreignKey = @ForeignKey(name = "fk_categoria"))
     @JsonIgnore
     private Categoria categoria;
+
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Imagem> imagens = new ArrayList<>();
 
 }
