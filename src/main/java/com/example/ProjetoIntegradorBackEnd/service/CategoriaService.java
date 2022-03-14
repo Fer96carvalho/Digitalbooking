@@ -18,7 +18,7 @@ public class CategoriaService {
     }
 
     public Categoria findById(Integer id){
-        return repository.getById(id);
+        return repository.findById(id).get();
     }
 
     public Categoria create(Categoria categoria){
