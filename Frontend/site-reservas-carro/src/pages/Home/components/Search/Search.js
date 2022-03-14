@@ -5,18 +5,24 @@ import './style.css';
 
 function Search() {
     
+const handleInputChange = (e) => {
+    e.preventDefault();
+    const {value} = e.target;
+    // console.log ("handleInputChange" , value, value.length);
+}
+
     return (
         <div className="div-search">
             <Container fluid >
                 <div className="slogan" variant="primary">
-                <h1>Encontre os melhores carros mais proximos de você</h1>
+                <h1>Encontre os melhores carros mais proximo de você</h1>
                 </div>
             <Form  >
                 <Row>
                     <Col md={5}>
                     <Form.Group className="mb-2">
                         <Form.Label >Cidade</Form.Label>
-                        <Form.Control size = "sm" className="shadow-sm border-0 max-width-100" type="text" placeholder="Sua localização" />
+                        <Form.Control size = "sm" className="shadow-sm border-0 max-width-100" type="text" placeholder="Sua localização" onChange={handleInputChange}/>
                     </Form.Group>
                     </Col>
                     <Col md={5}>

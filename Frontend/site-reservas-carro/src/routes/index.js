@@ -14,10 +14,10 @@ function Router() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
-          <Route path="/register" element={<Register />}/>
-          {/* <Route path="/categories" element={Category}/> */}
-          {/* <Route path="/category/:category" element={Category}/> */}
-          {/* <Route path="/product/:id" element={Details}/> */}
+          <Route path="/criarconta" element={<Register />}/>
+          {/* <Route path="/categorias" element={Category}/> */}
+          {/* <Route path="/categoria/:category" element={Category}/> */}
+          {/* <Route path="/detalhes/:id" element={Details}/> */}
 
         </Routes>
         <Footer/>
