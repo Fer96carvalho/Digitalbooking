@@ -12,13 +12,13 @@ function DoubleCalendar() {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   
-    let sizeScreen = 0;
+    // let sizeScreen = 0;
 
-    if (window.screen.availWidth < 768) {
-      sizeScreen = 1;
-    } else{
-      sizeScreen = 2;
-    }
+    // if (window.screen.availWidth < 768) {
+    //   sizeScreen = 1;
+    // } else{
+    //   sizeScreen = 2;
+    // }
 
   return (
     <DatePicker
@@ -36,7 +36,6 @@ function DoubleCalendar() {
         onChange={update => {setDateRange(update)}}
         className="form-control form-control-sm"
         isClearable
-
     />
   );
 }
