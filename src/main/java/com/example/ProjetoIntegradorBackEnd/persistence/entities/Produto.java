@@ -34,7 +34,8 @@ public class Produto {
     @JsonIgnore
     private List<Imagem> imagens = new ArrayList<>();
 
-    //@ManyToMany
-    //List<Caracteristica> caracteristicas;
+    @ManyToMany
+    @JoinTable(name = "produtos_tem_caracteristica", joinColumns = {@JoinColumn(name = "produto_id")}, inverseJoinColumns = {@JoinColumn(name = "caracteristica_id")})
+    private List<Caracteristica> caracteristicas;
 
 }
