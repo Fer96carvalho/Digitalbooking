@@ -34,4 +34,7 @@ public class Produto {
     @JsonIgnore
     private List<Imagem> imagens = new ArrayList<>();
 
+    //@ManyToMany
+    //List<Caracteristica> caracteristicas;
+
 }
