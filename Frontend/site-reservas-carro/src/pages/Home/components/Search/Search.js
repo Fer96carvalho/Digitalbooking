@@ -13,7 +13,8 @@ const handleInputChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    alert(document.querySelector(".react-datepicker__input-container > input").value);
+    const inputDatePicker = document.querySelector(".react-datepicker__input-container > input").value
+    inputDatePicker == "" ? alert("Vazio") : alert(inputDatePicker);
 }
 
 
