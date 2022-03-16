@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
-// import { registerLocale } from  "react-datepicker";
+import { registerLocale } from  "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './style.css';
-// import  pt  from  'date-fns/locale/pt-BR' ; 
+import  pt  from  'date-fns/locale/pt-BR' ; 
 // import { setDate } from "rsuite/esm/utils/dateUtils";
-// registerLocale ( 'pt' ,  pt );
+registerLocale ( 'pt' ,  pt );
 
 
 function DoubleCalendar() {
@@ -30,7 +30,7 @@ function DoubleCalendar() {
         minDate={new Date()}
         selectsRange={true}
         startDate={startDate}
-        // monthsShown={sizeScreen}
+        monthsShown={sizeScreen}
         endDate={endDate}
         dateFormat="dd/MM/yyyy"
         onChange={update => {setDateRange(update)}}

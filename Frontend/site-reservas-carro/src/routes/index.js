@@ -5,6 +5,7 @@ import { Register } from "../pages/Register";
 import { HelmetProvider } from 'react-helmet-async';
 import { Header } from "../pages/Home/components/Header";
 import Footer from "../pages/Home/components/Footer/Footer";
+import Detalhes from "../pages/Detalhes";
 
 function Router() {
   return (
@@ -15,6 +16,8 @@ function Router() {
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/criarconta" element={<Register />}/>
+          <Route path="/detalhes" element={<Detalhes/>}/>
+
           {/* <Route path="/categorias" element={Category}/> */}
           {/* <Route path="/categoria/:category" element={Category}/> */}
           {/* <Route path="/detalhes/:id" element={Details}/> */}
