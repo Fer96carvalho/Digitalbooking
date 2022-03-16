@@ -1,10 +1,15 @@
 import React from 'react'
 import {AiOutlineLeft, AiOutlineShareAlt, AiOutlineHeart} from "react-icons/ai"
 import {BsGeoAltFill} from "react-icons/bs";
+import Galery from './components/Galery';
 import "./style.css";
 
 
 function Detalhes() {
+
+   
+    
+
   return (
     <>
     <section className="section-cabecalho">
@@ -45,17 +50,10 @@ function Detalhes() {
             <AiOutlineHeart  color="#FBC02D" size="1.7em"/>
             </div>
         </div>
-        <div className="div-galery">
-            <div class="grid-item">1</div>
-            <div class="grid-item">2</div>
-            <div class="grid-item">3</div>
-            <div class="grid-item">4</div>
-            <div class="grid-item">5</div>
-            <div class="grid-item">6</div>
-            <div class="grid-item">7</div>
-            <div class="grid-item">8</div>
-            <div class="grid-item">9</div>
+        <div>
+            <Galery/>
         </div>
+        
     </section>
     <section>
         
