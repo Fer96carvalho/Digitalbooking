@@ -7,8 +7,8 @@
 .main__Container {
     width: 100%;
     height: 100%;
-    background-color: #ccc;
-
+    background-color: #607D8B;
+    color: #fff;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -125,6 +125,7 @@
 .main__Container .blocoLista .cartao .cartaoDados button:hover {
     box-shadow: var(--sombra-hover);
 }
+
 
 @media screen and (max-width: 768px) {
     .main__Container .blocoLista .cartao {

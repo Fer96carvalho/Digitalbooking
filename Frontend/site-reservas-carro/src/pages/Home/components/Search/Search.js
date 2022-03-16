@@ -1,6 +1,8 @@
 import React from "react";
 import DoubleCalendar from '../../../../components/DoubleCalendar';
-import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container, InputGroup} from 'react-bootstrap';
+import {BsGeoAltFill} from "react-icons/bs";
+
 import './style.css';
 
 function Search() {
@@ -14,7 +16,7 @@ const handleInputChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
     const inputDatePicker = document.querySelector(".react-datepicker__input-container > input").value
-    inputDatePicker == "" ? alert("Vazio") : alert(inputDatePicker);
+    inputDatePicker === "" ? alert("Vazio") : alert(inputDatePicker);
 }
 
 
@@ -29,7 +31,10 @@ const handleSubmit = (e) => {
                     <Col md={5}>
                     <Form.Group className="mb-2">
                         <Form.Label >Cidade</Form.Label>
+                        <InputGroup>
+                        <InputGroup.Text><BsGeoAltFill size="0.8em"/></InputGroup.Text>
                         <Form.Control size = "sm" className="shadow-sm border-0 max-width-100" type="text" placeholder="Sua localização" onChange={handleInputChange}/>
+                        </InputGroup>
                     </Form.Group>
                     </Col>
                     <Col md={5}>
