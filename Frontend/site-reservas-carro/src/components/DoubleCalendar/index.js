@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { registerLocale } from  "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,13 +12,13 @@ function DoubleCalendar() {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   
-    let sizeScreen = 0;
+    // let sizeScreen = 0;
 
-    if (window.screen.availWidth < 768) {
-      sizeScreen = 1;
-    } else{
-      sizeScreen = 2;
-    }
+    // if (window.screen.availWidth < 768) {
+    //   sizeScreen = 1;
+    // } else{
+    //   sizeScreen = 2;
+    // }
 
   return (
     <DatePicker
@@ -30,13 +30,12 @@ function DoubleCalendar() {
         minDate={new Date()}
         selectsRange={true}
         startDate={startDate}
-        monthsShown={sizeScreen}
+        monthsShown={2}
         endDate={endDate}
         dateFormat="dd/MM/yyyy"
         onChange={update => {setDateRange(update)}}
         className="form-control form-control-sm"
         isClearable
-
     />
   );
 }

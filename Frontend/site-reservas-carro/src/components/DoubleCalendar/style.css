@@ -27,3 +27,13 @@
 .react-datepicker__close-icon {
   display: inline;
 }
+
+@media screen and (max-width: 768px) {
+  .react-datepicker {
+    padding: 25px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    width: 80vw;
+  }
+}

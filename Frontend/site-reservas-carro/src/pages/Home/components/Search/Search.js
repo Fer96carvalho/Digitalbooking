@@ -11,6 +11,13 @@ const handleInputChange = (e) => {
     // console.log ("handleInputChange" , value, value.length);
 }
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    const inputDatePicker = document.querySelector(".react-datepicker__input-container > input").value
+    inputDatePicker == "" ? alert("Vazio") : alert(inputDatePicker);
+}
+
+
     return (
         <div className="div-search">
             <Container fluid >
@@ -35,7 +42,7 @@ const handleInputChange = (e) => {
                     </Col>
                     <Col md={2}>
                     <Form.Group className=" d-flex justify-content-center">
-                    <Button className=" text-white fw-bold m-3" variant="secondary" type="submit">
+                    <Button className="text-white fw-bold m-3" variant="secondary" type="submit" onClick={handleSubmit}>
                         Buscar
                     </Button>
                 </Form.Group>
