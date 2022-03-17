@@ -22,16 +22,13 @@ public class Produto {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cidade_id", foreignKey = @ForeignKey(name = "fk_cidade"))
-    @JsonIgnore
     private Cidade cidade;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", foreignKey = @ForeignKey(name = "fk_categoria"))
-    @JsonIgnore
     private Categoria categoria;
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<Imagem> imagens = new ArrayList<>();
 
 }
