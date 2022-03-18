@@ -12,6 +12,7 @@ databaset1g2.cgy0y1fgfsud.us-east-1.rds.amazonaws.com
 
 # RDS:
 databaset1g2
+admin
 admint1g2
 
 sudo apt-get update
@@ -22,19 +23,13 @@ sudo apt-get install maven -y
 
 sudo vi /etc/ssh/sshd_config
 
+sudo systemctl reload sshd
+
+apt-cache policy maven
+
+sudo apt autoremove --purge maven
+
+nohup java -jar nomedoprojeto.jar &
+
 https://gitlab.com/projeto-integrador-brasil/turma1/projeto-integrador-v1.0_equipe2.git
 
-<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> <version>3.8.1</version> <configuration> <source>1.8</source> <target>1.8</target> </configuration> </plugin>
-
-
-
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.6</version>
-			</plugin>
