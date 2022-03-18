@@ -1,0 +1,12 @@
+# AWS:
+https://405378853534.signin.aws.amazon.com/console
+pi-t1-g2
+Digital@House2022
+
+# EC2 (SSH):
+chmod 400 api-t1-g2.pem
+ssh -i "api-t1-g2.pem" ubuntu@ec2-3-87-15-125.compute-1.amazonaws.com
+
+# RDS:
+database-t1g2
+admint1g2

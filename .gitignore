@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/Frontend/site-reservas-carro/node_modules
