@@ -89,3 +89,114 @@ p.ava-3{
 
 }
 
+/* Trecho  a ser movido para o component Galery  */
+
+/* 
+.container-image{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.div-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 15em;
+    max-height: 26em;
+    min-width:19em;
+    max-width: 100%;
+    border-radius: 20px;
+    overflow:clip;
+    margin: 10px;
+
+}
+
+.div-img1 > img {
+   width: 40vw;
+   overflow: hidden;
+}
+
+.container-grid{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-height: 26em;
+
+}
+.grid-container{
+    display: grid;
+    padding: 10px;
+    height: 26em;
+
+    grid-template-columns: repeat(auto-fit, min-max(300px, 1fr));
+    grid-template-rows:repeat(auto-fit, min-max(100px, 1fr));
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "div-img2 div-img3"
+      "div-img4 div-img5";
+  }
+  
+  .div-img2 {
+    grid-area: div-img2;
+    }
+  
+  .div-img3 {
+    grid-area: div-img3;
+    }
+  
+  .div-img4 {
+    grid-area: div-img4;
+    }
+  
+  .div-img5 {
+    position: relative;
+    grid-area: div-img5;
+    }
+  
+.grid-img {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+
+       
+}
+
+.grid-img > img {
+    width: 100%;
+    min-width: 9.375em;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.div-img5 > p{
+    color: #ffffff;
+    size: 14em;
+    text-decoration:underline;
+    right: 2vw;
+    bottom: 1.25em;
+    margin:0 ;
+    position:absolute;
+    background-color:#00000075;
+    border-radius: 10px;
+    padding: 2px 5px;
+    z-index: 2;
+    
+}
+
+@media (max-width:768px) {
+    .container-image{
+        flex-wrap: wrap;
+    }
+
+    .div-img1 > img {
+        width: 100vw;
+        overflow: clip;
+    
+    }
+} */
