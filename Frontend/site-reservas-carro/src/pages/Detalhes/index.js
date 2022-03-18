@@ -47,31 +47,6 @@ function Detalhes() {
             <AiOutlineHeart  color="#FBC02D" size="1.7em"/>
             </div>
         </div>
-
-        {/* <div className="container-image">
-            <div className="div-img div-img1">
-                <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211223/ford-mustang-5.0-v8-tivct-gasolina-gt-premium-selectshift-wmimagem11433457411.jpg" alt="" />
-            </div>
-            <div className="container-grid">
-            <div className="grid-container">
-                <div className="grid-img div-img2">
-                    <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211223/ford-mustang-5.0-v8-tivct-gasolina-gt-premium-selectshift-wmimagem11433457411.jpg" alt=""/>
-                </div>
-                <div className="grid-img div-img3">
-                    <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211223/ford-mustang-5.0-v8-tivct-gasolina-gt-premium-selectshift-wmimagem11433457411.jpg" alt=""/>
-                </div>
-                <div className="grid-img div-img4">
-                    <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211223/ford-mustang-5.0-v8-tivct-gasolina-gt-premium-selectshift-wmimagem11433457411.jpg" alt=""/>
-                </div>
-                <div className="grid-img div-img5">
-                    <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211223/ford-mustang-5.0-v8-tivct-gasolina-gt-premium-selectshift-wmimagem11433457411.jpg" alt=""/>
-                    <p>Ver mais</p>
-                </div>
-            </div>
-            </div>
-        </div> */}
-
-
         <div>
             <Galery/>
         </div>
