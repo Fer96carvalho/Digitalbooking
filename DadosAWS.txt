@@ -20,4 +20,6 @@ sudo apt-get install openjdk-11-jdk -y
 
 sudo apt-get install maven -y
 
+sudo vi /etc/ssh/sshd_config
+
 https://gitlab.com/projeto-integrador-brasil/turma1/projeto-integrador-v1.0_equipe2.git
