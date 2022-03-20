@@ -2,6 +2,8 @@ $primary: #FBC02D;
 $secondary: #191B1D;
 $box-shadow-sm: 0px 0px 5px rgba(0, 0, 0, 0.2);
 
+@import "~bootstrap/scss/bootstrap";
+
 :root {
   --bs-yellow: #FBC02D;
   --bs-gray-700: #607D8B;
@@ -61,4 +63,5 @@ input[type="email"]:focus,
   text-decoration: none;
 }
 
-@import "~bootstrap/scss/bootstrap";
+@import "./calendar.scss";
+@import "./mapa.scss";

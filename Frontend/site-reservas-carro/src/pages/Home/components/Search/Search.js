@@ -24,7 +24,7 @@ const handleSubmit = (e) => {
         <div className="div-search">
             <Container fluid >
                 <div className="slogan" variant="primary">
-                <h1>Encontre os melhores carros mais proximo de você</h1>
+                <h1 className="text-dark">Encontre os melhores carros mais próximos de você!!!</h1>
                 </div>
             <Form  >
                 <Row>
