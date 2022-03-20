@@ -1,5 +1,6 @@
 import React from 'react';
 import "./style.css";
+
 import ImageGallery from 'react-image-gallery';
 
 export default function Galery() {
@@ -65,7 +66,7 @@ export default function Galery() {
         },
         {
             id: "08",
-            img: "https://styles.redditmedia.com/t5_2twpw/styles/communityIcon_8bhyo9k303x7",
+            img: "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202112/20211228/ford-fusion-2.0-titanium-awd-16v-gasolina-4p-automatico-wmimagem11290167140.jpg?s=fill&w=552&h=414&q=60",
             categoria: "Carro SUV",
             title: "FORD ECOSPORT",
             localizacao: "Campinas - SP",
@@ -73,13 +74,15 @@ export default function Galery() {
         }
     ]
 
+    // Na versão web retirar o tamanho das imagens
+
     let image = [];
     function getDataImage(item) {
         dataImage.map(({ img }) => {
             return (
                 item.push({
                     original: `${img}`,
-                    thumbnail: `${img}`
+                    thumbnail: `${img}`,
                 })
             )
         })
@@ -96,16 +99,17 @@ export default function Galery() {
         })
         return item;
     }
-getImageGalery(imageGalery);
+    getImageGalery(imageGalery);
 
     return (
         <>
             <div className="container-image">
-                <div className="div-img div-img1">
-                    <img src={imageGalery[0]} alt="" />
-                </div>
+
                 <div className="container-grid">
                     <div className="grid-container">
+                        <div className="grid-img div-img1">
+                            <img src={imageGalery[0]} alt="" />
+                        </div>
                         <div className="grid-img div-img2">
                             <img src={imageGalery[1]} alt="" />
                         </div>
@@ -117,13 +121,16 @@ getImageGalery(imageGalery);
                         </div>
                         <div className="grid-img div-img5">
                             <img src={imageGalery[4]} alt="" />
-                        <p>Ver mais</p>
+                            <p>Ver mais</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="div-galery">
-                < ImageGallery items={image} showIndex={true} showThumbnails={true} autoPlay={true} onErrorImageURL="https://styles.redditmedia.com/t5_2twpw/styles/communityIcon_8bhyo9k303x71.png" />
+                < ImageGallery items={image} showIndex={true} showThumbnails={true} autoPlay={true} onErrorImageURL="link da imagem caso não ocorra o carregamento via backend" />
+            </div>
+            <div className="div-galery-mobile">
+                <ImageGallery items={image} showIndex={true} showThumbnails={false} autoPlay={true} />
             </div>
         </>
     )
