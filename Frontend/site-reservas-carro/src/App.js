@@ -2,14 +2,13 @@ import React from 'react';
 import './App.css';
 import Router from './routes';
 
-import "react-datepicker/dist/react-datepicker.css";
-
 import { ContextMenuMobileProvider } from './hooks/useMenuMobile';
 import { ContextSessionProvider } from './hooks/useSession';
 import { server } from './server';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 const queryClient = new QueryClient();
+
 
 server();
 
