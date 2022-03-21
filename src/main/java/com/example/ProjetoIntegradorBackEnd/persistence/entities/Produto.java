@@ -27,12 +27,13 @@ public class Produto {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", foreignKey = @ForeignKey(name = "fk_categoria"))
     private Categoria categoria;
-
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<Imagem> imagens = new ArrayList<>();
+    
 
     @ManyToMany
     @JoinTable(name = "produtos_tem_caracteristica", joinColumns = {@JoinColumn(name = "produto_id")}, inverseJoinColumns = {@JoinColumn(name = "caracteristica_id")})
     private List<Caracteristica> caracteristicas;
 
+    public Produto() {
+
+    }
 }
