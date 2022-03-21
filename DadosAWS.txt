@@ -33,3 +33,14 @@ nohup java -jar nomedoprojeto.jar &
 
 https://gitlab.com/projeto-integrador-brasil/turma1/projeto-integrador-v1.0_equipe2.git
 
+git pull
+mvn install
+nohup java -jar nomedoprojeto.jar &
+
+
+Frontend:
+curl -sL https://deb.nodesource.com/setup_14.x | sudo bash - 
+
+sudo apt -y install nodejs
+
+sudo apt -y install npm
