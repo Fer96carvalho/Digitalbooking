@@ -17,6 +17,7 @@ public class Imagem {
     private String url;
 
     @ManyToOne
+    @JoinColumn(name = "produto_id", foreignKey = @ForeignKey(name = "fk_produto"))
     private Produto produto;
 
 }
