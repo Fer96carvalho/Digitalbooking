@@ -88,3 +88,9 @@ p.ava-3{
     padding: 10px 0 10px 10px;
 
 }
+
+@media screen and (max-width:768px) {
+.section-galery {
+    min-height: 120vh;
+}
+}
