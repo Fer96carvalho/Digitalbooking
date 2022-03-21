@@ -44,3 +44,8 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
 sudo apt -y install nodejs
 
 sudo apt -y install npm
+
+trocar url api
+git clone no propjeto de novo no ssh
+git clone --single-branch --branch NOMEDABRANCH URL
+nohup npm start &
