@@ -11,14 +11,37 @@ registerLocale ( 'pt' ,  pt );
 function DoubleCalendar() {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
-  
-    let sizeScreen = 0;
+  const [windowWidth, setWindowWidth] = useState("desktop");
 
-    if (window.screen.availWidth < 768) {
-      sizeScreen = 1;
-    } else{
-      sizeScreen = 2;
+  let sizeScreen;
+
+  window.addEventListener("load", () => {
+    if(window.screen.availWidth < 768 && windowWidth === "desktop"){
+      setWindowWidth("mobile");
     }
+
+    if(window.screen.availWidth >= 768 && windowWidth === "mobile"){
+      setWindowWidth("desktop");
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if(window.screen.availWidth < 768 && windowWidth === "desktop"){
+      setWindowWidth("mobile");
+    }
+
+    if(window.screen.availWidth >= 768 && windowWidth === "mobile"){
+      setWindowWidth("desktop");
+    }
+  });
+
+    if (windowWidth === "desktop") {
+      (sizeScreen = 2)
+    } else{
+      (
+        sizeScreen = 1)
+    };
+
 
   return (
     <DatePicker
