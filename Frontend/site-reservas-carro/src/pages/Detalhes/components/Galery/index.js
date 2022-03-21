@@ -1,5 +1,6 @@
 import React from 'react';
 import "./style.css";
+
 import ImageGallery from 'react-image-gallery';
 
 export default function Galery() {
@@ -73,6 +74,7 @@ export default function Galery() {
         }
     ]
 
+    // Na versão web retirar o tamanho das imagens
 
     let image = [];
     function getDataImage(item) {
@@ -81,27 +83,12 @@ export default function Galery() {
                 item.push({
                     original: `${img}`,
                     thumbnail: `${img}`,
-                    originalHeight: "450px"
                 })
             )
         })
         return item;
     }
     getDataImage(image);
-
-    let imageMobile =[];
-    function getDataImageMobile(item) {
-        dataImage.map(({ img }) => {
-            return (
-                item.push({
-                    original: `${img}`,
-                    thumbnail: `${img}`
-                })
-            )
-        })
-        return item;
-    }
-    getDataImageMobile(imageMobile);
 
     let imageGalery = [];
     function getImageGalery(item) {
@@ -134,30 +121,16 @@ export default function Galery() {
                         </div>
                         <div className="grid-img div-img5">
                             <img src={imageGalery[4]} alt="" />
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver mais
-                            </button>
+                            <p>Ver mais</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-fullscreen">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal">X</button>
-                        </div>
-                        <div className="modal-body"> 
-                            <div className="div-galery">
-                                < ImageGallery items={image} showIndex={true} showThumbnails={true} autoPlay={true} showFullscreenButton={false} onErrorImageURL="link da imagem caso não ocorra o carregamento via backend" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="div-galery">
+                < ImageGallery items={image} showIndex={true} showThumbnails={true} autoPlay={true} onErrorImageURL="link da imagem caso não ocorra o carregamento via backend" />
             </div>
-
             <div className="div-galery-mobile">
-                <ImageGallery items={imageMobile} showIndex={true} showThumbnails={false} autoPlay={true} showFullscreenButton={false} showPlayButton={false}/>
+                <ImageGallery items={image} showIndex={true} showThumbnails={false} autoPlay={true} />
             </div>
         </>
     )
