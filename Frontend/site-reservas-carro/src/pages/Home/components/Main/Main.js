@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import './style.css';
 
@@ -127,7 +128,9 @@ function Main () {
                                     <h4>{title}</h4>
                                     <p>{localizacao}</p>
                                     <p>{ descricao.length > 57 ? descricao.slice(0, 57) + "..." : descricao } </p>
+                                    <Link to="/detalhes">
                                     <button>Ver descrição</button>
+                                    </Link>
                                 </div>
                             </div>
                         );
