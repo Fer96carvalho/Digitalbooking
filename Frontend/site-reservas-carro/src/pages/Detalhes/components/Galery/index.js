@@ -117,7 +117,6 @@ export default function Galery() {
     return (
         <>
             <div className="container-image">
-
                 <div className="container-grid">
                     <div className="grid-container">
                         <div className="grid-img div-img1">
