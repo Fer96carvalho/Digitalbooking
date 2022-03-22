@@ -15,7 +15,7 @@ public class Categoria {
     @Id
     @SequenceGenerator(name = "categoria_sequencia", sequenceName = "categoria_sequencia", allocationSize = 1)
     private Integer id;
-    private Integer qualificacao;
+    private String titulo;
     @Lob
     private String descricao;
     @Lob

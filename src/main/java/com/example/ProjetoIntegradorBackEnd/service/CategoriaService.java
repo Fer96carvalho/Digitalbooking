@@ -32,7 +32,7 @@ public class CategoriaService {
     public Categoria update(Categoria categoria){
         Categoria categoriaEdit = repository.getById(categoria.getId());
         categoriaEdit.setDescricao(categoria.getDescricao());
-        categoriaEdit.setQualificacao(categoria.getQualificacao());
+        categoriaEdit.setTitulo(categoria.getTitulo());
         categoriaEdit.setUrlImagem(categoria.getUrlImagem());
         return repository.save(categoriaEdit);
     }
