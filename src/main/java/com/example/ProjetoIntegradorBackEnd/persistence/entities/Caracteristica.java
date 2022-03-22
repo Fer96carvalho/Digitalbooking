@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Caracteristica {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "caracteristica_sequencia", sequenceName = "caracteristica_sequencia", allocationSize = 1)
     private Integer id;
     private String nome;
