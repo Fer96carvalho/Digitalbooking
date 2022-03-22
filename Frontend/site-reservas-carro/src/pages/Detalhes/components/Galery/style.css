@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-
     padding: 20px;
 }
 
@@ -103,15 +102,15 @@
 
     .div-img1 {
         width: 90vw;
-        height: 50vh;
+        height: 70vh;
     }
 
     .div-img2 {
-        height: 25vh;
+        height: 40vh;
     }
 
     .div-img4 {
-        height: 25vh;
+        height: 40vh;
     }
 
     .div-img1 > img {

@@ -91,6 +91,12 @@ p.ava-3{
 
 @media screen and (max-width:768px) {
 .section-galery {
-    min-height: 120vh;
+    min-height: 170vh;
 }
+
+}
+@media screen and (max-width:425px){
+    .section-galery{
+        min-height: 100%;
+    }
 }
