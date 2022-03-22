@@ -148,7 +148,7 @@ export default function Galery() {
                         </div>
                         <div className="modal-body"> 
                             <div className="div-galery">
-                                < ImageGallery items={image} showIndex={true} showThumbnails={true} autoPlay={true} showFullscreenButton={false} onErrorImageURL="link da imagem caso não ocorra o carregamento via backend" />
+                                < ImageGallery items={image} showIndex={true} showThumbnails={true}  showFullscreenButton={false} onErrorImageURL="link da imagem caso não ocorra o carregamento via backend" />
                             </div>
                         </div>
                     </div>

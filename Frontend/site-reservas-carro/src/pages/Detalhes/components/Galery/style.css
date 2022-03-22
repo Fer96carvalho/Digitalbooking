@@ -95,7 +95,7 @@
     
 }
 
-@media screen and (max-width:768px) {
+/* @media screen and (max-width:768px) {
     .container-image{
         flex-wrap: wrap;
     }
@@ -129,9 +129,9 @@
             "div-img4 div-img5"
     }
 
-}
+} */
 
-@media screen and (max-width:425px){
+@media screen and (max-width:768px){
     .container-image{
         display: none;
     }
