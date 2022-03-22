@@ -13,19 +13,20 @@ import java.util.List;
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name = "produto_sequencia", sequenceName = "produto_sequencia", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false,nullable = false)
+
     private Integer id;
     private String nome;
 
     @Lob
     private String descricao;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "cidade_id", foreignKey = @ForeignKey(name = "fk_cidade"))
     private Cidade cidade;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "categoria_id", foreignKey = @ForeignKey(name = "fk_categoria"))
     private Categoria categoria;
     

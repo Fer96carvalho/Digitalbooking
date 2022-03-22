@@ -10,8 +10,8 @@ import javax.persistence.*;
 public class Imagem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name = "imagem_sequencia", sequenceName = "imagem_sequencia", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false,nullable = false)
     private Integer id;
     private String titulo;
     @Lob

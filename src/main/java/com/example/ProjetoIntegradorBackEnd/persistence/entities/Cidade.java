@@ -10,9 +10,9 @@ import javax.persistence.*;
 @Getter
 public class Cidade {
 
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name = "cidade_sequencia", sequenceName = "cidade_sequencia", allocationSize = 1)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false,nullable = false)
     private Integer id;
     private String nome;
     private String pais;
