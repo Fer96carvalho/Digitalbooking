@@ -129,7 +129,7 @@ function Main () {
                                     <p>{localizacao}</p>
                                     <p>{ descricao.length > 57 ? descricao.slice(0, 57) + "..." : descricao } </p>
                                     <Link to="/detalhes">
-                                    <button>Ver descrição</button>
+                                        <button>Ver descrição</button>
                                     </Link>
                                 </div>
                             </div>
