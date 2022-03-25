@@ -35,6 +35,13 @@
     padding: 0 10px;
 }
 
+.main__Container .sugestaoBusca > p {
+    margin: 0 30px;
+    padding: 10px 0 10px 30px;
+    background-color: #263238;
+    color: #fff;
+}
+
 .main__Container .card {
     box-shadow: var(--sombra-padrao);
     transition: 0.3s;
@@ -93,10 +100,12 @@
 .main__Container .blocoLista h2 {
     width: 100%;
     padding: 10px;
+    margin: 0 10px;
     display: flex;
     flex-wrap: wrap;
 
-    color: #263238;
+    color: #fff;
+    background-color: #263238;
 }
 
 .main__Container .blocoLista .cartao {
