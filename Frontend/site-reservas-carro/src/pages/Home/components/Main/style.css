@@ -95,6 +95,8 @@
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
+
+    color: #263238;
 }
 
 .main__Container .blocoLista .cartao {
@@ -220,4 +222,9 @@
     .main__Container .blocoLista .cartao .nota {
         opacity: 0.7;
     }
+
+    .main__Container .blocoLista .cartao .cartaoDados {
+       width: 350px;
+    }
+
 }
