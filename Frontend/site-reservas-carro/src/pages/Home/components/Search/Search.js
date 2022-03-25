@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import DoubleCalendar from '../../../../components/DoubleCalendar';
 import { Form, Button, Row, Col, Container, InputGroup} from 'react-bootstrap';
 import {BsGeoAltFill} from "react-icons/bs";
+import {api} from "../../../../services/api"
+
 
 import './style.css';
 
 function Search() {
-    
+    const [dataCidades, setDataCidades] = useState([]);
+
 const handleInputChange = (e) => {
     e.preventDefault();
+
     const {value} = e.target;
+
+// let url = "http://52.91.229.58:8080/cidade";
+
+async function cidade() { await api.get('cidade').then(({headers})=> setDataCidades(headers));
+};
+
+cidade();
+
+// const cidade = fetch(url).then((data)=> console.log(data));
+
+console.log(dataCidades);
+
     // console.log ("handleInputChange" , value, value.length);
 }
 
