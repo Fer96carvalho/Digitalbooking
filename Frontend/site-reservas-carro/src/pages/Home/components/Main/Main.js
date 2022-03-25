@@ -119,6 +119,9 @@ function Main () {
                     {cartaoList.map(({id, img, categoria, title, localizacao, descricao}) => {
                         return (
                             <div className="cartao" key={id}>
+
+                                <span className="nota">8.0</span>
+
                                 <div className="cartaoImg">
                                     <img src={img} alt="" />
                                 </div>

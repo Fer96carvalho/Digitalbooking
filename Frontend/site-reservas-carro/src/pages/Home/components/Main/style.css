@@ -105,7 +105,25 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
+
+    position: relative;
 }
+
+.main__Container .blocoLista .cartao .nota {
+    display: block;
+    position: absolute;
+    border-radius: 5px;
+    right: 10px;
+    top: 10px;
+    
+    padding: 5px;
+    
+    background-color: #fff;
+    color: #FBC02D;
+    font-weight: bold;
+
+}
+
 
 .main__Container .blocoLista .cartao .cartaoImg {
     width: 330px;
@@ -126,10 +144,6 @@
     position: relative;
 
 }
-
-/* .main__Container .blocoLista .cartao .cartaoDados {
-
-} */
 
 .main__Container .blocoLista .cartao .cartaoDados p {
     font-size: 14px;
@@ -166,5 +180,9 @@
 @media screen and (max-width: 768px) {
     .main__Container .blocoLista .cartao {
         width: 330px;
+    }
+
+    .main__Container .blocoLista .cartao .nota {
+        opacity: 0.7;
     }
 }
