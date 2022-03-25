@@ -120,6 +120,7 @@ function Main () {
                         return (
                             <div className="cartao" key={id}>
 
+                                <span className="heart"></span>
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">
