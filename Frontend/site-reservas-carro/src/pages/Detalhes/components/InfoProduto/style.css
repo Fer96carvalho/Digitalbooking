@@ -2,17 +2,15 @@
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    background-color: #FBC02D;
+    background-color: #191B1D;
     align-items: center;
     padding: 10px 3vw 10px;
-    max-height: 65px;
     margin: 0;
 }
 
 
 .div-titulo h2,h4{
     color: #fff;
-    line-height: 1.5px;
 }
 
 
@@ -20,10 +18,9 @@
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    background-color: #ffe60046;
+    background-color: #f8f9fa;
     align-items: center;
-    padding: 10px 3vw 10px;
-    max-height: 55px;
+    padding: 15px 3vw 15px;
 }
 
 .div-endereco{

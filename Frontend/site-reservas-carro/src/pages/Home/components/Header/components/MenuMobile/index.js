@@ -21,7 +21,7 @@ export function MenuMobile() {
         {session.user && <UserProfile bgColor="bg-light" textColor="text-white"/>}
       </header>
       <div>
-        {(pathname === "/" && !session.user) &&
+        {((pathname !== "/login" && pathname !== "/register") && !session.user) &&
           <>
             <Link to="/login" onClick={() => setStatusMenu(false)}>Iniciar Sessão</Link>
             <Link to="/register" onClick={() => setStatusMenu(false)}>Criar Conta</Link>

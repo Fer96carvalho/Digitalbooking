@@ -24,7 +24,7 @@ export function MenuDesktop() {
 
       {!session.user && (
         <div className={styled.box_button}>
-          {pathname === "/" && (
+          {(pathname !== "/login" && pathname !== "/register") && (
             <>
               <Link to="/login">Iniciar Sessão</Link>
               <Link to="/register">Criar Conta</Link>
