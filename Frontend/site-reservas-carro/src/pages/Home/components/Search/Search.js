@@ -15,10 +15,26 @@ const handleInputChange = (e) => {
 
     const {value} = e.target;
 
-// let url = "http://52.91.229.58:8080/cidade";
+let url = "http://52.91.229.58:8080/cidade";
 
-async function cidade() { await api.get('cidade').then(({headers})=> setDataCidades(headers));
-};
+async function cidade() {
+    fetch(url).then(({data})=> setDataCidades(data)).catch((e)=>{
+        console.log(e);
+    })
+    
+//     await api.get('cidade', {
+//     headers: 'header1',
+//      mode: 'cors'
+//   }).then(response => {
+//     /* eslint-disable */
+//     console.log('SUCCESS');
+//     console.log(response.data);
+//   }).catch((e) => {
+//     console.log(e);
+//   }
+    
+// }).then(({data})=> setDataCidades(data));
+  };
 
 cidade();
 
