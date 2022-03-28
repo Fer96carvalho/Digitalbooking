@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cidade")
-@CrossOrigin(origins = "*", allowedHeaders = "**")
+@CrossOrigin(origins = "*", allowedHeaders = " ")
 public class CidadeController {
 
     @Autowired
