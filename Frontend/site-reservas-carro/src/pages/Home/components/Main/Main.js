@@ -101,31 +101,7 @@ function Main () {
                             </div>
                         )
                     })}
-{/*                                         
-                    {cartaoList.map(({id, img, categoria, title, localizacao, descricao}) => {
-                        return (
-                            <div className="cartao" key={id}>
-
-                                <span className="heart"></span>
-                                <span className="nota">8.0</span>
-
-                                <div className="cartaoImg">
-                                    <img src={img} alt="" />
-                                </div>
-
-                                <div className="cartaoDados">
-                                    <span>{categoria}</span>
-                                    <h4>{title}</h4>
-                                    <p>{localizacao}</p>
-                                    <p>{ descricao.length > 57 ? descricao.slice(0, 57) + "..." : descricao } </p>
-                                    <Link to="/detalhes">
-                                        <button>Ver descrição</button>
-                                    </Link>
-                                </div>
-                            </div>
-                        );
-                    })} */}
-
+                    
                 </div>
                                 
             </div>
