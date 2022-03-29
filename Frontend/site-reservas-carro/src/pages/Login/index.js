@@ -11,7 +11,7 @@ import { InputPassword } from '../../components/InputPassword';
 import { BoxForm } from "../../components/Form";
 
 import { useMutation } from "react-query";
-import { api } from '../../services/api';
+import api from '../../services/api';
 import { useSession } from "../../hooks/useSession";
 
 export function Login() {

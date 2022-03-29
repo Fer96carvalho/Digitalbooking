@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DoubleCalendar from '../../../../components/DoubleCalendar';
 import { Form, Button, Row, Col, Container, InputGroup} from 'react-bootstrap';
 import {BsGeoAltFill} from "react-icons/bs";
-import {api} from "../../../../services/api"
+import api from "../../../../services/api"
 
 
 import './style.css';
