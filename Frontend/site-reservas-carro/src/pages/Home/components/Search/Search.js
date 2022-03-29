@@ -8,7 +8,7 @@ import {api} from "../../../../services/api"
 import './style.css';
 
 function Search() {
-    var dataCidades = [];
+    const [dataCidade, setDataCidade] = useState([]);
 
 const handleInputChange = (e) => {
     e.preventDefault();
@@ -16,27 +16,22 @@ const handleInputChange = (e) => {
     const {value} = e.target;
 
 //let url = "http://52.91.229.58:8080/cidade";
-let url = "http://localhost:8080/cidade";
+// let url = "http://localhost:8080/cidade";
 
 async function cidade() {
 
 
   await api.get('cidade')
   .then(response => {
-      dataCidades = response.data
-      console.log(dataCidades);
+      setDataCidade(response.data)
+      console.log(dataCidade);
   }, error => {
     console.log(error);
   });
-  console.log(dataCidades);
    
 };
 
 cidade();
-
-// const cidade = fetch(url).then((data)=> console.log(data));
-
-
 
     // console.log ("handleInputChange" , value, value.length);
 }
