@@ -1,6 +1,7 @@
 package com.example.ProjetoIntegradorBackEnd.controller;
 
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Imagem;
+import com.example.ProjetoIntegradorBackEnd.persistence.entities.Produto;
 import com.example.ProjetoIntegradorBackEnd.service.ImagemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,20 @@ public class ImagemController {
     @Autowired
     private ImagemService service;
 
+    @GetMapping
+    public List<Imagem> getImagem(){
+        return service.findAll();
+    }
+
     @GetMapping("/{produto}")
     public List<Imagem> getImagemByProduto(String produto){
         return service.findByProduto(produto);
     }
+
+    @GetMapping("/produto/{id}")
+    public List<Imagem> getImagemByProdutoID(Integer produtoID) {
+        return service.findByProdutoID(produtoID);
+    }
+
+
 }

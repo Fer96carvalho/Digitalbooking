@@ -29,7 +29,6 @@ public class Produto {
     @ManyToOne
     @JoinColumn(name = "categoria_id", foreignKey = @ForeignKey(name = "fk_categoria"))
     private Categoria categoria;
-    
 
     @ManyToMany
     @JoinTable(name = "produtos_tem_caracteristica", joinColumns = {@JoinColumn(name = "produto_id")}, inverseJoinColumns = {@JoinColumn(name = "caracteristica_id")})
