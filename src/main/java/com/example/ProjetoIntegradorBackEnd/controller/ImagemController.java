@@ -26,12 +26,12 @@ public class ImagemController {
     }
 
     @GetMapping("/{produto}")
-    public List<Imagem> getImagemByProduto(String produto){
+    public List<Imagem> getImagemByProduto(@PathVariable String produto){
         return service.findByProduto(produto);
     }
 
     @GetMapping("/produto/{id}")
-    public List<Imagem> getImagemByProdutoID(Integer produtoID) {
+    public List<Imagem> getImagemByProdutoID(@PathVariable Integer produtoID) {
         return service.findByProdutoID(produtoID);
     }
 
