@@ -35,8 +35,8 @@ public class ProdutoController {
         return service.findByCategoria(categoria);
     }
 
-    @PutMapping
-    public Produto putProduto(@RequestBody Produto produto){
+    @PostMapping
+    public Produto postProduto(@RequestBody Produto produto){
         return service.createProduto(produto);
     }
 }

@@ -31,13 +31,13 @@ public class CategoriaController {
         return "Categoria deletada com sucesso!";
     }
 
-    @PutMapping
-    public Categoria putCategoria(@RequestBody Categoria categoria){
+    @PostMapping
+    public Categoria postCategoria(@RequestBody Categoria categoria){
         return service.create(categoria);
     }
 
-    @PostMapping
-    public Categoria postCategoria(@RequestBody Categoria categoria){
+    @PutMapping
+    public Categoria putCategoria(@RequestBody Categoria categoria){
         return service.update(categoria);
     }
 }

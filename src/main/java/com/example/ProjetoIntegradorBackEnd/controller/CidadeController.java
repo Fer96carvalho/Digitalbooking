@@ -20,8 +20,8 @@ public class CidadeController {
         return service.findAll();
     }
 
-    @PutMapping
-    public Cidade putCidade(@RequestBody Cidade cidade){
+    @PostMapping
+    public Cidade postCidade(@RequestBody Cidade cidade){
         return service.createCidade(cidade);
     }
 }
