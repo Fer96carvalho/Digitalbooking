@@ -16,11 +16,11 @@ function Router() {
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
-          <Route path="/detalhes" element={<Detalhes/>}/>
+          <Route path="/detalhes/:id" element={<Detalhes/>}/>
 
           {/* <Route path="/categorias" element={Category}/> */}
           {/* <Route path="/categoria/:category" element={Category}/> */}
-          {/* <Route path="/detalhes/:id" element={Details}/> */}
+          
 
         </Routes>
         <Footer/>
