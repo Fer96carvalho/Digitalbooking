@@ -1,40 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useDebugValue } from "react";
 import DoubleCalendar from '../../../../components/DoubleCalendar';
 import { Form, Button, Row, Col, Container, InputGroup} from 'react-bootstrap';
 import {BsGeoAltFill} from "react-icons/bs";
+
 import api from "../../../../services/api"
-
-
 import './style.css';
+
 
 function Search() {
     const [dataCidade, setDataCidade] = useState([]);
+    const [listCidades, setListCidades] = useState([]);
+    const [value, setValue] = useState([]);
+
+    const sugestoes = document.querySelector('.sugestoesCidade')
+    const inputCidade = document.querySelector('.inputCidade')
+
+
+    const getCidades = async () => {
+        await api.get('/cidade')
+        .then(response => setDataCidade(response.data))
+        .catch((err) => console.error(err))         
+    }
+
+    useEffect(() => {
+        getCidades();
+    }, [])
 
 const handleInputChange = (e) => {
     e.preventDefault();
 
-    const {value} = e.target;
+    setValue(e.target.value);
 
-//let url = "http://52.91.229.58:8080/cidade";
-// let url = "http://localhost:8080/cidade";
+   let listCidade = [];
 
-async function cidade() {
+    if (value.length >=2){
+        dataCidade.map(({nome})=>{
+            return (
+                listCidade.push(nome)
+            )
+        });
+        sugestoes.setAttribute('style', 'display:block')
 
-
-  await api.get('cidade')
-  .then(response => {
-      setDataCidade(response.data)
-      console.log(dataCidade);
-  }, error => {
-    console.log(error);
-  });
-   
-};
-
-cidade();
-
-    // console.log ("handleInputChange" , value, value.length);
+    }else{
+        sugestoes.setAttribute('style', 'display:none')
+    }
+    return (
+        setListCidades(listCidade)
+    )
 }
+
+function autoComplete(value) {
+              const ListaCidades = listCidades;
+            return ListaCidades.filter((item) => {
+                    const i = item.toLowerCase()
+                    const inputValue = value.toLowerCase()
+                    return i.includes(inputValue)
+              })
+       }
+
+const autoCompleteValores = autoComplete(value);
+
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,6 +67,12 @@ const handleSubmit = (e) => {
     inputDatePicker === "" ? alert("Vazio") : alert(inputDatePicker);
 }
 
+function getValueCidade(e){
+    if (e.target.tagName === 'LI'){
+    inputCidade.value = e.currentTarget.textContent;
+    sugestoes.setAttribute('style', 'display:none');
+    }
+}
 
     return (
         <div className="div-search">
@@ -56,7 +87,18 @@ const handleSubmit = (e) => {
                         <Form.Label >Cidade</Form.Label>
                         <InputGroup>
                         <InputGroup.Text><BsGeoAltFill size="0.8em"/></InputGroup.Text>
-                        <Form.Control size = "sm" className="shadow-sm border-0 max-width-100" type="text" placeholder="Sua localização" onChange={handleInputChange}/>
+                        <Form.Control size = "sm" className="inputCidade shadow-sm border-0 max-width-100" type="text" placeholder="Sua localização" onChange={handleInputChange}/>
+                        <ul className="sugestoesCidade">
+                            {
+                                autoCompleteValores.map((item)=>{
+                                    return (
+                                        <li key={autoCompleteValores.findIndex((i)=> i === item)}
+                                        onClick={getValueCidade}>
+                                            {item}
+                                        </li>
+                                       )})
+                                }
+                        </ul>
                         </InputGroup>
                     </Form.Group>
                     </Col>
