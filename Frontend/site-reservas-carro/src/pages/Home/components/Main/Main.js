@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, useParams} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import api from '../../../../services/api';
 import { useState, useEffect } from 'react';
@@ -11,7 +11,6 @@ function Main () {
     const [listaProdutos, setListaProdutos] = useState([]);
     const [listaImagens, setListaImagens] = useState([]);
     let imgSRC = [];
-    const {imagem} = useParams;
 
     const getProdutos = async () => {
         const response = await api.get('/produto')
@@ -19,7 +18,7 @@ function Main () {
         .catch((err) => console.error(err))         
     }
 
-    const getImg = async (imagem) => {
+    const getImg = async () => {
         const response = await api.get('/imagem')
         .then(response => setListaImagens(response.data))
         .catch((err) => console.error(err))
@@ -83,7 +82,7 @@ function Main () {
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">
-                                    {imgSRC = listaImagens.filter(iLista => iLista.produto.id == id).map(({url}) => {
+                                    {imgSRC = listaImagens.filter(iLista => iLista.produto.id == id).map(({ url }) => {
                                         return (<img src={url} alt="" />)
                                     })}
                                 </div>
@@ -93,7 +92,7 @@ function Main () {
                                     <h4>{nome}</h4>
                                     <p>{cidade.nome}</p>
                                     <p>{ descricao.length > 57 ? descricao.slice(0, 57) + "..." : descricao } </p>
-                                    <Link to="/detalhes">
+                                    <Link to={`/detalhes/${id}`}>
                                         <button>Ver descrição</button>
                                     </Link>
                                 </div>
