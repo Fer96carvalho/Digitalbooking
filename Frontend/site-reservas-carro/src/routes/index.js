@@ -6,6 +6,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Header } from "../pages/Home/components/Header";
 import Footer from "../pages/Home/components/Footer/Footer";
 import Detalhes from "../pages/Detalhes";
+import Reserva from "../pages/Reserva";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/detalhes/:id" element={<Detalhes/>}/>
+          <Route path="/reserva" element={<Reserva/>}/>
 
           {/* <Route path="/categorias" element={Category}/> */}
           {/* <Route path="/categoria/:category" element={Category}/> */}

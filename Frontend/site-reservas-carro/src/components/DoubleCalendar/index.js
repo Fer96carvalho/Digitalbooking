@@ -46,9 +46,6 @@ function DoubleCalendar() {
   return (
     <DatePicker
         locale="pt"
-        // showTimeSelect
-        // timeFormat="HH:mm"
-        // timeIntervals={15}
         placeholderText="Data do checkin | Checkout "
         minDate={new Date()}
         selectsRange={true}

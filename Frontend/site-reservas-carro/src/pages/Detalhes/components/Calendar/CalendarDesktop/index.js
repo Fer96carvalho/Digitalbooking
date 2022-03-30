@@ -76,9 +76,9 @@ export const CalendarDesktop = () => {
           </div>
         )}
         calendarClassName={styled.calendar}
-        startDate={startDate}
-        endDate={endDate}
-        selected={startDate}
+        // startDate={startDate}
+        // endDate={endDate}
+        // selected={startDate}
         locale={ptBr}
         monthsShown={2}
         minDate={new Date()}
@@ -86,7 +86,7 @@ export const CalendarDesktop = () => {
         formatWeekDay={nameOfDay => nameOfDay.substring(0,1)} 
         dateFormat="dd/MM/yyyy"
         disabledKeyboardNavigation
-        shouldCloseOnSelect={false}
+        // shouldCloseOnSelect={false}
         selectsRange
         inline
       />
@@ -95,15 +95,15 @@ export const CalendarDesktop = () => {
     return (
       <DatePicker
         calendarClassName={styled.calendar_mobile}
-        startDate={startDate}
-        endDate={endDate}
+        // startDate={startDate}
+        // endDate={endDate}
         monthsShown={1}
         minDate={new Date()}
         locale={ptBr}
         onChange={onChange}
         formatWeekDay={nameOfDay => nameOfDay.substring(0,1)} 
         dateFormatCalendar="LLLL"
-        selectsRange
+        // selectsRange
         inline
         disabledKeyboardNavigation // impedi q a data selecioanda fique selecionada nos outros meses
         // shouldCloseOnSelect={false} impedi o fechamento do calendario quando as datas são selecionadas

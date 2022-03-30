@@ -18,7 +18,9 @@
   transition: border-color 0.15s ease-in-out box-shadow 0.15s ease-in-out;
 }
 
-
+.react-datepicker__day--in-selecting-range{
+  background-color: #fbc02d !important;
+}
 
 .react-datepicker__header , .react-datepicker__day--in-range{
   background-color:#1DBEB4;
@@ -26,6 +28,10 @@
 
 .react-datepicker__close-icon {
   display: inline;
+}
+
+.react-datepicker__close-icon::after {
+  background-color: rgba(255, 0, 0, 0.925) !important;
 }
 
 @media screen and (max-width: 768px) {

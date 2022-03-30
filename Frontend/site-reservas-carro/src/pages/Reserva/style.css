@@ -1,0 +1,25 @@
+.section-form{
+    padding: 0 10px 0 10px;
+}
+
+.p-form{
+    padding-left: 10px;
+}
+.div-form{
+    display: flex;
+    flex-wrap: wrap;
+}
+.div-nome{
+    box-sizing: border-box;
+    padding: 0 10px 0 10px ;
+    width: 100%;
+
+}
+
+@media (min-width: 426px){
+    .div-nome{
+        max-width: 50% !important;
+
+    }
+
+}

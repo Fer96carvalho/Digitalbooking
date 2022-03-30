@@ -16,11 +16,10 @@ function Detalhes() {
 
   const [listaProdutos, setListaProdutos] = useState([]);
 
-  const {id} = useParams("/detalhes/:id");
-
-  const getProdutos = async (id) => {
-        const response = await api.get(`/produto/id/${id}`)
-        .then(response => setListaProdutos(response.data))
+  const {id} = useParams();
+  const getProdutos = async () => {
+        const response = await api.get(`produto/id/${id}`)
+        .then(response => setListaProdutos(response.data)).then(console.log(listaProdutos))
         .catch((err) => console.error(err))         
   }
 
