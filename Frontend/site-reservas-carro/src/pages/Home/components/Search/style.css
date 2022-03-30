@@ -20,6 +20,27 @@ div .div-search {
     padding: 0 100px 5px;
 }
 
+.sugestoesCidade{
+    display: none;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.959);
+    border: solid 2px #FBC02D;
+    position:absolute;
+    top: 35px;
+    z-index: 5;
+    border-radius: 5px !important;
+}
+
+.sugestoesCidade > li:hover{
+    cursor: pointer !important;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+.form-control-sm {
+    border-radius: 0.2rem !important;
+}
+
 @media (max-width: 768px) {
     div .div-search {
         padding: 0 10px 5px;
