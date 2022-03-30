@@ -82,8 +82,8 @@ function Main () {
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">
-                                    {imgSRC = listaImagens.filter(iLista => iLista.produto.id == id).map(({ url }) => {
-                                        return (<img src={url} alt="" />)
+                                    {imgSRC = listaImagens.filter(iLista => iLista.produto.id == id).map(({ id, url }) => {
+                                        return (<img src={url} key={id} alt="" />)
                                     })}
                                 </div>
 

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Galery from '../Galery';
 import {AiOutlineLeft, AiOutlineShareAlt, AiOutlineHeart} from "react-icons/ai";
 import {BsGeoAltFill} from "react-icons/bs";
 
 import "./style.css";
 
-export default function InfoProduto(props) {
+export default function InfoProduto() {
 
 
   return (
@@ -13,8 +13,8 @@ export default function InfoProduto(props) {
 
                         <section className="section-cabecalho">
                             <div className="div-titulo">
-                                <h4>{props.categoria}</h4>
-                                <h2>{props.nome}</h2>
+                                <h4>categoria</h4>
+                                <h2>nome</h2>
                             </div>
                             <div className="div-btn-voltar">
                                 <button type="button"><AiOutlineLeft color="fff" size="2.7em"/></button>
@@ -27,7 +27,7 @@ export default function InfoProduto(props) {
                                 <BsGeoAltFill color="#FBC02D"/>
                                 </div>
                                 <div className="div-info">
-                                <p className="localiz">{props.cidade}, {props.pais}</p>
+                                <p className="localiz">cidace e pais</p>
                                 <p className="info-add">1 kilomentro do Morumbi</p>
                                 </div>
                             </div>

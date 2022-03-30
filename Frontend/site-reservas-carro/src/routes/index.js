@@ -16,7 +16,7 @@ function Router() {
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
-          <Route path="/detalhes/:id" element={<Detalhes/>}/>
+          <Route path="/detalhes/:id" element={<Detalhes />}/>
 
           {/* <Route path="/categorias" element={Category}/> */}
           {/* <Route path="/categoria/:category" element={Category}/> */}

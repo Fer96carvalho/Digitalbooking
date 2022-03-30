@@ -8,32 +8,36 @@ import InfoProduto from './components/InfoProduto';
 
 
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
 
 
 function Detalhes() {
 
+
+  const { id } = useParams("/detalhes/:id");
+
   const [listaProdutos, setListaProdutos] = useState([]);
 
-  const {id} = useParams("/detalhes/:id");
+  const getProdutos = async () => {
+      const response = await api.get(`/produto/id/${id}`)
+      .then(response => setListaProdutos(response.data))
+      .catch(err => console.error(err))
+  };
 
-  const getProdutos = async (id) => {
-        const response = await api.get(`/produto/id/${id}`)
-        .then(response => setListaProdutos(response.data))
-        .catch((err) => console.error(err))         
-  }
 
   useEffect(() => {
-      getProdutos(id);
-  }, [id])
+      getProdutos();
+  }, [])
 
+
+// console.log("TESTE: " + listaProdutos.nome)
 
   return (
     <>
-        <InfoProduto nome={listaProdutos.nome} cidade={listaProdutos.cidade.nome} categoria={listaProdutos.categoria.titulo} />
-        <Descricao descricao={listaProdutos.descricao} />
-        <Items caracteristicas={listaProdutos.caracteristicas}/>
+        <InfoProduto nome={listaProdutos.nome} categoria={listaProdutos.categoria.titulo} cidade={listaProdutos.cidade.nome} pais={listaProdutos.cidade.pais} />
+        <Descricao />
+        <Items />
         <Calendar/>
         <Map/>
         <Politicas/>
