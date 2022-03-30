@@ -8,11 +8,12 @@ import InfoProduto from './components/InfoProduto';
 
 
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
 
 
 function Detalhes() {
+
 
   const [listaProdutos, setListaProdutos] = useState([]);
 
@@ -24,15 +25,17 @@ function Detalhes() {
   }
 
   useEffect(() => {
-      getProdutos(id);
-  }, [id])
+      getProdutos();
+  }, [])
 
+
+// console.log("TESTE: " + listaProdutos.nome)
 
   return (
     <>
-        <InfoProduto nome={listaProdutos.nome} cidade={listaProdutos.cidade.nome} categoria={listaProdutos.categoria.titulo} />
-        <Descricao descricao={listaProdutos.descricao} />
-        <Items caracteristicas={listaProdutos.caracteristicas}/>
+        <InfoProduto nome={listaProdutos.nome} categoria={listaProdutos.categoria.titulo} cidade={listaProdutos.cidade.nome} pais={listaProdutos.cidade.pais} />
+        <Descricao />
+        <Items />
         <Calendar/>
         <Map/>
         <Politicas/>
