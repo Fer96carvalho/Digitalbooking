@@ -29,6 +29,7 @@ public class Usuario {
     private String sobrenome;
 
     @Email(message = "E-mail inválido")
+    @Column(unique = true)
     private String email;
 
     @NotBlank(message = "Senha não deve estar vazia")
