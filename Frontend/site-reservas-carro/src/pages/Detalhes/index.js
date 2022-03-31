@@ -10,6 +10,7 @@ import InfoProduto from './components/InfoProduto';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
+import Galery from './components/Galery';
 
 
 function Detalhes() {
@@ -34,6 +35,7 @@ function Detalhes() {
   return (
     <>
         <InfoProduto nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} />
+        <Galery/>
         <Descricao descricao={produto.descricao} />
         <Items caracteristicas={produto.caracteristicas} />
         <Calendar/>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Galery from '../Galery';
 import { AiOutlineLeft, AiOutlineShareAlt, AiOutlineHeart } from "react-icons/ai";
 import { BsGeoAltFill } from "react-icons/bs";
 
@@ -22,7 +21,7 @@ export default function InfoProduto({ nome, categoria, cidade, pais }) {
                                 <h2>{ nome }</h2>
                             </div>
                             <div className="div-btn-voltar">
-                                <button type="button"><AiOutlineLeft color="fff" size="2.7em"/></button>
+                                <button type="button"><AiOutlineLeft color="fff" size="2.7em" onClick={goBack} /></button>
                             </div>
                         </section>
 
@@ -57,9 +56,7 @@ export default function InfoProduto({ nome, categoria, cidade, pais }) {
                                 <AiOutlineHeart  color="#FBC02D" size="1.7em"/>
                                 </div>
                             </div>
-                            <div>
-                                <Galery/>
-                            </div>
+                            
                         </section>
 
         
