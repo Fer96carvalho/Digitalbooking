@@ -20,4 +20,7 @@ public class Usuario {
 
     @OneToOne
     private Funcao funcao;
+
+    public Usuario() {
+    }
 }
