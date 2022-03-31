@@ -35,7 +35,7 @@ function Detalhes() {
     <>
         <InfoProduto nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} />
         <Descricao descricao={produto.descricao} />
-        <Items />
+        <Items caracteristicas={produto.caracteristicas} />
         <Calendar/>
         <Map/>
         <Politicas/>
