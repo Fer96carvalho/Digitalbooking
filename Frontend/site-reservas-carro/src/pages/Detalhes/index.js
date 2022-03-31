@@ -8,7 +8,7 @@ import InfoProduto from './components/InfoProduto';
 
 
 import { useParams } from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import Galery from './components/Galery';
 

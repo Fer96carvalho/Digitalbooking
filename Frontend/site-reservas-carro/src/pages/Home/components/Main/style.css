@@ -28,6 +28,7 @@
     align-items: center;
     justify-content: center;
     color: #000000;
+
 }
 
 .main__Container .sugestaoBusca h2 {
@@ -148,6 +149,7 @@
     height: 16px;
     width: 16px;
     position: absolute;
+
 }
 
 .main__Container .blocoLista .cartao .heart:before {
@@ -234,10 +236,20 @@
 
     .main__Container .blocoLista .cartao .heart {
         opacity: 0.7;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .main__Container .blocoLista .cartao .heart:hover {
+        opacity: 1;
     }
 
     .main__Container .blocoLista .cartao .nota {
         opacity: 0.7;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .main__Container .blocoLista .cartao .nota:hover {
+        opacity: 1;
     }
 
     .main__Container .blocoLista .cartao .cartaoDados {
