@@ -15,27 +15,27 @@ import api from '../../services/api';
 function Detalhes() {
 
 
-  const [listaProdutos, setListaProdutos] = useState([]);
+  const { id } = useParams();
 
-  const {id} = useParams();
-  const getProdutos = async () => {
-        const response = await api.get(`produto/id/${id}`)
-        .then(response => setListaProdutos(response.data)).then(console.log(listaProdutos))
-        .catch((err) => console.error(err))         
-  }
+  const [produto, setProduto] = useState({});
 
   useEffect(() => {
-      getProdutos();
-  }, [])
+      async function getProduto() {
+        await api.get(`/produto/id/${id}`)
+        .then(response => setProduto(response.data))
+      }
+      getProduto();
+  }, []);
 
-
-// console.log("TESTE: " + listaProdutos.nome)
+  if (!produto.nome) {
+    return null;
+  }
 
   return (
     <>
-        <InfoProduto nome={listaProdutos.nome} categoria={listaProdutos.categoria.titulo} cidade={listaProdutos.cidade.nome} pais={listaProdutos.cidade.pais} />
-        <Descricao />
-        <Items />
+        <InfoProduto nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} />
+        <Descricao descricao={produto.descricao} />
+        <Items caracteristicas={produto.caracteristicas} />
         <Calendar/>
         <Map/>
         <Politicas/>

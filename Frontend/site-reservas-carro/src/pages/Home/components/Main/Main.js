@@ -10,16 +10,15 @@ function Main () {
 
     const [listaProdutos, setListaProdutos] = useState([]);
     const [listaImagens, setListaImagens] = useState([]);
-    let imgSRC = [];
 
     const getProdutos = async () => {
-        const response = await api.get('/produto')
+        await api.get('/produto')
         .then(response => setListaProdutos(response.data))
         .catch((err) => console.error(err))         
     }
 
     const getImg = async () => {
-        const response = await api.get('/imagem')
+        await api.get('/imagem')
         .then(response => setListaImagens(response.data))
         .catch((err) => console.error(err))
     }
@@ -82,7 +81,7 @@ function Main () {
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">
-                                    {imgSRC = listaImagens.filter(iLista => iLista.produto.id === id).map(({ id, url }) => {
+                                    {listaImagens.filter(iLista => iLista.produto.id === id).map(({ id, url }) => {
                                         return (<img src={url} key={id} alt="" />)
                                     })}
                                 </div>
