@@ -37,34 +37,22 @@ function Main () {
                     <h2>Busca por tipo de carro</h2>
                     <p>Encontre os melhores carros para você!</p>
 
+                    {listaProdutos.slice(4).map(({ id, nome, categoria }) => {
+                        return (
+                            <div className="card">
+                                {listaImagens.filter(iLista => iLista.produto.id === id).map(({ url }) => {
+                                    return (
+                                        <img src={ url } alt={`Imagem de carro ${categoria.titulo}`} />
+                                    )
+                                })}
+    
+                                <div className="legenda">
+                                    <p>{ nome }</p>
+                                </div>
 
-                    <div className="card">
-                        <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2021/04/Volkswagen-Talagon-5-e1619133617681.jpg?quality=70&strip=info" alt="Imagem carro SUV" />
-                        <div className="legenda">
-                            <p>SUV Chevrolet - Modelo 2021</p>
-                        </div>
-                     </div>
-
-                    <div className="card">
-                        <img src="https://motorshow.com.br/wp-content/uploads/sites/2/2020/01/7_ms431_onix-plus1.jpg" alt="Imagem carro Sedan" />
-                        <div className="legenda">
-                            <p>Sedan Nissan - Modelo 2022</p>
-                        </div>
-                    </div>
-
-                    <div className="card">
-                        <img src="https://fotos.jornaldocarro.estadao.com.br/wp-content/uploads/2021/06/28103156/peugeot-208-1gen-1-1160x652.png" alt="Imagem carro Hatch" />
-                        <div className="legenda">
-                            <p>Hatch Peugeot - Modelo 2020</p>
-                        </div>
-                    </div>
-
-                    <div className="card">
-                        <img src="https://f.i.uol.com.br/fotografia/2018/12/27/15459485435c254d7fb3273_1545948543_3x2_md.jpg" alt="Imagem carro Picape" />
-                        <div className="legenda">
-                            <p>Picape Ford - modelo 2021</p>
-                        </div>
-                    </div>
+                            </div>
+                        )
+                    })}
                     
                 </div>
 

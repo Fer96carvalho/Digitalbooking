@@ -9,6 +9,7 @@ header{
     max-height: 75px;
     border-bottom: 1px solid #ccc;
     z-index: 1;
+
 }
 
 header nav {
@@ -19,6 +20,7 @@ header nav {
     margin-right: 20px;
     max-height: 75px;
     background-color: #FBC02D;
+
 }
 
 .div-logo  {

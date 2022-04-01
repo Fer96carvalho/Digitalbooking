@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MediaSocial } from '../../../../../../components/MediaSocial';
 import { UserProfile } from '../UserProfile';
 import { useMenuMobile } from '../../../../../../hooks/useMenuMobile';
+import logo from '../../../../../../Assets/img/logo1.png';
 
 import styled from './styles.module.scss';
 import { useSession } from '../../../../../../hooks/useSession';
@@ -15,6 +16,12 @@ export function MenuMobile() {
   return (
     <div className={statusMenu ? styled.container : 'd-none'}>
       <header>
+        <div>
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
+        </div>
+
         <button onClick={() => setStatusMenu(false)} type="button">
           <IoMdClose size={27} color="#ffffff"/>
         </button>
