@@ -69,7 +69,7 @@ function Main () {
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">
-                                    {listaImagens.filter(iLista => iLista.produto.id === id).map(({ id, url }) => {
+                                    {listaImagens.slice(0, 1).filter(iLista => iLista.produto.id === id).map(({ id, url }) => {
                                         return (<img src={url} key={id} alt="" />)
                                     })}
                                 </div>
