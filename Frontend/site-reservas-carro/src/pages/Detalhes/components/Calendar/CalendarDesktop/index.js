@@ -5,8 +5,8 @@ import ptBr from 'date-fns/locale/pt-BR';
 
 import styled from "./styles.module.scss";
 
-export const CalendarDesktop = () => {
-  const [startDate, setStartDate] = useState(new Date());
+export const CalendarDesktop = ({selected}) => {
+  const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState(null);
   const [windowWidth, setWindowWidth] = useState("desktop");
 
@@ -76,9 +76,8 @@ export const CalendarDesktop = () => {
           </div>
         )}
         calendarClassName={styled.calendar}
-        // startDate={startDate}
-        // endDate={endDate}
-        // selected={startDate}
+        startDate={(selected === true ? startDate : null )}
+        endDate={(selected === true ? endDate : null )}
         locale={ptBr}
         monthsShown={2}
         minDate={new Date()}
@@ -88,6 +87,7 @@ export const CalendarDesktop = () => {
         disabledKeyboardNavigation
         // shouldCloseOnSelect={false}
         selectsRange
+        selected={startDate}
         inline
       />
     );
@@ -97,13 +97,16 @@ export const CalendarDesktop = () => {
         calendarClassName={styled.calendar_mobile}
         // startDate={startDate}
         // endDate={endDate}
+        startDate={(selected === true ? startDate : null )}
+        endDate={(selected === true ? endDate : null )}
         monthsShown={1}
         minDate={new Date()}
         locale={ptBr}
         onChange={onChange}
         formatWeekDay={nameOfDay => nameOfDay.substring(0,1)} 
         dateFormatCalendar="LLLL"
-        // selectsRange
+        selectsRange
+        selected={false}
         inline
         disabledKeyboardNavigation // impedi q a data selecioanda fique selecionada nos outros meses
         // shouldCloseOnSelect={false} impedi o fechamento do calendario quando as datas são selecionadas
