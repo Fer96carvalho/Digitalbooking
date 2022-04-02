@@ -1,14 +1,16 @@
 import React from 'react';
 import { Container, Form } from 'react-bootstrap';
+import "./style.css"
 
 
 export default function FormHoraReserva() {
-  return (
-    <div className="section-form m-5 ">
-                    <h2 className=" text-primary fs-4 font-500">Horário de retirada e devolução entre 06h00 e 24h00</h2>
-                    <Container className="container-select-hora ">
-                        <Form className="div-form">
-                            <div className="div-input-hora mt-3">
+    return (
+        <div className="section-form-hora ">
+            <div className="div-hora">
+            <h2 className=" text-primary fs-4 font-500">Horário de retirada e devolução entre 06h00 e 24h00</h2>
+                <Container className="container-select-hora ">
+                    <Form className="div-form">
+                        <div className="div-input-hora">
                             <Form.Label className="font-size-15">Hora de retirada</Form.Label>
                             <Form.Select className="form-select-retirada">
                                 <option>selecione</option>
@@ -32,10 +34,10 @@ export default function FormHoraReserva() {
                                 <option value="23:00">23:00 PM</option>
                                 <option value="00:00">00:00 AM</option>
                             </Form.Select>
-                            </div>
-                           <div className="div-input-hora mt-3">
-                           <Form.Label className="font-size-15">Hora de devolução</Form.Label>
-                           <Form.Select className="form-select-devolucao">
+                        </div>
+                        <div className="div-input-hora">
+                            <Form.Label className="font-size-15">Hora de devolução</Form.Label>
+                            <Form.Select className="form-select-devolucao">
                                 <option>selecione</option>
                                 <option value="06:00">06:00 AM</option>
                                 <option value="07:00">07:00 AM</option>
@@ -57,9 +59,10 @@ export default function FormHoraReserva() {
                                 <option value="23:00">23:00 PM</option>
                                 <option value="00:00">00:00 AM</option>
                             </Form.Select>
-                           </div>
-                        </Form>
-                    </Container>
-                </div>
-  )
+                        </div>
+                    </Form>
+                </Container>
+            </div>
+        </div>
+    )
 }
