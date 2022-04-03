@@ -28,15 +28,15 @@ export default function Reserva() {
                             <Form className="div-form">
                                 <Form.Group className="div-nome">
                                     <Form.Label className="font-size-15">Nome</Form.Label>
-                                    <Form.Control className='shadow-sm mb-2 border border-white' type="text" placeholder="Digite seu nome" />
+                                    <Form.Control className='shadow-sm mb-2 border border-white' type="text" placeholder="Digite seu nome" disabled/>
                                 </Form.Group>
                                 <Form.Group className="div-nome">
                                     <Form.Label className="font-size-15">Sobrenome</Form.Label>
-                                    <Form.Control className='shadow-sm mb-2 border border-white' type="text" placeholder="Digite seu sobrenome" />
+                                    <Form.Control className='shadow-sm mb-2 border border-white' type="text" placeholder="Digite seu sobrenome" disabled/>
                                 </Form.Group>
                                 <Form.Group className="div-nome">
                                     <Form.Label className="font-size-15">E-mail</Form.Label>
-                                    <Form.Control className='shadow-sm mb-2 border border-white' type="email" placeholder="Seu e-mail" />
+                                    <Form.Control className='shadow-sm mb-2 border border-white' type="email" placeholder="Seu e-mail" disabled/>
                                 </Form.Group>
                                 <Form.Group className="div-nome">
                                     <Form.Label className="font-size-15">CNH</Form.Label>
