@@ -30,7 +30,7 @@ public class ImagemController {
         return service.findByProduto(produto);
     }
 
-    @GetMapping("/produto/{id}")
+    @GetMapping("/produto/{produtoID}")
     public List<Imagem> getImagemByProdutoID(@PathVariable Integer produtoID) {
         return service.findByProdutoID(produtoID);
     }
