@@ -112,10 +112,10 @@ function getValueCidade(e){
                     </Col>
                     <Col md={2}>
                     <Form.Group className=" d-flex justify-content-center">
-                    <Button className="text-white fw-bold m-3" variant="secondary" type="submit" onClick={handleSubmit}>
+                    <Button className="button-search" type="submit" onClick={handleSubmit}>
                         Buscar
                     </Button>
-                </Form.Group>
+                    </Form.Group>
                     </Col>
                 </Row>
             </Form>

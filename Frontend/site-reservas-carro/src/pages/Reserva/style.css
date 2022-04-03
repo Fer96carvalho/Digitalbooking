@@ -1,25 +1,125 @@
+.body-reserva{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20px !important;
+}
+
+.main-reserva{
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
 .section-form{
-    padding: 0 10px 0 10px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-items: center;
+    /* padding: 10px;
+    margin: 15px !important; */
+}
+
+.container-form{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-items: center;
+    padding: 5px 0px 5px;
+    margin-bottom: 15px !important;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.container-form > h2{
+    padding: 10px 0 0 10px;
 }
 
 .p-form{
     padding-left: 10px;
 }
+
 .div-form{
     display: flex;
     flex-wrap: wrap;
+    width: 100% !important;
 }
+
 .div-nome{
     box-sizing: border-box;
-    padding: 0 10px 0 10px ;
+    padding: 0 10px 0 10px;
+    margin: 0;
     width: 100%;
-
 }
 
-@media (min-width: 426px){
-    .div-nome{
-        max-width: 50% !important;
 
+.section-form > .container{
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.section-form > .container > p{
+    width: 100%;
+}
+
+.div-calendar{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-items: center;
+    padding: 5px 0px 15px;
+    margin-bottom: 15px !important;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.div-calendar > h2{
+    padding: 10px 0 0 10px;
+}
+.section-detalhe-reserva{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-items: center;
+    padding: 5px 0px 5px;
+    margin-bottom: 15px !important;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+@media (min-width: 992px){
+    .div-nome{
+        width: 50% !important;
+    }
+    .body-reserva{
+        justify-content: space-between;
+        flex-direction: row;
     }
 
+    .main-reserva{
+        width: 58.5% !important;
+    }
+
+    .div-calendar > .styles_box_calendar__0X9fF {
+        display: flex;
+        justify-content: center;
+    }
+
+    .section-detalhe-reserva{
+        width: 40%;
+    }
+}
+
+@media (max-width: 425px){
+    .div-form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .div-input-hora{
+        width: 100%;
+    }
 }

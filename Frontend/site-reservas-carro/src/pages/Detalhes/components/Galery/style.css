@@ -100,7 +100,7 @@
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:767px) {
     .container-image{
         flex-wrap: wrap;
         height: 100%;
