@@ -1,32 +1,58 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import "./style.css";
 import { BsGeoAltFill } from "react-icons/bs";
+import api from "../../../../services/api";
 
-export default function DetalhesReserva() {
+export default function DetalhesReserva({id, nome, categoria, cidade, pais}) {
+  const [listaImagens, setListaImagens] = useState([]);
+
+
+  const getImg = async () => {
+    await api.get(`/imagem/produto/${id}`)
+    .then(response => setListaImagens(response.data))
+    .catch((err) => console.error(err))
+}
+
+useEffect(() => {
+    getImg();
+}, [])
+
+let imageGalery = [];
+    function getImageGalery(item) {
+        listaImagens.map(({ url }) => {
+            return (
+                item.push(url)
+            )
+        })
+        return item;
+    }
+    getImageGalery(imageGalery);
+
   return (
     <>
       <div className="div-detalhes">
         <h2 className=" text-primary fs-4 font-500">Detalhes da reserva</h2>
         <div className="detalhesImg">
-          <img src='https://s2.glbimg.com/-5PMiETMb1uoYaOvNnMTHjDa8dI=/0x0:2500x1722/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/p/S/j4KpguQiCWKtM8ulpkHw/troller-tx4-dianteira-movimento.jpeg' alt="" />
+          <img src={imageGalery[0]} alt="" />
         </div>
-        <div className="detalhesDados">
+      </div>
+      <div className="detalhesDados-reserva">
           <div className="div-titulo">
-            <h5>Categoria</h5>
-            <h4>nome</h4>
+            <h5>{categoria}</h5>
+            <h4>{nome}</h4>
           </div>
           <div className="div-endereco">
             <div>
               <BsGeoAltFill color="#FBC02D" />
             </div>
             <div className="div-info">
-              <p className="localiz">cidade, pais</p>
+              <p className="localiz">{cidade}, {pais}</p>
               <p className="info-add">1 kilomentro do Morumbi</p>
             </div>
           </div>
         </div>
-        <div className="detalhes-data-reserva">
+      <div className="detalhes-data-reserva">
           <div className="data-hora-checkin">
             <h5>
             check in
@@ -44,13 +70,11 @@ export default function DetalhesReserva() {
             </p>
           </div>
         </div>
-        <div className="div-button-reserva">
+      <div className="div-button-reserva">
           <Link to={`/`}>
             <button className="button-confirm-reserva">Confirmar reserva</button>
           </Link>
         </div>
-
-      </div>
     </>
   )
 }

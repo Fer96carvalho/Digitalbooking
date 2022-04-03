@@ -28,7 +28,7 @@ function Main () {
         getImg();
     }, [])
 
-   
+    
     return (
         <>
             <div className="main__Container">
@@ -79,8 +79,8 @@ function Main () {
                                     <h4>{nome}</h4>
                                     <p>{cidade.nome}</p>
                                     <p>{ descricao.length > 57 ? descricao.slice(0, 57) + "..." : descricao } </p>
-                                    <Link to={`/detalhes/${id}`}>
-                                        <button>Ver descrição</button>
+                                    <Link to={`/produto/detalhes/${id}`}>
+                                        <button >Ver descrição</button>
                                     </Link>
                                 </div>
 
