@@ -38,7 +38,7 @@ function Detalhes() {
   return (
     <>
       <InfoProduto nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} />
-      <Galery />
+      <Galery id={id}/>
       <Descricao descricao={produto.descricao} />
       <Items caracteristicas={produto.caracteristicas} />
       <h2 className="fs-4 font-600 m-3">Datas disponíveis</h2>
