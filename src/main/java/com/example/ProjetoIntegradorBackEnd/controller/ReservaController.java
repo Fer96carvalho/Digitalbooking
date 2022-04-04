@@ -1,5 +1,7 @@
 package com.example.ProjetoIntegradorBackEnd.controller;
 
+import com.example.ProjetoIntegradorBackEnd.persistence.DAO.DataCidade;
+import com.example.ProjetoIntegradorBackEnd.persistence.entities.Produto;
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Reserva;
 import com.example.ProjetoIntegradorBackEnd.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,11 @@ public class ReservaController {
     @GetMapping("/{id}")
     public List<Reserva> getReservaByProduto(@PathVariable Integer id){
         return service.findByProdutoId(id);
+    }
+
+    @GetMapping
+    public List<Produto> getProdutoByCidade(@RequestBody DataCidade dataCidade){
+        return service.listarProduto(dataCidade);
     }
 
     @PostMapping
