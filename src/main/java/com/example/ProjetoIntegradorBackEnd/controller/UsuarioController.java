@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/usuario")
@@ -17,6 +18,11 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService service;
+
+    @GetMapping
+    public List<Usuario> getUsuario() {
+        return service.findAll();
+    }
 
     @PostMapping
     public ResponseEntity<Response<Usuario>> cadastroUsuario (@RequestBody Usuario usuario, BindingResult result) {
@@ -31,5 +37,10 @@ public class UsuarioController {
                 .toUri();
         response.setData(usuarioSalvar);
         return ResponseEntity.created(location).body(response);
+    }
+
+    @GetMapping("/validarSenha")
+    public ResponseEntity<Boolean> validarSenha(String email, String senha) {
+        return service.validarSenha(email, senha);
     }
 }
