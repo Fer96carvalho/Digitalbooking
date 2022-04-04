@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("reserva")
-@CrossOrigin(origins = "*", allowedHeaders = " ")
+//@CrossOrigin(origins = "*", allowedHeaders = " ")
 public class ReservaController {
 
     @Autowired

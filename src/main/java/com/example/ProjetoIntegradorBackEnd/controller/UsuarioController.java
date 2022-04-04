@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin(origins = "*", allowedHeaders = " ")
+//@CrossOrigin(origins = "*", allowedHeaders = " ")
 public class UsuarioController {
 
     @Autowired

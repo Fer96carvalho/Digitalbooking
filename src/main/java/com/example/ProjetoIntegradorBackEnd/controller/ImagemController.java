@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/imagem")
-@CrossOrigin(origins = "*", allowedHeaders = " ")
+//@CrossOrigin(origins = "*", allowedHeaders = " ")
 public class ImagemController {
 
     @Autowired
