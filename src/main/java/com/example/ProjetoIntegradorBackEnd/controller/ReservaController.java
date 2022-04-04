@@ -1,6 +1,5 @@
 package com.example.ProjetoIntegradorBackEnd.controller;
 
-import com.example.ProjetoIntegradorBackEnd.persistence.DAO.DataCidade;
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Produto;
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Reserva;
 import com.example.ProjetoIntegradorBackEnd.service.ReservaService;
