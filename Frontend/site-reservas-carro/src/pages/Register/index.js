@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {Helmet} from "react-helmet-async";
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+
+import api from '../../services/api';
 
 import { Input } from '../../components/Input';
 import { InputPassword } from '../../components/InputPassword';
@@ -12,6 +14,7 @@ import { BoxForm } from "../../components/Form";
 import styled from './styles.module.scss';
 
 export function Register() {
+  const navigate = useNavigate();
   const schema = yup.object({
     name: yup.string().required("Campo obrigatório."),
     lastname: yup.string().required("Campo obrigatório."),
@@ -26,8 +29,20 @@ export function Register() {
     resolver: yupResolver(schema),
   });
 
-  function dataForm(data) {
-    console.log(data)
+  async function dataForm(data) {
+    const user = {
+      nome: data.name,
+      sobrenome:data.lastname ,
+      email: data.email,
+      senha: data.passaword
+    }
+
+    try {
+      await api.post("/usuario", user);
+      navigate("/login");
+    } catch {
+      console.log("ERRRO")
+    }
   }
 
   return (
