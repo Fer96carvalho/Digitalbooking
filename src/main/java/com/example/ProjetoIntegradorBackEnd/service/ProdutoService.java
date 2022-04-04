@@ -5,6 +5,7 @@ import com.example.ProjetoIntegradorBackEnd.persistence.repository.ProdutoReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -31,5 +32,13 @@ public class ProdutoService {
 
     public List<Produto> findByCategoria(String categoria){
         return repository.findByCategoria(categoria);
+    }
+
+    public List<Produto> listarProdutoByCidade(Integer id){
+        return repository.findByCity(id);
+    }
+
+    public List<Produto> listarProdutoByDate(Integer id, LocalDate inicio, LocalDate fim){
+        return repository.findByDateAndCity(id,inicio,fim);
     }
 }

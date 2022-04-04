@@ -22,11 +22,6 @@ public class ReservaController {
         return service.findByProdutoId(id);
     }
 
-    @GetMapping
-    public List<Produto> getProdutoByCidade(@RequestBody DataCidade dataCidade){
-        return service.listarProduto(dataCidade);
-    }
-
     @PostMapping
     public Reserva postReserva(@RequestBody Reserva reserva){
         return service.createReserva(reserva);

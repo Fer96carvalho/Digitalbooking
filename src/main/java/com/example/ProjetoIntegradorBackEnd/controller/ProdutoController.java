@@ -5,6 +5,7 @@ import com.example.ProjetoIntegradorBackEnd.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -33,6 +34,20 @@ public class ProdutoController {
     @GetMapping("/categoria/{categoria}")
     public List<Produto> getProdutoByCategoria(@PathVariable String categoria){
         return service.findByCategoria(categoria);
+    }
+
+    @GetMapping("/reserva/cidade/{id}")
+    public List<Produto> getProdutoByCidade(@PathVariable Integer id){
+        return service.listarProdutoByCidade(id);
+    }
+
+    @GetMapping("/reserva/cidade/{id}/inicio/{inicio}/fim/{fim}")
+    public List<Produto> getProdutoByDate(@PathVariable Integer id, @PathVariable String inicio, @PathVariable String fim){
+
+        LocalDate inicioDate = LocalDate.parse(inicio);
+        LocalDate fimDate = LocalDate.parse(fim);
+
+        return service.listarProdutoByDate(id,inicioDate,fimDate);
     }
 
     @PostMapping
