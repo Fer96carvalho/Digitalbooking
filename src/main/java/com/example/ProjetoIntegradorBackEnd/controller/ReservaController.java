@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("reserva")
+@RequestMapping("/reserva")
 @CrossOrigin(origins = "*", allowedHeaders = " ")
 public class ReservaController {
 
