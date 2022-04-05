@@ -62,7 +62,9 @@ function Main () {
                             <div className="card">
                                 {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ url }) => {
                                     return (
-                                        <img src={ url } alt={`Imagem de carro ${categoria.titulo}`} />
+                                        <Link to={`/produto/detalhes/${id}`}>
+                                            <img src={ url } alt={`Imagem de carro ${categoria.titulo}`} />
+                                        </Link>
                                     )
                                 })}
     

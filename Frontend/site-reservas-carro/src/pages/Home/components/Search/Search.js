@@ -8,6 +8,12 @@ import './style.css';
 
 
 function Search() {
+
+    const [cidade, setCidade] = useState('');
+    const [rangeReserva, setRangeReserva] = useState('');
+
+
+
     const [dataCidade, setDataCidade] = useState([]);
     const [listCidades, setListCidades] = useState([]);
     const [value, setValue] = useState([]);
@@ -64,7 +70,16 @@ const autoCompleteValores = autoComplete(value);
 const handleSubmit = (e) => {
     e.preventDefault();
     const inputDatePicker = document.querySelector(".react-datepicker__input-container > input").value
-    inputDatePicker === "" ? alert("Vazio") : alert(inputDatePicker);
+    const inputCidade = document.querySelector('.inputCidade').value
+    // inputDatePicker === "" ? alert("Vazio") : alert(inputDatePicker + " " + inputCidade.value);
+
+    const data = {
+        cidade : inputCidade,
+        rangeReserva: inputDatePicker
+    }
+
+    console.log(data)
+
 }
 
 function getValueCidade(e){
@@ -72,6 +87,15 @@ function getValueCidade(e){
     inputCidade.value = e.currentTarget.textContent;
     sugestoes.setAttribute('style', 'display:none');
     }
+}
+
+function valorCidade(e) {
+    setCidade(e.target.value);
+}
+
+function duasFuncoes (e) {
+    handleInputChange(e);
+    valorCidade(e);
 }
 
     return (
@@ -87,7 +111,7 @@ function getValueCidade(e){
                         <Form.Label >Cidade</Form.Label>
                         <InputGroup>
                         <InputGroup.Text><BsGeoAltFill size="0.8em"/></InputGroup.Text>
-                        <Form.Control size = "sm" className="inputCidade shadow-sm border-0 max-width-100" type="text" placeholder="Sua localização" onChange={handleInputChange}/>
+                        <Form.Control size = "sm" className="inputCidade shadow-sm border-0 max-width-100" type="text" placeholder="Sua localização" value={cidade} onChange={duasFuncoes}/>
                         <ul className="sugestoesCidade">
                             {
                                 autoCompleteValores.map((item)=>{
