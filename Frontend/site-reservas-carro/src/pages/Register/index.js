@@ -38,8 +38,9 @@ export function Register() {
     }
 
     try {
-      await api.post("/usuario", user);
-      navigate("/login");
+      const response = await api.post("/usuario", user);
+      console.log(response);
+      // navigate("/login");
     } catch {
       console.log("ERRRO")
     }

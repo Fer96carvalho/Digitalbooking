@@ -49,7 +49,6 @@ function Main () {
                                 <div className="legenda">
                                     <p>{ nome }</p>
                                 </div>
-
                             </div>
                         )
                     })}
@@ -73,7 +72,6 @@ function Main () {
                                         return (<img src={url} key={id} alt="" />)
                                     })}
                                 </div>
-
                                 <div className="cartaoDados">
                                     <span>{categoria.titulo}</span>
                                     <h4>{nome}</h4>
@@ -83,7 +81,6 @@ function Main () {
                                         <button >Ver descrição</button>
                                     </Link>
                                 </div>
-
                             </div>
                         )
                     })}
