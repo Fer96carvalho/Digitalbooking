@@ -1,6 +1,5 @@
 package com.example.ProjetoIntegradorBackEnd.controller;
 
-import com.example.ProjetoIntegradorBackEnd.persistence.DAO.DataCidade;
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Produto;
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Reserva;
 import com.example.ProjetoIntegradorBackEnd.service.ReservaService;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("reserva")
+@RequestMapping("/reserva")
 //@CrossOrigin(origins = "*", allowedHeaders = " ")
 public class ReservaController {
 
