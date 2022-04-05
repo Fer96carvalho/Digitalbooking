@@ -1,16 +1,42 @@
-import React from 'react';
-import { Container, Form } from 'react-bootstrap';
+import React,{useEffect, useState} from 'react';
 import { Calendar } from '../Detalhes/components/Calendar'
 import BannerInfo from './components/BannerInfo';
 import DetalhesReserva from './components/DetalheReserva';
 import FormHoraReserva from './components/HoraReserva';
 import { Politicas } from '../Detalhes/components/Politicas';
+import { useParams } from 'react-router-dom';
+import api from '../../services/api';
+
 
 import "./style.css";
+import FormsCliente from './components/FormDadosCliente';
 
 export default function Reserva() {
 
+    const { id } = useParams();
+    const [produto, setProduto] = useState({});
     let selected = true;
+
+    function topo()
+    {
+        window.parent.scroll(0,0);
+    }
+
+    window.onload = topo();
+  
+    useEffect(() => {
+      async function getProduto() {
+        await api.get(`/produto/id/${id}`)
+          .then(response => setProduto(response.data))
+      }
+      getProduto();
+    }, []);
+  
+    if (!produto.nome) {
+      return null;
+    }
+
+    
 
     return (
         <>
@@ -21,30 +47,7 @@ export default function Reserva() {
                 <section className="main-reserva">
                     {/* Section-form vai sumir caso o usuario esteva logado */}
                     <div className="section-form">
-                        <div className="container-form">
-                        <h2 className="d-block  text-primary fs-4 font-500">Complete seus dados</h2>
-                        <Container
-                            className="  justify-content-center align-items-center">
-                            <Form className="div-form">
-                                <Form.Group className="div-nome">
-                                    <Form.Label className="font-size-15">Nome</Form.Label>
-                                    <Form.Control className='shadow-sm mb-2 border border-white' type="text" placeholder="Digite seu nome" disabled/>
-                                </Form.Group>
-                                <Form.Group className="div-nome">
-                                    <Form.Label className="font-size-15">Sobrenome</Form.Label>
-                                    <Form.Control className='shadow-sm mb-2 border border-white' type="text" placeholder="Digite seu sobrenome" disabled/>
-                                </Form.Group>
-                                <Form.Group className="div-nome">
-                                    <Form.Label className="font-size-15">E-mail</Form.Label>
-                                    <Form.Control className='shadow-sm mb-2 border border-white' type="email" placeholder="Seu e-mail" disabled/>
-                                </Form.Group>
-                                <Form.Group className="div-nome">
-                                    <Form.Label className="font-size-15">CNH</Form.Label>
-                                    <Form.Control className='shadow-sm mb-2 border border-white' type="text" placeholder="Nº de registro da cnh" />
-                                </Form.Group>  
-                            </Form>
-                        </Container>
-                        </div>
+                        <FormsCliente/>
                     </div>
                     <div>
                         <div className="div-calendar">
@@ -57,7 +60,7 @@ export default function Reserva() {
                     </div>
                 </section>
                 <section className="section-detalhe-reserva">
-                    <DetalhesReserva/>
+                    <DetalhesReserva id={id} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais}/>
                 </section>
             </section>
             <section>

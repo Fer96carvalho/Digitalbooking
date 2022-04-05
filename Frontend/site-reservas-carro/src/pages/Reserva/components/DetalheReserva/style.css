@@ -24,16 +24,16 @@
 
 }
 
-.div-detalhes > .detalhesDados{
+.detalhesDados-reserva{
     padding: 20px;
     width: 100%;
 }
 
-.div-detalhes > .detalhesDados > .div-endereco{
+.detalhesDados > .div-endereco{
     margin-top: 10px;
 }
 
-.div-detalhes > .detalhesDados > .div-titulo > h5, .detalhesDados > .div-titulo > h4{
+.detalhesDados-reserva > .div-titulo > h5, .detalhesDados-reserva > .div-titulo > h4{
     color: black;
     margin-bottom: 0px !important;
 }
@@ -66,7 +66,8 @@
     background-color: #fbc02d;
     border-radius: 5px;
     color: #ffffff;
-    padding: 7px;
+    padding: 10px;
+    margin-bottom: 8px;
 }
 
 .button-confirm-reserva:hover{

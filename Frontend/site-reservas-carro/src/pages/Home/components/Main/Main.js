@@ -31,11 +31,11 @@ function Main () {
 
     
     // if ('geolocation' in navigator) {
-    //     // navigator.geolocation.getCurrentPosition((position) => {
-    //     //     console.log(position)
-    //     // }, (error) => {
-    //     //     console.log(error)
-    //     // })
+    //      navigator.geolocation.getCurrentPosition((position) => {
+    //          console.log(position)
+    //      }, (error) => {
+    //          console.log(error)
+    //      })
     //     const watcher = navigator.geolocation.watchPosition((position) => {
     //         console.log(position)
     //     }, (error) => {
@@ -99,8 +99,8 @@ function Main () {
                                     <h4>{nome}</h4>
                                     <p>{cidade.nome}</p>
                                     <p>{ descricao.length > 57 ? descricao.slice(0, 57) + "..." : descricao } </p>
-                                    <Link to={`/detalhes/${id}`}>
-                                        <button>Ver descrição</button>
+                                    <Link to={`/produto/detalhes/${id}`}>
+                                        <button >Ver descrição</button>
                                     </Link>
                                 </div>
 
