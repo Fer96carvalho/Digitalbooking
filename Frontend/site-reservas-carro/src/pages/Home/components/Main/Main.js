@@ -5,6 +5,7 @@ import api from '../../../../services/api';
 import { useState, useEffect } from 'react';
 
 import './style.css';
+import Position from "rsuite/esm/Overlay/Position";
 
 function Main () {
 
@@ -29,6 +30,25 @@ function Main () {
     }, [])
 
     
+    // if ('geolocation' in navigator) {
+    //      navigator.geolocation.getCurrentPosition((position) => {
+    //          console.log(position)
+    //      }, (error) => {
+    //          console.log(error)
+    //      })
+    //     const watcher = navigator.geolocation.watchPosition((position) => {
+    //         console.log(position)
+    //     }, (error) => {
+    //         console.log(error)
+    //     }, {
+    //         enableHighAccuracy: true, maximumAge: 30000, timeout: 30000
+    //     })
+    //     navigator.geolocation.clearWatch(watcher)
+    // } else {
+    //     alert('Ops, não foi possivel pegar localização')
+    // }
+
+   
     return (
         <>
             <div className="main__Container">
@@ -40,9 +60,11 @@ function Main () {
                     {listaProdutos.slice(4).map(({ id, nome, categoria }) => {
                         return (
                             <div className="card">
-                                {listaImagens.filter(iLista => iLista.produto.id === id).map(({ url }) => {
+                                {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ url }) => {
                                     return (
-                                        <img src={ url } alt={`Imagem de carro ${categoria.titulo}`} />
+                                        <Link to={`/produto/detalhes/${id}`}>
+                                            <img src={ url } alt={`Imagem de carro ${categoria.titulo}`} />
+                                        </Link>
                                     )
                                 })}
     
@@ -68,7 +90,7 @@ function Main () {
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">
-                                    {listaImagens.filter(iLista => iLista.produto.id === id).map(({ id, url }) => {
+                                    {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ id, url }) => {
                                         return (<img src={url} key={id} alt="" />)
                                     })}
                                 </div>
