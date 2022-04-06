@@ -1,6 +1,7 @@
 package com.example.ProjetoIntegradorBackEnd.service;
 
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Reserva;
+import com.example.ProjetoIntegradorBackEnd.persistence.entities.Usuario;
 import com.example.ProjetoIntegradorBackEnd.persistence.repository.ReservaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,10 @@ public class ReservaService {
 
     @Autowired
     private ReservaRepository repository;
+
+    public List<Reserva> findAll() {
+        return repository.findAll();
+    }
 
     public List<Reserva> findByProdutoId(Integer id){
         return repository.findByProdutoID(id);
