@@ -44,7 +44,7 @@ function PrincipalMain () {
 
                 
                 <div className="sugestaoBusca">
-                    <h2>Busca por tipo de carro</h2>
+                    {/* <h2>Busca por tipo de carro</h2> */}
                     <p>Encontre os melhores carros para você!</p>
 
 
