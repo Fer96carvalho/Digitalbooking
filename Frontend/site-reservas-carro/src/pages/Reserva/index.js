@@ -30,7 +30,7 @@ export default function Reserva() {
           .then(response => setProduto(response.data))
       }
       getProduto();
-    }, []);
+    }, [id]);
   
     if (!produto.nome) {
       return null;
@@ -41,11 +41,10 @@ export default function Reserva() {
     return (
         <>
             <section>
-                <BannerInfo />
+                <BannerInfo categoria={produto.categoria.titulo} nome={produto.nome}/>
             </section>
             <section className="body-reserva">
                 <section className="main-reserva">
-                    {/* Section-form vai sumir caso o usuario esteva logado */}
                     <div className="section-form">
                         <FormsCliente/>
                     </div>

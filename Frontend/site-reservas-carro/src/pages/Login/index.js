@@ -38,7 +38,11 @@ export function Login() {
   });
 
   async function dataForm(data) {
-    await mutateAsync(data);
+    const user = {
+      email: data.email,
+      senha: data.password
+    }
+    await mutateAsync(user);
   }
 
   return (
