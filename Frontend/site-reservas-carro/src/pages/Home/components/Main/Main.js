@@ -39,10 +39,6 @@ function Main ({objeto}) {
         getImg();
     }, [])
 
-    if (!objeto.cidade) {
-        return (<PrincipalMain />);
-    }
-
     
     // if ('geolocation' in navigator) {
     //      navigator.geolocation.getCurrentPosition((position) => {
@@ -66,15 +62,18 @@ function Main ({objeto}) {
     return (
         <>
 
+
             {objeto.map(({cidade, rangeReserva}) => {
-                if (cidade == "") {
+                
+                if (cidade) {
                     return(<PrincipalMain />)
                 } else {
                     return(<SearchMain />)
                     
                 }
+
             })}
-            
+
         </>
     )
 }
