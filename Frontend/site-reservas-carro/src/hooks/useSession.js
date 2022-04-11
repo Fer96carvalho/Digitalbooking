@@ -3,11 +3,10 @@ import { createContext, useContext, useState } from "react";
 const ContextSession = createContext({});
 
 export function ContextSessionProvider({ children }) {
-
   const [session, setSession] = useState(() => {
     const session = JSON.parse(localStorage.getItem("@SESSION"));
 
-    if(!session) {
+    if (!session) {
       return {};
     }
 
@@ -20,9 +19,10 @@ export function ContextSessionProvider({ children }) {
       user: {
         ...data.user,
         fullName: data.user.name + " " + data.user.lastname,
-        nameAcronym: data.user.name.substring(0, 1) + data.user.lastname.substring(0, 1)
-      }
-    }
+        nameAcronym:
+          data.user.name.substring(0, 1) + data.user.lastname.substring(0, 1),
+      },
+    };
 
     localStorage.setItem("@SESSION", JSON.stringify(user));
     setSession(user);
@@ -33,11 +33,17 @@ export function ContextSessionProvider({ children }) {
     setSession({});
   }
 
+  function getSession() {
+    return localStorage.getItem("@SESSION");
+  }
+
   return (
-    <ContextSession.Provider value={{session, createSession, deleteSession}}>
+    <ContextSession.Provider
+      value={{ session, createSession, deleteSession, getSession }}
+    >
       {children}
     </ContextSession.Provider>
-  )
+  );
 }
 
 export function useSession() {

@@ -34,7 +34,7 @@ export function Register() {
       nome: data.name,
       sobrenome:data.lastname ,
       email: data.email,
-      senha: data.passaword
+      senha: data.password
     }
 
     try {
