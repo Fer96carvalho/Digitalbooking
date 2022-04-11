@@ -68,6 +68,7 @@ const autoCompleteValores = autoComplete(value);
 
 
 const handleSubmit = (e) => {
+    
     e.preventDefault();
     
         setCidade(document.querySelector('.inputCidade').value)
@@ -76,6 +77,8 @@ const handleSubmit = (e) => {
             const data = {
                 cidade, rangeReserva
             }
+
+            console.log(data)
             
         onSaveData(data)
 

@@ -6,15 +6,12 @@ import { setInlineStyles } from "rsuite/esm/List/helper/utils";
 
 function Home() {
 
-    const [objeto, setObjeto] = useState([])
+    const [objeto, setObjeto] = useState({})
 
     function handleSaveData (data) {
-        let newList = [...objeto]
-        newList.push(data)
+                 
+        setObjeto(data)
 
-        if (newList.length >= 2) newList.shift()
-                  
-        setObjeto(newList)
     }
 
     return (
