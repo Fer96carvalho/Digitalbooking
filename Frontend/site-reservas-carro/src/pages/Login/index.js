@@ -1,66 +1,64 @@
 import { Link, useNavigate } from "react-router-dom";
-import {Helmet} from "react-helmet-async";
-import { Button, Container, Spinner, Alert } from 'react-bootstrap';
+import { Helmet } from "react-helmet-async";
+import { Button, Container, Spinner, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Form } from 'react-bootstrap';
-import * as yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Form } from "react-bootstrap";
+import * as yup from "yup";
 
-import { Input } from '../../components/Input';
-import { InputPassword } from '../../components/InputPassword';
+import { Input } from "../../components/Input";
+import { InputPassword } from "../../components/InputPassword";
 import { BoxForm } from "../../components/Form";
 
 import { useMutation } from "react-query";
-import api from '../../services/api';
+import api from "../../services/api";
 import { useSession } from "../../hooks/useSession";
+import { useState } from "react";
 
 export function Login() {
   const { createSession } = useSession();
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const schema = yup.object({
-    email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
-    password: yup.string().min(6, "Mínimo de 6 dígitos.").required("Campo obrigatório.")
-  });
+  // const schema = yup.object({
+  //   email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
+  //   password: yup.string().min(6, "Mínimo de 6 dígitos.").required("Campo obrigatório.")
+  // });
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema),
-  });
+  // const { register, handleSubmit, formState: { errors } } = useForm({
+  //   resolver: yupResolver(schema),
+  // });
 
-
-
-  const { mutateAsync, isError, isLoading } = useMutation(async (data) => {
-    const response = await api.post("/login", data);
-
-    return console.log(response.data);
-  }, {
-    onSuccess: (user) => {
-      createSession(user);
-      navigate("/");
-    }
-  });
-
-  async function dataForm(data) {
-    const user = {
-      email: data.email,
-      senha: data.password
-    }
-    await mutateAsync(user);
+  function handleSubmit() {
+    api
+      .post("/login", {
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log("res", res);
+        createSession({ email, password });
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
   }
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title> Digital Booking | Login</title>
-            </Helmet>
-    <Container
-      className="
+      </Helmet>
+      <Container
+        className="
         d-flex
         min-height-100
         justify-content-center
         align-items-center"
-    >
-      <BoxForm handleSubmit={handleSubmit} dataForm={dataForm}>
+      >
+        {/* <BoxForm handleSubmit={handleSubmit} dataForm={dataForm}> */}
         <Form.Text
           as="p"
           className="d-block text-primary text-center fs-2 font-500 mb-4"
@@ -72,148 +70,48 @@ export function Login() {
             e-mail ou senha inválidos.
           </Alert>
         )}
-        <Input type="text" name="email" label="E-mail" error={errors?.email} register={register}/>
+        <Input
+          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          name="email"
+          label="E-mail"
+        />
 
-        <InputPassword name="password" label="Senha" error={errors?.password} register={register}/>
+        <InputPassword
+          onChange={(e) => setPassword(e.target.value)}
+          name="password"
+          label="Senha"
+        />
 
         <Button
           className="w-100 text-white fw-bold mt-4"
           variant="primary"
           type="submit"
           disabled={isLoading ? true : false}
+          onClick={handleSubmit}
         >
           {isLoading ? <Spinner animation="grow" size="sm" /> : "Entrar"}
         </Button>
         <Form.Text className="text-center d-block text-secondary mt-3">
           Ainda não tem conta?
-          <Link className="text-decoration-none font-500 text-primary" to="/register"> Registre-se</Link>
+          <Link
+            className="text-decoration-none font-500 text-primary"
+            to="/register"
+          >
+            {" "}
+            Registre-se
+          </Link>
         </Form.Text>
-      </BoxForm>
+        {/* </BoxForm> */}
 
-      <Link className="fechar__Login" to="/"> X </Link>
-
-    </Container>
+        <Link className="fechar__Login" to="/">
+          {" "}
+          X{" "}
+        </Link>
+      </Container>
     </>
-  )
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { Link } from "react-router-dom";
 // import { Button, Container } from 'react-bootstrap';
@@ -272,4 +170,3 @@ export function Login() {
 //     </>
 //   )
 // }
-
