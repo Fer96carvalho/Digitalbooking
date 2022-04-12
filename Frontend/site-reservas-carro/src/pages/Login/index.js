@@ -13,10 +13,14 @@ import { BoxForm } from "../../components/Form";
 import { useMutation } from "react-query";
 import api from '../../services/api';
 import { useSession } from "../../hooks/useSession";
+import { useState } from "react";
+import { setDate } from "date-fns";
 
 export function Login() {
   const { createSession } = useSession();
   const navigate = useNavigate();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const schema = yup.object({
     email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
@@ -31,13 +35,85 @@ export function Login() {
 
   const { mutateAsync, isError, isLoading } = useMutation(async (data) => {
     const response = await api.post("/login", data);
+    setEmail(data.email);
+    setPassword(data.password);
 
-    return console.log(response.data);
-  }, {
-    onSuccess: (user) => {
-      createSession(user);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return console.log(data, response.status);
+  }, 
+  {
+    onSuccess: () => {
+      console.log();
+      createSession();
       navigate("/");
     }
+    
   });
 
   async function dataForm(data) {

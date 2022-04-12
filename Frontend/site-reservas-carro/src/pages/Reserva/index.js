@@ -20,59 +20,31 @@ export default function Reserva() {
     window.parent.scroll(0, 0);
   }
 
-    const [horaReserva, setHoraReserva] = useState([]);
+  const [horaReserva, setHoraReserva] = useState([]);
 
-    const [startDate, setStartDate] = useState();
-    const [endDate, setEndDate] = useState();
-    const dates = [startDate, endDate];
-    
-    // function topo()
-    // {
-    //     window.parent.scroll(0,0);
-    // }
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const dates = [startDate, endDate];
 
-    // window.onload = topo();
-  
-    useEffect(() => {
-      async function getProduto() {
-        await api.get(`/produto/id/${id}`)
-          .then(response => setProduto(response.data))
-      }
-      getProduto();
-    }, [id]);
-  
-    if (!produto.nome) {
-      return null;
+  // function topo()
+  // {
+  //     window.parent.scroll(0,0);
+  // }
+
+  // window.onload = topo();
+
+  useEffect(() => {
+    async function getProduto() {
+      await api.get(`/produto/id/${id}`)
+        .then(response => setProduto(response.data))
     }
+    getProduto();
+  }, [id]);
 
+  if (!produto.nome) {
+    return null;
+  }
 
-    return (
-        <>
-            <section>
-                <BannerInfo categoria={produto.categoria.titulo} nome={produto.nome}/>
-            </section>
-            <section className="body-reserva">
-                <section className="main-reserva">
-                    <div className="section-form">
-                        <FormsCliente/>
-                    </div>
-                    <div>
-                        <div className="div-calendar">
-                            <h2 className=" text-primary fs-4 font-500 mb-4">Selecione a data da reserva</h2>
-                            <Calendar selected={selected} setStartDate={setStartDate} setEndDate={setEndDate} startDate={startDate} endDate={endDate}/>
-                        </div>
-                    </div>
-                    <div>
-                    <FormHoraReserva horaReserva={setHoraReserva}/>
-                    </div>
-                </section>
-                <section className="section-detalhe-reserva">
-                    <DetalhesReserva id={id} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} horario={horaReserva} datas={dates}/>
-                </section>
-            </section>
-            <section>
-                <Politicas/>
-            </section>
 
   return (
     <>
@@ -86,24 +58,16 @@ export default function Reserva() {
           </div>
           <div>
             <div className="div-calendar">
-              <h2 className=" text-primary fs-4 font-500 mb-4">
-                Selecione a data da reserva
-              </h2>
-              <Calendar selected={selected} />
+              <h2 className=" text-primary fs-4 font-500 mb-4">Selecione a data da reserva</h2>
+              <Calendar selected={selected} setStartDate={setStartDate} setEndDate={setEndDate} startDate={startDate} endDate={endDate} />
             </div>
           </div>
           <div>
-            <FormHoraReserva />
+            <FormHoraReserva horaReserva={setHoraReserva} />
           </div>
         </section>
         <section className="section-detalhe-reserva">
-          <DetalhesReserva
-            id={id}
-            nome={produto.nome}
-            categoria={produto.categoria.titulo}
-            cidade={produto.cidade.nome}
-            pais={produto.cidade.pais}
-          />
+          <DetalhesReserva id={id} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} horario={horaReserva} datas={dates} />
         </section>
       </section>
       <section>
