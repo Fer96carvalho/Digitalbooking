@@ -31,7 +31,7 @@ export function Login() {
 
   const { mutateAsync, isError, isLoading } = useMutation(async (data) => {
     const response = await api.post("/login", data);
-
+    console.log(response.data);
     return response.data;
   }, {
     onSuccess: (user) => {

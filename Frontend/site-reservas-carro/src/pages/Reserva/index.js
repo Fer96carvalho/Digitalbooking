@@ -17,12 +17,18 @@ export default function Reserva() {
     const [produto, setProduto] = useState({});
     let selected = true;
 
-    function topo()
-    {
-        window.parent.scroll(0,0);
-    }
+    const [horaReserva, setHoraReserva] = useState([]);
 
-    window.onload = topo();
+    const [startDate, setStartDate] = useState();
+    const [endDate, setEndDate] = useState();
+    const dates = [startDate, endDate];
+    
+    // function topo()
+    // {
+    //     window.parent.scroll(0,0);
+    // }
+
+    // window.onload = topo();
   
     useEffect(() => {
       async function getProduto() {
@@ -36,7 +42,6 @@ export default function Reserva() {
       return null;
     }
 
-    
 
     return (
         <>
@@ -51,15 +56,15 @@ export default function Reserva() {
                     <div>
                         <div className="div-calendar">
                             <h2 className=" text-primary fs-4 font-500 mb-4">Selecione a data da reserva</h2>
-                            <Calendar selected={selected} />
+                            <Calendar selected={selected} setStartDate={setStartDate} setEndDate={setEndDate} startDate={startDate} endDate={endDate}/>
                         </div>
                     </div>
                     <div>
-                    <FormHoraReserva />
+                    <FormHoraReserva horaReserva={setHoraReserva}/>
                     </div>
                 </section>
                 <section className="section-detalhe-reserva">
-                    <DetalhesReserva id={id} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais}/>
+                    <DetalhesReserva id={id} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} horario={horaReserva} datas={dates}/>
                 </section>
             </section>
             <section>

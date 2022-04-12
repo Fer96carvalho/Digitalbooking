@@ -4,8 +4,23 @@ import "./style.css";
 import { BsGeoAltFill } from "react-icons/bs";
 import api from "../../../../services/api";
 
-export default function DetalhesReserva({id, nome, categoria, cidade, pais}) {
+export default function DetalhesReserva({id, nome, categoria, cidade, pais , horario, datas}) {
+
   const [listaImagens, setListaImagens] = useState([]);
+  const [dataReserva, setDataReserva] = useState('__/__/____');
+  const [dataDevolucao, setDataDevolucao] = useState('__/__/____');
+
+  const dataReservaTransform = async () => {
+    await datas;
+    if (datas[0] === undefined | datas[1] === undefined){
+      return null;
+    } else {
+    setDataReserva(new Intl.DateTimeFormat('pt-BR').format(datas[0]));
+    setDataDevolucao(new Intl.DateTimeFormat('pt-BR').format(datas[1]));
+    }
+  }
+
+  dataReservaTransform();
 
 
   const getImg = async () => {
@@ -58,7 +73,7 @@ let imageGalery = [];
             check in
             </h5>
             <p>
-            xx/xx/xxxx xxh:00
+            {dataReserva} {horario[0]}
             </p>
           </div>
           <div className="data-hora-checkout">
@@ -66,7 +81,7 @@ let imageGalery = [];
             check out
             </h5>
             <p>
-            xx/xx/xxxx xxh:00
+            {dataDevolucao} {horario[1]}
             </p>
           </div>
         </div>

@@ -49,7 +49,7 @@ function Detalhes() {
           <div className={styled.box_info}>
             <div>
               <p className="font-500 my-3">Deseja reservar este produto?</p>
-              <Link to={`/produto/reserva/${id}`}>
+              <Link to={`/reserva/produto/${id}`}>
               <button className="font-500">Iniciar Reserva</button>
               </Link>
             </div>

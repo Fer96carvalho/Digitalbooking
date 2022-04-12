@@ -3,7 +3,19 @@ import { Container, Form } from 'react-bootstrap';
 import "./style.css"
 
 
-export default function FormHoraReserva() {
+export default function FormHoraReserva({horaReserva}) {
+
+    function getTimeReserva(){
+
+        let horaRetirada = document.getElementById('formRetiradaValue');
+        let horaRetiradaValue = horaRetirada.options[horaRetirada.selectedIndex].value;
+        
+        let horaDevolucao = document.getElementById("formDevolucaoValue");
+        let horaDevolucaoValue = horaDevolucao.options[horaDevolucao.selectedIndex].value;
+
+        return  horaReserva([horaRetiradaValue, horaDevolucaoValue]); 
+    }
+
     return (
         <div className="section-form-hora ">
             <div className="div-hora">
@@ -12,8 +24,8 @@ export default function FormHoraReserva() {
                     <Form className="div-form">
                         <div className="div-input-hora">
                             <Form.Label className="font-size-15">Hora de retirada</Form.Label>
-                            <Form.Select className="form-select-retirada">
-                                <option>selecione</option>
+                            <Form.Select className="form-select-retirada" id="formRetiradaValue" onChange={getTimeReserva}>
+                                <option value="">selecione</option>
                                 <option value="06:00">06:00 AM</option>
                                 <option value="07:00">07:00 AM</option>
                                 <option value="08:00">08:00 AM</option>
@@ -37,8 +49,8 @@ export default function FormHoraReserva() {
                         </div>
                         <div className="div-input-hora">
                             <Form.Label className="font-size-15">Hora de devolução</Form.Label>
-                            <Form.Select className="form-select-devolucao">
-                                <option>selecione</option>
+                            <Form.Select className="form-select-devolucao" id="formDevolucaoValue" onChange={getTimeReserva} >
+                                <option value="">selecione</option>
                                 <option value="06:00">06:00 AM</option>
                                 <option value="07:00">07:00 AM</option>
                                 <option value="08:00">08:00 AM</option>

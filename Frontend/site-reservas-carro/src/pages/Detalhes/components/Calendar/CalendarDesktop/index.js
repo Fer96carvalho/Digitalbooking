@@ -5,9 +5,8 @@ import ptBr from 'date-fns/locale/pt-BR';
 
 import styled from "./styles.module.scss";
 
-export const CalendarDesktop = ({selected}) => {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState(null);
+export const CalendarDesktop = ({selected, setStartDate, setEndDate, startDate, endDate}) => {
+  
   const [windowWidth, setWindowWidth] = useState("desktop");
 
   const onChange = (dates) => {
@@ -16,7 +15,6 @@ export const CalendarDesktop = ({selected}) => {
     setEndDate(end);
   };
 
-  console.log(windowWidth);
 
   window.addEventListener("load", (e) => {
     if(e.currentTarget.innerWidth < 670 && windowWidth === "desktop"){
@@ -95,8 +93,6 @@ export const CalendarDesktop = ({selected}) => {
     return (
       <DatePicker
         calendarClassName={styled.calendar_mobile}
-        // startDate={startDate}
-        // endDate={endDate}
         startDate={(selected === true ? startDate : null )}
         endDate={(selected === true ? endDate : null )}
         monthsShown={1}
