@@ -18,32 +18,30 @@ import { useState } from "react";
 export function Login() {
   const { createSession } = useSession();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  // const schema = yup.object({
-  //   email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
-  //   password: yup.string().min(6, "Mínimo de 6 dígitos.").required("Campo obrigatório.")
-  // });
 
-  // const { register, handleSubmit, formState: { errors } } = useForm({
-  //   resolver: yupResolver(schema),
-  // });
+  const schema = yup.object({
+    email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
+    password: yup.string().min(6, "Mínimo de 6 dígitos.").required("Campo obrigatório.")
+  });
 
-  function handleSubmit() {
-    api
-      .post("/login", {
-        email,
-        password,
-      })
-      .then((res) => {
-        console.log("res", res);
-        createSession({ email, password });
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  async function handleSubmitForm(value) {
+      try{
+        await api.post("/login", {
+          email: value.email,
+          senha: value.password,
+        })
+      createSession({ email: value.email, senha: value.password });
         navigate("/");
-      })
-      .catch((err) => console.error(err));
+      }catch(error){
+        console.log(error)
+      }
   }
 
   return (
@@ -58,7 +56,7 @@ export function Login() {
         justify-content-center
         align-items-center"
       >
-        {/* <BoxForm handleSubmit={handleSubmit} dataForm={dataForm}> */}
+        <BoxForm handleSubmit={handleSubmit} dataForm={handleSubmitForm}>
         <Form.Text
           as="p"
           className="d-block text-primary text-center fs-2 font-500 mb-4"
@@ -71,16 +69,18 @@ export function Login() {
           </Alert>
         )}
         <Input
-          onChange={(e) => setEmail(e.target.value)}
           type="text"
           name="email"
           label="E-mail"
+          register={register}
+          error={errors.email}
         />
 
         <InputPassword
-          onChange={(e) => setPassword(e.target.value)}
           name="password"
           label="Senha"
+          register={register}
+          error={errors.password}
         />
 
         <Button
@@ -88,7 +88,7 @@ export function Login() {
           variant="primary"
           type="submit"
           disabled={isLoading ? true : false}
-          onClick={handleSubmit}
+          // onClick={handleSubmit}
         >
           {isLoading ? <Spinner animation="grow" size="sm" /> : "Entrar"}
         </Button>
@@ -102,7 +102,7 @@ export function Login() {
             Registre-se
           </Link>
         </Form.Text>
-        {/* </BoxForm> */}
+        </BoxForm>
 
         <Link className="fechar__Login" to="/">
           {" "}
