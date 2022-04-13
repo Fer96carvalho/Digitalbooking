@@ -4,13 +4,12 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 import api from '../../services/api';
-
 import { Input } from '../../components/Input';
 import { InputPassword } from '../../components/InputPassword';
 import { BoxForm } from "../../components/Form";
-
 import styled from './styles.module.scss';
 
 export function Register() {
@@ -39,10 +38,26 @@ export function Register() {
 
     try {
       const response = await api.post("/usuario", user);
-      console.log(response);
-      // navigate("/login");
+        if (response.status === 201){
+        Swal.fire(
+          'Registrado com Sucesso!',
+          '',
+          'success'
+        ).then((result)=>{
+          if (result.isConfirmed){
+            navigate("/login");
+          }
+        })
+        } 
+          
+        
     } catch {
       console.log("ERRRO")
+      Swal.fire(
+        'Ocorreu um erro, tente novamente!',
+        '',
+        'error'
+      )
     }
   }
 

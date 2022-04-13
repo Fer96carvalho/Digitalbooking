@@ -34,6 +34,7 @@ export function Login() {
   });
 
   async function handleSubmitForm(value) {
+      console.log(value)
       try{
         await api.post("/login", {
           email: value.email,
