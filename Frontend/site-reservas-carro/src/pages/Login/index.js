@@ -21,6 +21,8 @@ export function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  const [token, setToken] = useState();
+  const[listUsuarios, setListUsuarios] = useState();
 
   const schema = yup.object({
     email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
@@ -36,7 +38,13 @@ export function Login() {
         await api.post("/login", {
           email: value.email,
           senha: value.password,
+        }).then((response)=> setToken(response.data))
+        .then(async () =>{
+         await api.get('usuario').then((response)=> setListUsuarios(response.data))
         })
+
+        console.log(listUsuarios);
+
       createSession({ email: value.email, senha: value.password });
         navigate("/");
       }catch(error){
