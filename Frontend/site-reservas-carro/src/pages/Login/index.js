@@ -34,22 +34,33 @@ export function Login() {
   });
 
   async function handleSubmitForm(value) {
-      console.log(value)
       try{
         await api.post("/login", {
           email: value.email,
           senha: value.password,
         }).then((response)=> setToken(response.data))
-        .then(async () =>{
-         await api.get('usuario').then((response)=> setListUsuarios(response.data))
-        })
-
-        console.log(listUsuarios);
-
-      createSession({ email: value.email, senha: value.password });
-        navigate("/");
       }catch(error){
-        console.log(error)
+        console.log("Erro ao autenticar o usuario!", error)
+      }
+
+      try{
+        await api.get('/usuario',{
+          headers:{
+           'Authorization': `Bearer ${token}` 
+          }
+        }).then((response) => setListUsuarios(response.data))
+    
+        console.log(listUsuarios);
+        // esta demorando para chegar o token, assim dá erro ao buscar a lista de usuarios, tem que ver uma forma de esperar o token para depois fazer a chamada para a API. falta salvar o token no localStorage
+        
+        // falta fazer o filter * seria interessante alterar no back o retorno da api para somente um usuario, usando o email para comparar, assim não seria necessario fazer o filter e expor dados de outros usuarios.
+
+        //passar para o createSession o objeto com os dados do usuario
+
+  // createSession({ email: value.email, senha: value.password });
+    // navigate("/");
+      }catch(error){
+        console.log("Erro ao buscar o usuario!", error)
       }
   }
 
