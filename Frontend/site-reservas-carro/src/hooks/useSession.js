@@ -1,4 +1,7 @@
 import { createContext, useContext, useState } from "react";
+import { Navigate } from "react-router-dom";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 
 const ContextSession = createContext({});
 
@@ -25,12 +28,20 @@ export function ContextSessionProvider({ children }) {
     };
 
     localStorage.setItem("@SESSION", JSON.stringify(user));
-    setSession(user);
-  }
-
+    
+      setSession(user);
+     
+  
+  } 
   function deleteSession() {
     localStorage.setItem("@SESSION", JSON.stringify(null));
+    localStorage.setItem("token", JSON.stringify());
     setSession({});
+    Swal.fire(
+      'Logout com sucesso!',
+      '',
+      'success'
+    )
   }
 
   function getSession() {

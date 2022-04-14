@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "react-bootstrap";
 import * as yup from "yup";
+import { Navigate } from "react-router-dom";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 
 import { Input } from "../../components/Input";
 import { InputPassword } from "../../components/InputPassword";
@@ -56,12 +59,7 @@ export function Login() {
         }).then((response) => setListUsuarios(response.data))
     
         console.log(listUsuarios);
-        // 1 - Enviar o token nos headers [X]
-        // esta demorando para chegar o token, 
-        // assim dá erro ao buscar a lista de usuarios, 
-        // tem que ver uma forma de esperar o token para depois 
-        // fazer a chamada para a API. falta salvar o token no localStorage
-
+        
         // 2 - Fazer o filter [] (??)
         // falta fazer o filter * 
         // seria interessante alterar no back o 
@@ -69,10 +67,25 @@ export function Login() {
         // email para comparar, assim não seria necessario fazer o 
         // filter e expor dados de outros usuarios.
 
-        //3 - passar para o createSession o objeto com os dados do usuario [X] linha 74
+       
+        let data = {
+          user: {
+            name: "Brunno",
+            lastname: "Faria"
+          }
+        }
 
-      createSession({ email: value.email, senha: value.password });
-    // navigate("/");
+        createSession(data);
+        Swal.fire(
+          'Login realizado com sucesso!',
+          '',
+          'success'
+        )
+        navigate("/");
+     
+      
+
+     //navigate("/");
       }catch(error){
         console.log("Erro ao buscar o usuario!", error)
       }
