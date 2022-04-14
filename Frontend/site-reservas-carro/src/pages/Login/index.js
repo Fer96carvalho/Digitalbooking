@@ -23,6 +23,7 @@ export function Login() {
 
   const [token, setToken] = useState();
   const[listUsuarios, setListUsuarios] = useState();
+  let temporaryToken = null;
 
   const schema = yup.object({
     email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
@@ -38,7 +39,11 @@ export function Login() {
         await api.post("/login", {
           email: value.email,
           senha: value.password,
-        }).then((response)=> setToken(response.data))
+        }).then((response)=> {
+          setToken(response.data)
+          localStorage.setItem("token", response.data);
+          temporaryToken = response.data;
+        })
       }catch(error){
         console.log("Erro ao autenticar o usuario!", error)
       }
@@ -46,18 +51,27 @@ export function Login() {
       try{
         await api.get('/usuario',{
           headers:{
-           'Authorization': `Bearer ${token}` 
+           'Authorization': `Bearer ${temporaryToken}` 
           }
         }).then((response) => setListUsuarios(response.data))
     
         console.log(listUsuarios);
-        // esta demorando para chegar o token, assim dá erro ao buscar a lista de usuarios, tem que ver uma forma de esperar o token para depois fazer a chamada para a API. falta salvar o token no localStorage
-        
-        // falta fazer o filter * seria interessante alterar no back o retorno da api para somente um usuario, usando o email para comparar, assim não seria necessario fazer o filter e expor dados de outros usuarios.
+        // 1 - Enviar o token nos headers [X]
+        // esta demorando para chegar o token, 
+        // assim dá erro ao buscar a lista de usuarios, 
+        // tem que ver uma forma de esperar o token para depois 
+        // fazer a chamada para a API. falta salvar o token no localStorage
 
-        //passar para o createSession o objeto com os dados do usuario
+        // 2 - Fazer o filter [] (??)
+        // falta fazer o filter * 
+        // seria interessante alterar no back o 
+        // retorno da api para somente um usuario, usando o 
+        // email para comparar, assim não seria necessario fazer o 
+        // filter e expor dados de outros usuarios.
 
-  // createSession({ email: value.email, senha: value.password });
+        //3 - passar para o createSession o objeto com os dados do usuario [X] linha 74
+
+      createSession({ email: value.email, senha: value.password });
     // navigate("/");
       }catch(error){
         console.log("Erro ao buscar o usuario!", error)
