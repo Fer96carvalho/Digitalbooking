@@ -9,7 +9,7 @@ import './style.css';
 import SearchMain from "../SearchMain";
 import PrincipalMain from "../PrincipalMain";
 
-function Main ({cidade, rangeReserva}) {
+function Main ({props}) {
 
     // const [listaProdutos, setListaProdutos] = useState([]);
     // const [listaImagens, setListaImagens] = useState([]);
@@ -42,19 +42,19 @@ function Main ({cidade, rangeReserva}) {
 
 
 {
-    if(typeof cidade === "undefined") {
+    if((props.cidade == "" && props.rangeReserva == "") || (typeof props.cidade === "undefined" && typeof props.rangeReserva === "undefined")) {
         return (
             <>
-            {console.log("Principal " + cidade)}
                 <PrincipalMain />
+                {/* {console.log(props.cidade + " " + props.rangeReserva)} */}
             </>
             
         )
     } else {
         return (
             <>
-                {console.log("Search " + cidade)}
-                <SearchMain />
+                <SearchMain props={props} />
+                {/* {console.log(props.cidade + " " + props.rangeReserva)} */}
             </>
         )
     }

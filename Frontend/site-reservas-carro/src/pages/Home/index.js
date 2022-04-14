@@ -12,6 +12,8 @@ function Home() {
                  
         setObjeto(data)
 
+        // console.log(objeto)
+
     }
 
     return (
@@ -20,7 +22,7 @@ function Home() {
                 <title> Digital Booking | Home</title>
             </Helmet>
             <Search onSaveData={handleSaveData} />
-            <Main objeto={objeto} />
+            <Main props={objeto} />
         </>
     )
 }

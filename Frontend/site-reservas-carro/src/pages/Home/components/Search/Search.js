@@ -66,29 +66,6 @@ function autoComplete(value) {
 
 const autoCompleteValores = autoComplete(value);
 
-
-const handleSubmit = (e) => {
-    
-    e.preventDefault();
-    
-        setCidade(document.querySelector('.inputCidade').value)
-        setRangeReserva(document.querySelector(".react-datepicker__input-container > input").value)
-    
-            const data = {
-                cidade, rangeReserva
-            }
-
-            console.log(data)
-            
-        onSaveData(data)
-
-}
-
-
-
-
-
-
 function getValueCidade(e){
     if (e.target.tagName === 'LI'){
     inputCidade.value = e.currentTarget.textContent;
@@ -96,10 +73,22 @@ function getValueCidade(e){
     }
 }
 
-function valorCidade(e) {
-    setCidade(e.target.value);
-}
+const handleSubmit = (e) => {
+    
+    e.preventDefault();
 
+        setCidade(document.querySelector('.inputCidade').value)
+        setRangeReserva(document.querySelector(".react-datepicker__input-container > input").value)
+    
+            const data = {
+                cidade, rangeReserva
+            }
+
+            // console.log(data)
+            
+        onSaveData(data)
+
+}
 
     return (
         <div className="div-search">
@@ -133,7 +122,7 @@ function valorCidade(e) {
                     <Form.Group className="mb-1">
                     <Form.Label>Checkin | Checkout</Form.Label>
                     <div className="div-dcalendar">
-                    <DoubleCalendar />
+                    <DoubleCalendar onChange={handleSubmit} />
                     </div>
                     </Form.Group>  
                     </Col>

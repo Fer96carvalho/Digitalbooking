@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 import './style.css';
 
-function SearchMain () {
+function SearchMain ({props}) {
 
     const [listaProdutos, setListaProdutos] = useState([]);
     const [listaImagens, setListaImagens] = useState([]);
@@ -35,6 +35,9 @@ function SearchMain () {
         getReservas();
         getImg();
     }, [])
+
+    
+    {console.log(props.cidade)}
 
     return (
             <div className="main__Container">
