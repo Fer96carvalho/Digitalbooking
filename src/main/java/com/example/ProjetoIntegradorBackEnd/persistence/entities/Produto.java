@@ -37,6 +37,12 @@ public class Produto {
     @JoinTable(name = "produtos_tem_caracteristica", joinColumns = {@JoinColumn(name = "produto_id")}, inverseJoinColumns = {@JoinColumn(name = "caracteristica_id")})
     private List<Caracteristica> caracteristicas;
 
+    private String regras;
+
+    private String cancelar;
+
+    private String seguranca;
+
     public Produto() {
 
     }
