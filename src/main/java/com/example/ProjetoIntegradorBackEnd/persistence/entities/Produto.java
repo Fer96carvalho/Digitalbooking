@@ -43,6 +43,10 @@ public class Produto {
 
     private String seguranca;
 
+    private String imagem;
+
+    private String endereco;
+
     public Produto() {
 
     }
