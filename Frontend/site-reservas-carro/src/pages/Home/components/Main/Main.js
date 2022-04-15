@@ -55,25 +55,6 @@ function Main ({props}) {
         )
     }
     
-
-
-
-        
-        // <>
- 
-     
-        //     {objeto.map(({cidade, rangeReserva}) => {
-                
-        //         if (objeto) {
-        //             return(<PrincipalMain />)
-        //         } else {
-        //             return(<SearchMain />)
-                    
-        //         }
-
-        //     })}
-
-        // </>
     
 }
 
