@@ -29,13 +29,10 @@ export function ContextSessionProvider({ children }) {
 
     localStorage.setItem("@SESSION", JSON.stringify(user));
     
-      setSession(user);
-     
-  
+    setSession(user);
   } 
   function deleteSession() {
     localStorage.setItem("@SESSION", JSON.stringify(null));
-    localStorage.setItem("token", JSON.stringify());
     setSession({});
     Swal.fire(
       'Logout com sucesso!',

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Home from "../pages/Home/";
 import {Login} from "../pages/Login";
 import { Register } from "../pages/Register";
@@ -7,6 +7,22 @@ import { Header } from "../pages/Home/components/Header";
 import Footer from "../pages/Home/components/Footer/Footer";
 import Detalhes from "../pages/Detalhes";
 import Reserva from "../pages/Reserva";
+import { Admin } from '../pages/Admin';
+
+import { useSession } from '../hooks/useSession';
+
+function PrivateRoute({ children }) {
+  const { session } = useSession();
+  const location = useLocation();
+
+  return session.user ? children : (
+    <Navigate 
+      to="/login"
+      state={{from: location}}
+      replace
+    />
+  );
+}
 
 function Router() {
   return (
@@ -18,7 +34,12 @@ function Router() {
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/produto/detalhes/:id" element={<Detalhes/>}/>
-          <Route path="/reserva/produto/:id" element={<Reserva/>}/>
+          <Route path="/reserva/produto/:id" element={
+            <PrivateRoute>
+              <Reserva/>
+            </PrivateRoute>
+          }/>
+          <Route path="/administrador" element={<Admin/>}/>
 
           {/* <Route path="/categorias" element={Category}/> */}
           {/* <Route path="/categoria/:category" element={Category}/> */}

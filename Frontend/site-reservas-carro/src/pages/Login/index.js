@@ -1,11 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button, Container, Spinner, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "react-bootstrap";
 import * as yup from "yup";
-import { Navigate } from "react-router-dom";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -13,7 +12,6 @@ import { Input } from "../../components/Input";
 import { InputPassword } from "../../components/InputPassword";
 import { BoxForm } from "../../components/Form";
 
-import { useMutation } from "react-query";
 import api from "../../services/api";
 import { useSession } from "../../hooks/useSession";
 import { useState } from "react";
@@ -21,12 +19,11 @@ import { useState } from "react";
 export function Login() {
   const { createSession } = useSession();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const [token, setToken] = useState();
-  const[listUsuarios, setListUsuarios] = useState();
-  let temporaryToken = null;
+  console.log(location);
 
   const schema = yup.object({
     email: yup.string().email("Digite um e-mail valido.").required("Campo obrigatório."),
@@ -38,57 +35,86 @@ export function Login() {
   });
 
   async function handleSubmitForm(value) {
+    setIsLoading(true);
       try{
-        await api.post("/login", {
+        const responseToken = await api.post("/login", {
           email: value.email,
           senha: value.password,
-        }).then((response)=> {
-          setToken(response.data)
-          localStorage.setItem("token", response.data);
-          temporaryToken = response.data;
-        })
-      }catch(error){
-        console.log("Erro ao autenticar o usuario!", error)
-      }
+        });
 
-      try{
-        await api.get('/usuario',{
+        const responseUsers = await api.get('/usuario', {
           headers:{
-           'Authorization': `Bearer ${temporaryToken}` 
+            'Authorization': `Bearer ${responseToken.data}` 
           }
-        }).then((response) => setListUsuarios(response.data))
-    
-        console.log(listUsuarios);
-        
-        // 2 - Fazer o filter [] (??)
-        // falta fazer o filter * 
-        // seria interessante alterar no back o 
-        // retorno da api para somente um usuario, usando o 
-        // email para comparar, assim não seria necessario fazer o 
-        // filter e expor dados de outros usuarios.
+        });
 
-       
-        let data = {
+        const filterUser = responseUsers.data.filter(user => user.email === value.email);
+
+        const {nome, sobrenome, id, email} = filterUser[0];
+
+        const user = {
+          token: responseToken,
           user: {
-            name: "Brunno",
-            lastname: "Faria"
+            id,
+            name: nome,
+            lastname: sobrenome,
+            email
           }
         }
 
-        createSession(data);
+        createSession(user);
         Swal.fire(
           'Login realizado com sucesso!',
           '',
           'success'
-        )
-        navigate("/");
-     
-      
+        );
 
-     //navigate("/");
-      }catch(error){
-        console.log("Erro ao buscar o usuario!", error)
+        if(location.state) {
+          navigate(location.state.from.pathname)
+        } else {
+          navigate("/");
+        }
+        
+      }catch(error) {
+        setIsLoading(false);
+        setIsError(true);
+        // console.log("Erro ao autenticar o usuario!", error);
       }
+
+      // try{
+      //   await api.get('/usuario',{
+      //     headers:{
+      //      'Authorization': `Bearer ${temporaryToken}` 
+      //     }
+      //   }).then((response) => setListUsuarios(response.data))
+    
+      //   console.log(listUsuarios);
+        
+      //   // 2 - Fazer o filter [] (??)
+      //   // falta fazer o filter * 
+      //   // seria interessante alterar no back o 
+      //   // retorno da api para somente um usuario, usando o 
+      //   // email para comparar, assim não seria necessario fazer o 
+      //   // filter e expor dados de outros usuarios.
+
+      //   let data = {
+      //     user: {
+      //       name: "Brunno",
+      //       lastname: "Faria"
+      //     }
+      //   }
+
+      //   createSession(data);
+      //   Swal.fire(
+      //     'Login realizado com sucesso!',
+      //     '',
+      //     'success'
+      //   )
+      //   navigate("/");
+     
+      // }catch(error){
+      //   console.log("Erro ao buscar o usuario!", error)
+      // }
   }
 
   return (
