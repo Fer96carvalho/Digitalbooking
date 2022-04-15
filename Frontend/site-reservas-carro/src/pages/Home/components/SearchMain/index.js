@@ -6,35 +6,7 @@ import { useState, useEffect } from 'react';
 
 import './style.css';
 
-function SearchMain ({props}) {
-
-    const [listaProdutos, setListaProdutos] = useState([]);
-    const [listaImagens, setListaImagens] = useState([]);
-    const [listaReservas, setListaReservas] = useState([]);
-
-    const getProdutos = async () => {
-        await api.get('/produto')
-        .then(response => setListaProdutos(response.data))
-        .catch((err) => console.error(err))         
-    }
-
-    const getReservas = async () => {
-        await api.get('/reserva')
-        .then(response => setListaReservas(response.data))
-        .catch((err) => console.log(err))
-    }
-
-    const getImg = async () => {
-        await api.get('/imagem')
-        .then(response => setListaImagens(response.data))
-        .catch((err) => console.error(err))
-    }
-
-    useEffect(() => {
-        getProdutos();
-        getReservas();
-        getImg();
-    }, [])
+function SearchMain ({props, listaProdutos, listaImagens}) {
 
     
     {console.log(props.cidade)}

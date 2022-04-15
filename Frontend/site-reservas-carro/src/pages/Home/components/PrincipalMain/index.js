@@ -7,35 +7,7 @@ import { useState, useEffect } from 'react';
 import './style.css';
 import Position from "rsuite/esm/Overlay/Position";
 
-function PrincipalMain () {
-
-    const [listaProdutos, setListaProdutos] = useState([]);
-    const [listaImagens, setListaImagens] = useState([]);
-    const [listaReservas, setListaReservas] = useState([]);
-
-    const getProdutos = async () => {
-        await api.get('/produto')
-        .then(response => setListaProdutos(response.data))
-        .catch((err) => console.error(err))         
-    }
-
-    const getReservas = async () => {
-        await api.get('/reserva')
-        .then(response => setListaReservas(response.data))
-        .catch((err) => console.log(err))
-    }
-
-    const getImg = async () => {
-        await api.get('/imagem')
-        .then(response => setListaImagens(response.data))
-        .catch((err) => console.error(err))
-    }
-
-    useEffect(() => {
-        getProdutos();
-        getReservas();
-        getImg();
-    }, [])
+function PrincipalMain ({listaProdutos, listaImagens}) {
 
    
     return (
@@ -49,7 +21,7 @@ function PrincipalMain () {
 
 
 
-                    {listaProdutos.slice(4).map(({ id, nome, categoria }) => {
+                    {listaProdutos.slice(0, 4).map(({ id, nome, categoria }) => {
                         return (
                             <div className="card">
                                 {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ url }) => {
@@ -84,7 +56,7 @@ function PrincipalMain () {
                                 {
                                     localStorage.getItem('@SESSION') === 'null' ? '' : <span className="heart"></span>
                                 }
-                                
+
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">
