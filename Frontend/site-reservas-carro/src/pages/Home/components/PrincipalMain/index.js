@@ -81,7 +81,10 @@ function PrincipalMain () {
                     {listaProdutos.map(({ id, nome, descricao, cidade, categoria }) => {
                         return (
                             <div className="cartao" key={id}>
-                                <span className="heart"></span>
+                                {
+                                    localStorage.getItem('@SESSION') === 'null' ? '' : <span className="heart"></span>
+                                }
+                                
                                 <span className="nota">8.0</span>
 
                                 <div className="cartaoImg">

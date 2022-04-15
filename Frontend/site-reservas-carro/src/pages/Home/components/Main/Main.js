@@ -39,9 +39,13 @@ function Main ({props}) {
     //     getImg();
     // }, [])
   
+// if (localStorage.getItem('@SESSION') === 'null') {
+//     console.log("Null")
+// } else {
+//     console.log("Não null")
+// }
 
 
-{
     if((props.cidade == "" && props.rangeReserva == "") || (typeof props.cidade === "undefined" && typeof props.rangeReserva === "undefined")) {
         return (
             <>
@@ -59,7 +63,7 @@ function Main ({props}) {
         )
     }
     
-}
+
 
 
         

@@ -12,8 +12,6 @@ function Home() {
                  
         setObjeto(data)
 
-        // console.log(objeto)
-
     }
 
     return (
