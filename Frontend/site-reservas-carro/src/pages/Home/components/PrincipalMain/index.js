@@ -50,7 +50,7 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
                         Recomendações
                     </h2>
 
-                    {listaProdutos.map(({ id, nome, descricao, cidade, categoria }) => {
+                    {listaProdutos.slice(0, 8).map(({ id, nome, descricao, cidade, categoria }) => {
                         return (
                             <div className="cartao" key={id}>
                                 {
