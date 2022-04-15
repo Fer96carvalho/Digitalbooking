@@ -19,7 +19,9 @@ function SearchMain ({props, listaProdutos, listaImagens}) {
                         Resultado:
                     </h2>
 
-                    {listaProdutos.map(({ id, nome, descricao, cidade, categoria }) => {
+   
+                    {listaProdutos.filter(valorCidade => valorCidade.cidade.nome == props.cidade).map(({ id, nome, descricao, cidade, categoria }) => {
+
                         return (
                             <div className="cartao" key={id}>
                                 {
