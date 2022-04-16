@@ -8,15 +8,13 @@ import './style.css';
 
 function SearchMain ({props, listaProdutos, listaImagens}) {
 
-    
-    {console.log(props.cidade)}
 
     return (
             <div className="main__Container">
                 <div className="blocoLista">
 
                     <h2>
-                        Resultado:
+                        Resultado: {listaProdutos.filter(valorCidade => valorCidade.cidade.nome == props.cidade).length} registros encontrados
                     </h2>
 
    
