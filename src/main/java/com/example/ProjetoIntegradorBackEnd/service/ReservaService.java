@@ -27,8 +27,10 @@ public class ReservaService {
 
         if(reserva.getProduto() != null){
             reservaCriar.setHoraReserva(reserva.getHoraReserva());
+            reservaCriar.setHoraDevolucao(reserva.getHoraDevolucao());
             reservaCriar.setInicioReserva(reserva.getInicioReserva());
             reservaCriar.setFimReserva(reserva.getFimReserva());
+            reservaCriar.setCnh(reserva.getCnh());
             reservaCriar.setUsuario(reserva.getUsuario());
             reservaCriar.setProduto(reserva.getProduto());
 

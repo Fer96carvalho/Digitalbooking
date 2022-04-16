@@ -16,9 +16,11 @@ public class Reserva {
     @Column(name = "id", updatable = false,nullable = false)
     private Integer id;
 
-    private LocalTime horaReserva;
+    private String horaReserva;
+    private String horaDevolucao;
     private LocalDate inicioReserva;
     private LocalDate fimReserva;
+    private String cnh;
 
     @ManyToOne
     @JoinColumn(name = "produto_id", foreignKey = @ForeignKey(name = "fk_produto"))
