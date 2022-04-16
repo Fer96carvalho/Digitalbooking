@@ -1,18 +1,22 @@
 import React,{useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
 import "./style.css";
 import { BsGeoAltFill } from "react-icons/bs";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
+import { useNavigate } from "react-router-dom";
+
 import api from "../../../../services/api";
 
-export default function DetalhesReserva({id, nome, categoria, cidade, pais , horario, datas}) {
+export default function DetalhesReserva({id, token, nome, categoria, cidade, pais , horario, datas, userID, cnh}) {
 
   const [listaImagens, setListaImagens] = useState([]);
   const [dataReserva, setDataReserva] = useState('__/__/____');
   const [dataDevolucao, setDataDevolucao] = useState('__/__/____');
+  const navigate = useNavigate();
 
   const dataReservaTransform = async () => {
     await datas;
-    if (datas[0] === undefined | datas[1] === undefined){
+    if (datas[0] === undefined && datas[1] === undefined){
       return null;
     } else {
     setDataReserva(new Intl.DateTimeFormat('pt-BR').format(datas[0]));
@@ -43,6 +47,53 @@ let imageGalery = [];
         return item;
     }
     getImageGalery(imageGalery);
+
+    async function criarReserva(){
+      let dataBancoReserva = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(datas[0]);
+      let dataBancoDevolucao = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(datas[1]);
+      console.log(token);
+      console.log(cnh)
+
+      const reserva = {
+        horaReserva: `${horario[0]}`,
+        horaDevolucao: `${horario[1]}`,
+        inicioReserva: `${dataBancoReserva}`,
+        fimReserva: `${dataBancoDevolucao}`,
+        cnh: `${cnh}`,
+        produto:{
+          id:`${id}`
+        },
+        usuario:{
+          id:`${userID}`
+        }
+      }
+
+      try{
+        const resgistrarReserva = await api.post('/reserva', reserva, {
+          headers:{
+            'Authorization': `Bearer ${token}` 
+          }
+        })
+        if (resgistrarReserva.status === 200){
+          Swal.fire(
+            'Reserva agendada com Sucesso!',
+            `Enviamos um email para `,
+            'success'
+          ).then((result)=>{
+            if (result.isConfirmed){
+              navigate(`/produto/detalhes/${id}`);
+            }
+          })
+        }
+      }catch(error){
+        Swal.fire(
+          'Ocorreu um problema!',
+          `Tente novamente! `,
+          'error'
+        )
+      }
+      
+    }
 
   return (
     <>
@@ -86,9 +137,9 @@ let imageGalery = [];
           </div>
         </div>
       <div className="div-button-reserva">
-          <Link to={`/`}>
-            <button className="button-confirm-reserva">Confirmar reserva</button>
-          </Link>
+          {/* <Link to={`/`}> */}
+            <button onClick={criarReserva} className="button-confirm-reserva">Confirmar reserva</button>
+          {/* </Link> */}
         </div>
     </>
   )

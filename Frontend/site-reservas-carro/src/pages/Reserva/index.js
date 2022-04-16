@@ -13,18 +13,20 @@ import FormsCliente from "./components/FormDadosCliente";
 export default function Reserva() {
   const { id } = useParams();
   const [produto, setProduto] = useState({});
-  const [token, setToken] = useState("");
   let selected = true;
+  const dataUser = JSON.parse(localStorage.getItem("@SESSION"));
 
-  function topo() {
-    window.parent.scroll(0, 0);
-  }
+  // function topo() {
+  //   window.parent.scroll(0, 0);
+  // }
 
   const [horaReserva, setHoraReserva] = useState([]);
 
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const dates = [startDate, endDate];
+  const [cnhValue, setCnhValue] = useState();
+
 
   // function topo()
   // {
@@ -49,12 +51,12 @@ export default function Reserva() {
   return (
     <>
       <section>
-        <BannerInfo categoria={produto.categoria.titulo} nome={produto.nome} />
+        <BannerInfo categoria={produto.categoria.titulo} nome={produto.nome} id={id}/>
       </section>
       <section className="body-reserva">
         <section className="main-reserva">
           <div className="section-form">
-            <FormsCliente />
+            <FormsCliente data={dataUser} setCnhValue={setCnhValue}/>
           </div>
           <div>
             <div className="div-calendar">
@@ -67,7 +69,7 @@ export default function Reserva() {
           </div>
         </section>
         <section className="section-detalhe-reserva">
-          <DetalhesReserva id={id} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} horario={horaReserva} datas={dates} />
+          <DetalhesReserva id={id} token={dataUser.token} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} horario={horaReserva} datas={dates} userID={dataUser.user.id} cnh={cnhValue}/>
         </section>
       </section>
       <section>

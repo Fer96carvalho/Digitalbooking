@@ -1,11 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { AiOutlineLeft } from "react-icons/ai";
 
 
-export default function BannerInfo({categoria, nome}) {
-
+export default function BannerInfo({categoria, nome, id}) {
+const navigate = useNavigate();
     function goBack() {
-        window.history.back()
+        navigate(`/produto/detalhes/${id}`)
     }
 
     return (
