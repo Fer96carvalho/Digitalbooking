@@ -74,7 +74,6 @@ function getValueCidade(e){
 }
 
 const handleSubmit = (e) => {
-    
     e.preventDefault();
 
         setCidade(document.querySelector('.inputCidade').value)
@@ -83,10 +82,7 @@ const handleSubmit = (e) => {
             const data = {
                 cidade, rangeReserva
             }
-            
-        onSaveData(data)
-
-
+        
 }
 
     return (
@@ -127,7 +123,7 @@ const handleSubmit = (e) => {
                     </Col>
                     <Col md={2}>
                     <Form.Group className=" d-flex justify-content-center">
-                    <Button className="button-search" type="submit" onClick={handleSubmit}>
+                    <Button className="button-search" onClick={handleSubmit}>
                         Buscar
                     </Button>
                     </Form.Group>

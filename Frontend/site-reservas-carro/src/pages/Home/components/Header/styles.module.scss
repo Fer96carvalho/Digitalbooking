@@ -1,29 +1,15 @@
 .nav {
   height: 11vh;
-  padding: 0 1rem;
-  background-color: #FBC02D;
+  // position: relative;
 
- 
-
-
-  > div {
-    height: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-
-    a img {
-      max-width: 175px;
-      width: 100%;
-      border: 1px solid #ffff;
-      border-radius: 10px;
-
-    }
+  img {
+    max-width: 175px;
+    width: 100%;
   }
+}
+
+.menu_toggle{
+  margin-left: auto;
 }
 
 @media screen and (min-width: 768px) {
