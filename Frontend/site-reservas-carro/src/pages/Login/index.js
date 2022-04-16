@@ -23,6 +23,13 @@ export function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  function fechar(){
+    if(location.state) {
+      navigate(-1)
+    } else {
+      navigate("/");
+    }
+  }
   console.log(location);
 
   const schema = yup.object({
@@ -53,7 +60,7 @@ export function Login() {
         const {nome, sobrenome, id, email} = filterUser[0];
 
         const user = {
-          token: responseToken,
+          token: responseToken.data,
           user: {
             id,
             name: nome,
@@ -177,10 +184,10 @@ export function Login() {
         </Form.Text>
         </BoxForm>
 
-        <Link className="fechar__Login" to="/">
+        <Button onClick={fechar} className="fechar__Login" to="/">
           {" "}
           X{" "}
-        </Link>
+        </Button>
       </Container>
     </>
   );

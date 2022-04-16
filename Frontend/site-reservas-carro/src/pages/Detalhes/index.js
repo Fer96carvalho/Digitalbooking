@@ -7,22 +7,51 @@ import { Descricao } from './components/Descricao';
 import InfoProduto from './components/InfoProduto';
 import styled from "./components/Calendar/styles.module.scss";
 import { Container } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 
-
-
-import { useParams } from 'react-router-dom';
+import { useSession } from '../../hooks/useSession';
+import { useParams, useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import Galery from './components/Galery';
 
 
 function Detalhes() {
-
-
   const { id } = useParams();
+  const { session } = useSession();
+  let navigate = useNavigate();
+
+
 
   const [produto, setProduto] = useState({});
+
+  function UserLoged(){
+
+
+    return session.user ? (navigate(`/reserva/produto/${id}`)) :  (
+    Swal.fire({
+      icon:  'info',
+      iconColor:'#FBC02D',
+      title: 'Você precisa estar logado!',
+      text: 'Para criar uma reserva faça login ou crie uma conta',
+      showDenyButton: true,
+      focusConfirm: false,
+      confirmButtonText: 'Login',
+      confirmButtonColor:'#FBC02D',
+      denyButtonText: `Criar conta`,
+      denyButtonColor: '#263238',
+      showCloseButton: true
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        navigate(`/reserva/produto/${id}`)
+      } else if (result.isDenied) {
+        navigate('/register')
+      }
+    }) 
+    );
+  }
 
   useEffect(() => {
     async function getProduto() {
@@ -49,9 +78,7 @@ function Detalhes() {
           <div className={styled.box_info}>
             <div>
               <p className="font-500 my-3">Deseja reservar este produto?</p>
-              <Link to={`/reserva/produto/${id}`}>
-              <button className="font-500">Iniciar Reserva</button>
-              </Link>
+              <button className="font-500" onClick={UserLoged}>Iniciar Reserva</button>
             </div>
           </div>
         </Container>

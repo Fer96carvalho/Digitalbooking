@@ -1,14 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { AiOutlineLeft, AiOutlineShareAlt, AiOutlineHeart } from "react-icons/ai";
 import { BsGeoAltFill } from "react-icons/bs";
 
 import "./style.css";
 
 export default function InfoProduto({ nome, categoria, cidade, pais }) {
-
+const navigate = useNavigate();
 
     function goBack() {
-        window.history.back()
+        navigate('/');
     }
     
   return (

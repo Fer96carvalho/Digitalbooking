@@ -28,6 +28,10 @@ export function Register() {
     resolver: yupResolver(schema),
   });
 
+  function fechar(){
+      navigate(-1)
+  }
+
   async function dataForm(data) {
     const user = {
       nome: data.name,
@@ -97,7 +101,7 @@ export function Register() {
         </Form.Text>
       </BoxForm>
 
-      <Link className="fechar__Login" to="/"> X </Link>
+      <Button onClick={fechar} className="fechar__Login" to="/"> X </Button>
 
     </Container>
     </>
