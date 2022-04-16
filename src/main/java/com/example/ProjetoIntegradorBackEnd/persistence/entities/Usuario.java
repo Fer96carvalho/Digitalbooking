@@ -39,6 +39,10 @@ public class Usuario {
     @Size(max = 30, message = "A senha deve conter entre 6 e 30 caracteres")
     private String senha;
 
+    @NotBlank(message = "Função não deve estar vazia")
+    @Size(min=5, max = 10, message = "A função deve conter entre 5 e 10 caracteres")
+    private String funcao;
+
     public Usuario() {
 
     }
