@@ -82,6 +82,8 @@ const handleSubmit = (e) => {
             const data = {
                 cidade, rangeReserva
             }
+
+            onSaveData(data)
         
 }
 

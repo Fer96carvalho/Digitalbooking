@@ -3,13 +3,45 @@ import facebook from '../../../../Assets/img/facebook-brands.svg';
 import linkedin from '../../../../Assets/img/linkedin-in-brands.svg';
 import twitter from '../../../../Assets/img/twitter-brands.svg';
 import instagram from '../../../../Assets/img/instagram-brands.svg';
+import { Button } from 'react-bootstrap';
+import { useEffect } from 'react';
 
 import './style.css'
 
+
+const handleCookies = (e) => {
+
+    e.preventDefault();
+    document.querySelector(".box-cookies").classList.add('hide');
+    localStorage.setItem("avsCookies", "accept");
+
+}
+
+
 function Footer () {
+
+
+    // const avsCookies = () => {
+    //     if (!localStorage.getItem("avsCookies")) {
+    //         document.querySelector(".box-cookies").classList.remove('hide');
+    //     }
+    // }
+
+    // avsCookies();
+
     return (
         <>
             <footer className="rodape">
+
+                <div className="box-cookies hide">
+                    <p className="msg-cookies">
+                        Nosso site utiliza cookies para melhorar sua experiência em nossos serviços. Ao navegar, você concorda com nossa política de privacidade.
+                    </p>
+                    <Button className="btn-cookies" onClick={handleCookies}>
+                        Entendi
+                    </Button>
+                </div>
+
                 <div className="rodape__Copyright">
                     <p className="copyright">@2022 Digital Booking</p>
                 </div>
