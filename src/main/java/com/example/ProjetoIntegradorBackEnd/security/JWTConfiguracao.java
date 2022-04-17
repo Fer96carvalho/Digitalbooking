@@ -41,6 +41,7 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.GET, "/reserva/{id}").permitAll()
                 .antMatchers(HttpMethod.GET, "/detalhes").permitAll()
                 .antMatchers(HttpMethod.GET, "/reserva").permitAll()
+//                .antMatchers(HttpMethod.POST, "/reserva").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAutenticarFilter(authenticationManager()))
