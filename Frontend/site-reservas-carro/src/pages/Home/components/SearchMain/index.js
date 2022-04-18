@@ -9,6 +9,9 @@ import './style.css';
 function SearchMain ({props, listaProdutos, listaImagens}) {
 
 
+    console.log(props.cidade)
+
+
     return (
             <div className="main__Container">
                 <div className="blocoLista">
@@ -23,7 +26,7 @@ function SearchMain ({props, listaProdutos, listaImagens}) {
                         return (
                             <div className="cartao" key={id}>
                                 {
-                                    localStorage.getItem('@SESSION') === 'null' ? '' : <span className="heart"></span>
+                                    localStorage.getItem('@SESSION') === 'null' || !localStorage.getItem('@SESSION') ? '' : <span className="heart"></span>
                                 }
                                 
                                 <span className="nota">8.0</span>

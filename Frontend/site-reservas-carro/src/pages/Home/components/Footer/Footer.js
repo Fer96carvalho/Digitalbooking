@@ -21,13 +21,13 @@ const handleCookies = (e) => {
 function Footer () {
 
 
-    // const avsCookies = () => {
-    //     if (!localStorage.getItem("avsCookies")) {
-    //         document.querySelector(".box-cookies").classList.remove('hide');
-    //     }
-    // }
+    const avsCookies = () => {
+        if (!localStorage.getItem("avsCookies")) {
+            document.querySelector(".box-cookies").classList.remove('hide');
+        }
+    }
 
-    // avsCookies();
+    avsCookies();
 
     return (
         <>
