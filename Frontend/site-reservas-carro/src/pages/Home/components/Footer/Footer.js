@@ -4,7 +4,6 @@ import linkedin from '../../../../Assets/img/linkedin-in-brands.svg';
 import twitter from '../../../../Assets/img/twitter-brands.svg';
 import instagram from '../../../../Assets/img/instagram-brands.svg';
 import { Button } from 'react-bootstrap';
-import { useEffect } from 'react';
 
 import './style.css'
 
@@ -18,16 +17,16 @@ const handleCookies = (e) => {
 }
 
 
-function Footer () {
+// function Footer () {
 
 
-    const avsCookies = () => {
-        if (!localStorage.getItem("avsCookies")) {
-            document.querySelector(".box-cookies").classList.remove('hide');
-        }
-    }
+//     const avsCookies = () => {
+//         if (!localStorage.getItem("avsCookies")) {
+//             document.querySelector(".box-cookies").classList.remove('hide');
+//         }
+//     }
 
-    avsCookies();
+//     avsCookies();
 
     return (
         <>
