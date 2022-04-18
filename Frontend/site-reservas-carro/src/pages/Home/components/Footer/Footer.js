@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap';
 import './style.css'
 
 
+
 const handleCookies = (e) => {
 
     e.preventDefault();
@@ -16,18 +17,18 @@ const handleCookies = (e) => {
 
 }
 
+const avsCookies = () => {
+    
+    if (!localStorage.getItem("avsCookies")) {
+        document.querySelector(".box-cookies").classList.remove('hide');
+    }
 
-// const avsCookies = () => {
-//     if (!localStorage.getItem("avsCookies")) {
-//         if (document.querySelector(".box-cookies").contains(".box-cookies")) document.querySelector(".box-cookies").classList.remove('hide');
-//     }
-// }
+}
 
 // avsCookies();
 
 
 function Footer () {
-
 
 
 

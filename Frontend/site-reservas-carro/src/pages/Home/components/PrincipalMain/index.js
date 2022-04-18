@@ -6,15 +6,15 @@ import './style.css';
 
 function PrincipalMain ({listaProdutos, listaImagens}) {
 
-    const [dadoGeolocation, setDadoGeolocation] = useState([]);
+    const [latitudeGeolocation, setLatitudeGeolocation] = useState([]);
+    const [longitudeGeolocation, setLongitudeGeolocation] = useState({});
 
     const getLatLng = () => {
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
-    
-                setDadoGeolocation(`${position.coords.latitude},${position.coords.longitude}`)
-                
-                // console.log("LatLng: " + dadoGeolocation)
+
+                setLatitudeGeolocation(position.coords.latitude)
+                setLongitudeGeolocation(position.coords.longitude)  
 
             }, (error) => {
                 console.log(error)
@@ -26,7 +26,7 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
 
     const getGeolocation = async () => {
 
-                await apiGeolocation.get(`xml?latlng=${dadoGeolocation}`)
+                await apiGeolocation.get(`reverse?lat=${latitudeGeolocation}&lon=${longitudeGeolocation}&format=json`)
                 .then(response => console.log(response))
                 .catch(err => console.log(err)) 
         
@@ -43,7 +43,7 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
     useEffect(() => {
         getLatLng();
         getGeolocation();
-        shuffleProdutos(listaProdutos)
+        shuffleProdutos(listaProdutos);
     })
  
 
