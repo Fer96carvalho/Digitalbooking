@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import facebook from '../../../../Assets/img/facebook-brands.svg';
 import linkedin from '../../../../Assets/img/linkedin-in-brands.svg';
 import twitter from '../../../../Assets/img/twitter-brands.svg';
@@ -17,16 +17,19 @@ const handleCookies = (e) => {
 }
 
 
-// function Footer () {
-
-
-//     const avsCookies = () => {
-//         if (!localStorage.getItem("avsCookies")) {
-//             document.querySelector(".box-cookies").classList.remove('hide');
-//         }
+// const avsCookies = () => {
+//     if (!localStorage.getItem("avsCookies")) {
+//         if (document.querySelector(".box-cookies").contains(".box-cookies")) document.querySelector(".box-cookies").classList.remove('hide');
 //     }
+// }
 
-//     avsCookies();
+// avsCookies();
+
+
+function Footer () {
+
+
+
 
     return (
         <>
