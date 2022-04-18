@@ -64,7 +64,7 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
                                 {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ url }) => {
                                     return (
                                         <Link to={`/produto/detalhes/${id}`}>
-                                            <img src={ url } alt={`Imagem de carro ${categoria.titulo}`} />
+                                            <img src={ url } alt={`Imagem de carro ${categoria.titulo}`} loading="lazy" />
                                         </Link>
                                     )
                                 })}
@@ -99,7 +99,7 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
 
                                 <div className="cartaoImg">
                                     {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ id, url }) => {
-                                        return (<img src={url} key={id} alt="" />)
+                                        return (<img src={url} key={id} alt="" loading="lazy" />)
                                     })}
                                 </div>
 
