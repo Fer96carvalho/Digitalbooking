@@ -1,36 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import apiGeolocation from "../../../../services/apiGeolocation";
 
 import './style.css';
 
 function PrincipalMain ({listaProdutos, listaImagens}) {
-
-    const [latitudeGeolocation, setLatitudeGeolocation] = useState([]);
-    const [longitudeGeolocation, setLongitudeGeolocation] = useState({});
-
-    const getLatLng = () => {
-        if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition((position) => {
-
-                setLatitudeGeolocation(position.coords.latitude)
-                setLongitudeGeolocation(position.coords.longitude)  
-
-            }, (error) => {
-                console.log(error)
-            }, {enableHightAccuracy: true, maximumAge: 30000, timeout: 30000})
-        } else {
-            console.log('Ops, não foi possível pegar sua localização')
-        }
-    }
-
-    const getGeolocation = async () => {
-
-                await apiGeolocation.get(`reverse?lat=${latitudeGeolocation}&lon=${longitudeGeolocation}&format=json`)
-                .then(response => console.log(response))
-                .catch(err => console.log(err)) 
-        
-    }
 
     const shuffleProdutos = (arr) => {
         for (let i = arr.length - 1; i > 0; i--){
@@ -41,13 +14,9 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
     }
 
     useEffect(() => {
-        getLatLng();
-        getGeolocation();
         shuffleProdutos(listaProdutos);
     })
  
-
-
     return (
         <>
             <div className="main__Container">
@@ -99,7 +68,7 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
 
                                 <div className="cartaoImg">
                                     {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ id, url }) => {
-                                        return (<img src={url} key={id} alt="" loading="lazy" />)
+                                        return (<img src={url} alt="" loading="lazy" />)
                                     })}
                                 </div>
 

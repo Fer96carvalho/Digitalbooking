@@ -16,9 +16,9 @@ function SearchMain ({props, listaProdutos, listaImagens}) {
             <div className="main__Container">
                 <div className="blocoLista">
 
-                    <h2>
+                    <h3>
                         Resultado: {listaProdutos.filter(valorCidade => valorCidade.cidade.nome == props.cidade).length} registros encontrados
-                    </h2>
+                    </h3>
 
    
                     {listaProdutos.filter(valorCidade => valorCidade.cidade.nome == props.cidade).map(({ id, nome, descricao, cidade, categoria }) => {
