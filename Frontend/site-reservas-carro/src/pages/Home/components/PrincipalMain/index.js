@@ -1,26 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-import api from '../../../../services/api';
-import { useState, useEffect } from 'react';
+import apiGeolocation from "../../../../services/apiGeolocation";
 
 import './style.css';
-import Position from "rsuite/esm/Overlay/Position";
-
-
 
 function PrincipalMain ({listaProdutos, listaImagens}) {
 
+    const [dadoGeolocation, setDadoGeolocation] = useState([]);
 
-        function shuffleProdutos(arr) {
-            for (let i = arr.length - 1; i > 0; i--){
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
+    const getLatLng = () => {
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition((position) => {
+    
+                setDadoGeolocation(`${position.coords.latitude},${position.coords.longitude}`)
+                
+                // console.log("LatLng: " + dadoGeolocation)
+
+            }, (error) => {
+                console.log(error)
+            }, {enableHightAccuracy: true, maximumAge: 30000, timeout: 30000})
+        } else {
+            console.log('Ops, não foi possível pegar sua localização')
         }
+    }
 
+    const getGeolocation = async () => {
+
+                await apiGeolocation.get(`xml?latlng=${dadoGeolocation}`)
+                .then(response => console.log(response))
+                .catch(err => console.log(err)) 
+        
+    }
+
+    const shuffleProdutos = (arr) => {
+        for (let i = arr.length - 1; i > 0; i--){
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    useEffect(() => {
+        getLatLng();
+        getGeolocation();
         shuffleProdutos(listaProdutos)
+    })
+ 
 
 
     return (
