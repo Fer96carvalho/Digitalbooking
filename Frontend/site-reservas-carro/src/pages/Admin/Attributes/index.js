@@ -7,9 +7,7 @@ import styled from './styles.module.scss';
 
 export function Attibutes({attributes, setAttributes}) {
   const [name, setName] = useState("");
-  const [icon, setIcon] = useState("");
   const [errorName, setErrorName] = useState("");
-  const [errorIcon, setErrorIcon] = useState("");
 
   function handleAddAttribute() {
     let error = false;
@@ -19,21 +17,15 @@ export function Attibutes({attributes, setAttributes}) {
       error = true;
     }
 
-    if(icon.length === 0) {
-      setErrorIcon("Campo Obrigatório");
-      error = true;
-    }
+   
 
     if(error) return;
 
-    setErrorIcon("");
     setErrorName("");
     setName("");
-    setIcon("");
     
     const newAttribute = {
-      name,
-      icon
+      name
     }
 
     setAttributes([...attributes, newAttribute]);
@@ -65,19 +57,7 @@ export function Attibutes({attributes, setAttributes}) {
                   </InputGroup>
                 </Container>
               </Col>
-              <Col xs={10} sm={11} md={4}>
-                <Container fluid className="m-0 p-0 mb-2">
-                  <Form.Label htmlFor="description" className="m-0 p-0 fs-14 mb-1 font-500">Icone</Form.Label>
-                  <InputGroup className={`m-0 p-0 w-100 rounded ${styled.shadow_input}`}>
-                    <FormControl
-                      id="icon"
-                      className="border-0"
-                      value={attribute.icon} 
-                      disabled
-                    />
-                  </InputGroup>
-                </Container>
-              </Col>
+              
               <Col xs={2} sm={1} md={1} className="p-0">
                 <div className="w-100 h-100 d-md-flex justify-content-end align-items-end pb-md-2">
                   <Button 
@@ -97,7 +77,7 @@ export function Attibutes({attributes, setAttributes}) {
 
       <Container fluid className={`m-0 px-4 py-3 rounded ${styled.background}`}>
           <Row>
-              <Col xs={10} sm={11} md={7}>
+          <Col sm={10} md={11} xs={10}>
                 <Container fluid className="m-0 p-0 mb-2">
                   <Form.Label htmlFor="description" className="m-0 p-0 fs-14 mb-1 font-500">Nome</Form.Label>
                   <InputGroup className={`m-0 p-0 w-100 rounded ${styled.shadow_input}`}>
@@ -111,22 +91,8 @@ export function Attibutes({attributes, setAttributes}) {
                   <Form.Text className="text-danger">{errorName && errorName}</Form.Text>
                 </Container>
               </Col>
-              <Col xs={10} sm={11} md={4}>
-                <Container fluid className="m-0 p-0 mb-2">
-                  <Form.Label htmlFor="description" className="m-0 p-0 fs-14 mb-1 font-500">Icone</Form.Label>
-                  <InputGroup className={`m-0 p-0 w-100 rounded ${styled.shadow_input}`}>
-                    <FormControl
-                      id="icon"
-                      className={`${errorIcon ? 'border border-danger' : 'border border-white'}`} 
-                      onChange={(e) => setIcon(e.target.value)}
-                      value={icon} 
-                    />
-                  </InputGroup>
-                  <Form.Text className="text-danger">{errorIcon && errorIcon}</Form.Text>
-                </Container>
-              </Col>
-              <Col xs={2} sm={1} md={1} className="p-0">
-                <div className="w-100 h-100 d-md-flex justify-content-end align-items-end pb-md-2">
+              <Col sm={2} md={1} xs={2} className="p-0">
+                <div className="w-100 h-100 d-flex justify-content-end align-items-end pb-2">
                   <Button className="p-0 m-0" onClick={handleAddAttribute}><MdOutlineAdd color="#ffffff" size={34}/></Button>
                 </div>
               </Col>

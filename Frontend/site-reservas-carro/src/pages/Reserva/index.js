@@ -16,32 +16,41 @@ export default function Reserva() {
   let selected = true;
   const dataUser = JSON.parse(localStorage.getItem("@SESSION"));
 
-  // function topo() {
-  //   window.parent.scroll(0, 0);
-  // }
-
   const [horaReserva, setHoraReserva] = useState([]);
-
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const dates = [startDate, endDate];
   const [cnhValue, setCnhValue] = useState();
+  const [dataDates, setDataDates] = useState([]);
 
+  async function datasReservas() {
+    let datasRes = [];
+    await api.get(`/reserva/${id}`, {
+    headers:{
+      'Authorization': `Bearer ${dataUser.token}` 
+    }
+  }).then((response)=>{
+    response.data.map(({inicioReserva, fimReserva})=>{
+      return datasRes.push({
+        start: new Date(inicioReserva[0], (inicioReserva[1]-1), inicioReserva[2]),
+        end: new Date(fimReserva[0], (fimReserva[1]-1), fimReserva[2])
+      })
+    }); 
+    setDataDates('datasRes');
+  })
+    // setDataDates(datasRes);
+    console.log(datasRes);
+    console.log(dataDates);
+}
 
-  // function topo()
-  // {
-  //     window.parent.scroll(0,0);
-  // }
-
-  // window.onload = topo();
-
-  useEffect(() => {
+useEffect(() => {
     async function getProduto() {
       await api.get(`/produto/id/${id}`)
         .then(response => setProduto(response.data))
     }
     getProduto();
-  }, [id]);
+    datasReservas();
+  }, []);
 
   if (!produto.nome) {
     return null;

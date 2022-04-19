@@ -9,12 +9,14 @@ import { useForm, Controller } from 'react-hook-form';
 
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import api from "../../services/api";
+
 
 export function Admin() {
   const [attributes, setAttributes] = useState([]);
   const [images, setImages] = useState([]);
-  
+
   const schema = yup.object({
     name_vehicle: yup.string().required("Campo obrigatório."),
     category: yup.string().required("Campo obrigatório."),
@@ -36,22 +38,64 @@ export function Admin() {
     console.log("attributes", attributes);
   }
 
+  const [dataCidades, setDataCidades] = useState([]);
+  const [dataCategorias, setDataCategorias] = useState([]);
+ 
+
+const getCidades = async () => {
+  await api.get('/cidade')
+  .then(response => {
+    const data1 = response.data.map(({nome})=>{
+      return {
+        value: nome, label: nome
+      }
+    })
+    setDataCidades(data1)
+  })
+  .catch((err) => console.error(err));
+}
+
+
+const getCategorias =  () => {
+  api.get('/categoria')
+  .then(response => {
+    const data = response.data.map(({titulo})=>{
+      return {
+        value: titulo, label: titulo
+      }
+    })
+    setDataCategorias(data)
+
+  })
+  .catch((err) => console.error(err));
+}
+
+useEffect(()=>{
+  getCategorias()
+  getCidades()
+},[])
+
+
+
+
   return (
-    <Container as="section" fluid className={`${styled.red} m-0 mb-5`}>
-      <Container fluid className={`pb-2 pt-4 px-0 m-0 mx-auto max-width-1180`}>
-        <h2 className="fs-4 font-600">Criar Veículo</h2>
+    <>
+      <Container as="section" fluid className={`${styled.red} m-0 mb-5`}>
+        <Container fluid className={`pb-2 pt-4 px-0 m-0 mx-auto max-width-1180`}>
+          <h2 className="fs-4 font-600">Criar Veículo</h2>
+        </Container>
+        <Container fluid className={`py-3 m-0 mx-auto max-width-1180 rounded ${styled.container}`}>
+          <form onSubmit={handleSubmit(handleSubmitForm)}>
+            <CarInfo Controller={Controller} control={control} register={register} errors={errors} category={dataCategorias} city={dataCidades}/>
+            <Attibutes setAttributes={setAttributes} attributes={attributes} />
+            <ProductPolicies register={register} errors={errors} />
+            <Images images={images} setImages={setImages} />
+            <div className='d-flex justify-content-center align-items-center mt-5 mb-3'>
+              <Button type='submit' className={`w-100 ${styled.max_width} text-white font-600`}>Criar</Button>
+            </div>
+          </form>
+        </Container>
       </Container>
-      <Container fluid className={`py-3 m-0 mx-auto max-width-1180 rounded ${styled.container}`}>
-        <form onSubmit={handleSubmit(handleSubmitForm)}>
-          <CarInfo Controller={Controller} control={control} register={register} errors={errors}/>
-          <Attibutes setAttributes={setAttributes} attributes={attributes}/>
-          <ProductPolicies register={register} errors={errors}/>
-          <Images images={images} setImages={setImages}/>
-          <div className='d-flex justify-content-center align-items-center mt-5 mb-3'>
-            <Button type='submit' className={`w-100 ${styled.max_width} text-white font-600`}>Criar</Button>
-          </div>
-        </form>
-      </Container>
-    </Container>
+    </>
   )
 }

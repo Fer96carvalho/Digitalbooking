@@ -14,7 +14,7 @@ export function Items({ caracteristicas }) {
 
           {caracteristicas.map(({ nome }) => {
             return (
-              <Col xs={6} sm={6} md={4} lg={4} xl={3} className="my-3">
+              <Col xs={6} sm={6} md={4} lg={4} xl={3} key={nome} className="my-3">
               <span className="d-inline-flex align-items-center w-100">
                 <BsSnow3 color="#FBC02D" size={20}/>
                 <small className="ms-3">{ nome }</small>

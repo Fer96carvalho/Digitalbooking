@@ -60,7 +60,7 @@ function PrincipalMain ({listaProdutos, listaImagens}) {
 
                     {listaProdutos.slice(0, 4).map(({ id, nome, categoria }) => {
                         return (
-                            <div className="card">
+                            <div className="card" key={id}>
                                 {listaImagens.filter(iLista => iLista.produto.id === id).slice(0, 1).map(({ url }) => {
                                     return (
                                         <Link to={`/produto/detalhes/${id}`}>

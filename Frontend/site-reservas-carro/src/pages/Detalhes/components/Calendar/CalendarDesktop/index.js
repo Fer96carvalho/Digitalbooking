@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MdOutlineArrowForwardIos, MdOutlineArrowBackIosNew } from 'react-icons/md';
 import DatePicker from 'react-datepicker';
 import ptBr from 'date-fns/locale/pt-BR';
@@ -16,23 +16,38 @@ export const CalendarDesktop = ({selected, setStartDate, setEndDate, startDate, 
   };
 
 
-  window.addEventListener("load", (e) => {
-    if(e.currentTarget.innerWidth < 670 && windowWidth === "desktop"){
-      setWindowWidth("mobile");
+ function calendarView(){
+  
+    if(window.innerWidth < 670 && windowWidth === "desktop"){
+      return (
+      setWindowWidth("mobile"),
+      console.log('if 1'))
     }
 
-    if(e.currentTarget.innerWidth > 670 && windowWidth === "mobile"){
-      setWindowWidth("desktop");
+    if(window.innerWidth > 670 && windowWidth === "mobile"){
+      return (
+      setWindowWidth("desktop"),
+      console.log('if 2'))
+
     }
-  });
+
+}
+
+useEffect(()=>{
+  calendarView()
+},[])
 
   window.addEventListener("resize", (e) => {
     if(e.currentTarget.innerWidth < 670 && windowWidth === "desktop"){
       setWindowWidth("mobile");
+      console.log('if 3')
+
     }
       
     if(e.currentTarget.innerWidth > 670 && windowWidth === "mobile"){
       setWindowWidth("desktop");
+      console.log('if 4')
+
     }
   });
 
@@ -87,6 +102,7 @@ export const CalendarDesktop = ({selected, setStartDate, setEndDate, startDate, 
         selectsRange
         selected={startDate}
         inline
+        excludeDateIntervals={[{start: new Date('2022-04-20'), end: new Date('2022-04-22') }]}
       />
     );
   } else {
@@ -104,6 +120,7 @@ export const CalendarDesktop = ({selected, setStartDate, setEndDate, startDate, 
         selectsRange
         selected={false}
         inline
+        excludeDateIntervals={[{start: new Date('2022-04-20'), end: new Date('2022-04-22') }]}
         disabledKeyboardNavigation // impedi q a data selecioanda fique selecionada nos outros meses
         // shouldCloseOnSelect={false} impedi o fechamento do calendario quando as datas são selecionadas
       />

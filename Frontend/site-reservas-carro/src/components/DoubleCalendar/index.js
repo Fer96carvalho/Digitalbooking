@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { registerLocale } from  "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
@@ -17,15 +17,26 @@ function DoubleCalendar() {
 
   let sizeScreen;
 
-  window.addEventListener("load", () => {
-    if(window.screen.availWidth < 768 && windowWidth === "desktop"){
-      setWindowWidth("mobile");
-    }
-
-    if(window.screen.availWidth >= 768 && windowWidth === "mobile"){
-      setWindowWidth("desktop");
-    }
-  });
+  function calendarView(){
+    
+      if(window.innerWidth < 670 && windowWidth === "desktop"){
+        return (
+        setWindowWidth("mobile"),
+        console.log('if 1'))
+      }
+  
+      if(window.innerWidth > 670 && windowWidth === "mobile"){
+        return (
+        setWindowWidth("desktop"),
+        console.log('if 2'))
+  
+      }
+  
+  }
+  
+  useEffect(()=>{
+    calendarView()
+  },[])
 
   window.addEventListener("resize", () => {
     if(window.screen.availWidth < 768 && windowWidth === "desktop"){

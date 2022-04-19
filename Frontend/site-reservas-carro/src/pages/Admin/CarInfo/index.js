@@ -3,17 +3,7 @@ import Select from 'react-select';
 
 import styled from './styles.module.scss';
 
-const city = [
-  {value: "osasco", label: "Osasco"},
-  {value: "sorocaba", label: "Sorocaba"},
-  {value: "belo horizonte", label: "Belo Horizonte"},
-]
 
-const category = [
-  {value: "sedan", label: "Sedan"},
-  {value: "Hatch", label: "Hatch"},
-  {value: "picape", label: "Picape"},
-]
 
 const customStyles = {
   option: (provided, state) => {
@@ -35,7 +25,7 @@ const customStyles = {
   }),
 }
   
-export function CarInfo({ Controller, control, register, errors }) {
+export function CarInfo({ Controller, control, register, errors, category, city}) {
   return (
     <Container fluid className="p-0 m-0">
       <Row className="p-0 m-0">

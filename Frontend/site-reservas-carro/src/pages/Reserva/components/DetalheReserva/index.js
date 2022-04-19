@@ -74,10 +74,10 @@ let imageGalery = [];
             'Authorization': `Bearer ${token}` 
           }
         })
-        if (resgistrarReserva.status === 200){
+        if ( resgistrarReserva.status === 200){
           Swal.fire(
-            'Reserva agendada com Sucesso!',
-            `Enviamos um email para `,
+            'Reserva criada com Sucesso!',
+            ``,
             'success'
           ).then((result)=>{
             if (result.isConfirmed){
@@ -91,6 +91,7 @@ let imageGalery = [];
           `Tente novamente! `,
           'error'
         )
+        console.log("Erro ao criar a reserva", error)
       }
       
     }
