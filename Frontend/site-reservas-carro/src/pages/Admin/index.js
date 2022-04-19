@@ -14,6 +14,7 @@ import api from "../../services/api";
 
 
 export function Admin() {
+
   const [attributes, setAttributes] = useState([]);
   const [images, setImages] = useState([]);
 

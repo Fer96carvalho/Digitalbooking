@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import facebook from '../../../../Assets/img/facebook-brands.svg';
 import linkedin from '../../../../Assets/img/linkedin-in-brands.svg';
 import twitter from '../../../../Assets/img/twitter-brands.svg';
 import instagram from '../../../../Assets/img/instagram-brands.svg';
 import { Button } from 'react-bootstrap';
-import { useEffect } from 'react';
 
 import './style.css'
+
 
 
 const handleCookies = (e) => {
@@ -17,17 +17,20 @@ const handleCookies = (e) => {
 
 }
 
+const avsCookies = () => {
+    
+    if (!localStorage.getItem("avsCookies")) {
+        document.querySelector(".box-cookies").classList.remove('hide');
+    }
+
+}
+
+// avsCookies();
+
 
 function Footer () {
 
 
-    const avsCookies = () => {
-        if (!localStorage.getItem("avsCookies")) {
-            document.querySelector(".box-cookies").classList.remove('hide');
-        }
-    }
-
-    avsCookies();
 
     return (
         <>
