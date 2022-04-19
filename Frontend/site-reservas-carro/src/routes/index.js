@@ -24,6 +24,18 @@ function PrivateRoute({ children }) {
   );
 }
 
+function AdminRoute({ children }) {
+  const { session } = useSession();
+  const location = useLocation();
+  return session.user.credentialAcess === "ADMIN" ? children : (
+    <Navigate 
+      to="/login"
+      state={{from: location}}
+      replace
+    />
+  );
+}
+
 function Router() {
   return (
     <BrowserRouter>
@@ -39,12 +51,11 @@ function Router() {
               <Reserva/>
             </PrivateRoute>
           }/>
-          <Route path="/administrador" element={<Admin/>}/>
-
-          {/* <Route path="/categorias" element={Category}/> */}
-          {/* <Route path="/categoria/:category" element={Category}/> */}
-          
-
+          <Route path="/administrador" element={
+            <AdminRoute>
+              <Admin/>
+            </AdminRoute>
+          }/>
         </Routes>
         <Footer/>
       </HelmetProvider>

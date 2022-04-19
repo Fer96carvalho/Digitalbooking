@@ -57,7 +57,7 @@ export function Login() {
 
         const filterUser = responseUsers.data.filter(user => user.email === value.email);
 
-        const {nome, sobrenome, id, email} = filterUser[0];
+        const {nome, sobrenome, id, email, funcao} = filterUser[0];
 
         const user = {
           token: responseToken.data,
@@ -65,7 +65,9 @@ export function Login() {
             id,
             name: nome,
             lastname: sobrenome,
-            email
+            email,
+            credentialAcess: funcao
+
           }
         }
 

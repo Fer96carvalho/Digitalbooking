@@ -21,27 +21,28 @@ export default function Reserva() {
   const [endDate, setEndDate] = useState();
   const dates = [startDate, endDate];
   const [cnhValue, setCnhValue] = useState();
-  const [dataDates, setDataDates] = useState([]);
+//   const [dataDates, setDataDates] = useState();
+//   let datasRes = [];
 
-  async function datasReservas() {
-    let datasRes = [];
-    await api.get(`/reserva/${id}`, {
-    headers:{
-      'Authorization': `Bearer ${dataUser.token}` 
-    }
-  }).then((response)=>{
-    response.data.map(({inicioReserva, fimReserva})=>{
-      return datasRes.push({
-        start: new Date(inicioReserva[0], (inicioReserva[1]-1), inicioReserva[2]),
-        end: new Date(fimReserva[0], (fimReserva[1]-1), fimReserva[2])
-      })
-    }); 
-    setDataDates('datasRes');
-  })
-    // setDataDates(datasRes);
-    console.log(datasRes);
-    console.log(dataDates);
-}
+//   async function datasReservas() {
+    
+//     await api.get(`/reserva/${id}`, {
+//     headers:{
+//       'Authorization': `Bearer ${dataUser.token}` 
+//     }
+//   }).then((response)=>{
+//     response.data.map(({inicioReserva, fimReserva})=>{
+//       console.log(response.data)
+//       return datasRes.push({
+//         start: new Date(inicioReserva[0], (inicioReserva[1]-1), inicioReserva[2]),
+//         end: new Date(fimReserva[0], (fimReserva[1]-1), fimReserva[2])
+//       })
+//     }); 
+//   })
+//     setDataDates(datasRes);
+//     console.log(datasRes);
+//     console.log(dataDates);
+// }
 
 useEffect(() => {
     async function getProduto() {
@@ -49,7 +50,7 @@ useEffect(() => {
         .then(response => setProduto(response.data))
     }
     getProduto();
-    datasReservas();
+    // datasReservas();
   }, []);
 
   if (!produto.nome) {
@@ -70,7 +71,7 @@ useEffect(() => {
           <div>
             <div className="div-calendar">
               <h2 className=" text-primary fs-4 font-500 mb-4">Selecione a data da reserva</h2>
-              <Calendar selected={selected} setStartDate={setStartDate} setEndDate={setEndDate} startDate={startDate} endDate={endDate} />
+              <Calendar selected={selected} setStartDate={setStartDate} setEndDate={setEndDate} startDate={startDate} endDate={endDate} id={id} token={dataUser.token}/>
             </div>
           </div>
           <div>

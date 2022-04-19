@@ -51,14 +51,12 @@ let imageGalery = [];
     async function criarReserva(){
       let dataBancoReserva = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(datas[0]);
       let dataBancoDevolucao = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(datas[1]);
-      console.log(token);
-      console.log(cnh)
 
       const reserva = {
         horaReserva: `${horario[0]}`,
         horaDevolucao: `${horario[1]}`,
-        inicioReserva: `${dataBancoReserva}`,
-        fimReserva: `${dataBancoDevolucao}`,
+        inicioReserva: dataBancoReserva,
+        fimReserva: dataBancoDevolucao,
         cnh: `${cnh}`,
         produto:{
           id:`${id}`
