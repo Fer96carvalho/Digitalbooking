@@ -69,7 +69,7 @@ const autoCompleteValores = autoComplete(value);
 function getValueCidade(e){
     if (e.target.tagName === 'LI'){
     inputCidade.value = e.currentTarget.textContent;
-    sugestoes.setAttribute('display', 'display:none');
+    sugestoes.setAttribute('style', 'display: none');
     }
 }
 
@@ -116,7 +116,7 @@ const handleSubmit = (e) => {
 
     const clickGeolocation = () => {
 
-        setCidade(dadosGeolocation.address.state)
+        setCidade(dadosGeolocation.address.city_district)
 
         const data = {
             cidade, rangeReserva
@@ -126,7 +126,7 @@ const handleSubmit = (e) => {
 
         inputCidade.value = cidade;
 
-        console.log(dadosGeolocation.address.state);
+        console.log(dadosGeolocation.address.city_district);
 
     }
 
@@ -184,7 +184,7 @@ const handleSubmit = (e) => {
                     <Form.Group className="mb-1">
                     <Form.Label>Checkin | Checkout</Form.Label>
                     <div className="div-dcalendar">
-                    <DoubleCalendar onChange={handleSubmit} />
+                    <DoubleCalendar />
                     </div>
                     </Form.Group>  
                     </Col>
