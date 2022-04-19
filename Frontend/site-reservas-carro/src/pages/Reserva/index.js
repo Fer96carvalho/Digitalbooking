@@ -30,18 +30,21 @@ export default function Reserva() {
       'Authorization': `Bearer ${dataUser.token}` 
     }
   }).then((response)=>{
-    response.data.map(({inicioReserva, fimReserva})=>{
-      return datasRes.push({
+    console.log("REESPONSE DATA", response)
+    const temp = response.data.map(({inicioReserva, fimReserva})=>{
+      return {
         start: new Date(inicioReserva[0], (inicioReserva[1]-1), inicioReserva[2]),
         end: new Date(fimReserva[0], (fimReserva[1]-1), fimReserva[2])
-      })
+      }
     }); 
-    setDataDates('datasRes');
+    setDataDates(temp);
   })
     // setDataDates(datasRes);
-    console.log(datasRes);
-    console.log(dataDates);
+    // console.log(datasRes);
+      console.log(dataDates);
 }
+
+// console.log("ALGUMA COISA", dataDates);
 
 useEffect(() => {
     async function getProduto() {
