@@ -16,4 +16,6 @@ public class Cidade {
     private Integer id;
     private String nome;
     private String pais;
+    private Double lat;
+    private Double longi;
 }
