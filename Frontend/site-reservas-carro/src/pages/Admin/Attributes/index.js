@@ -6,14 +6,14 @@ import { MdOutlineAdd, MdOutlineClose } from 'react-icons/md';
 import styled from './styles.module.scss';
 
 export function Attibutes({attributes, setAttributes}) {
-  const [name, setName] = useState("");
-  const [errorName, setErrorName] = useState("");
+  const [nome, setNome] = useState("");
+  const [errorNome, setErrorNome] = useState("");
 
   function handleAddAttribute() {
     let error = false;
 
-    if(name.length === 0) {
-      setErrorName("Campo Obrigatório");
+    if(nome.length === 0) {
+      setErrorNome("Campo Obrigatório");
       error = true;
     }
 
@@ -21,18 +21,18 @@ export function Attibutes({attributes, setAttributes}) {
 
     if(error) return;
 
-    setErrorName("");
-    setName("");
+    setErrorNome("");
+    setNome("");
     
     const newAttribute = {
-      name
+      nome
     }
 
     setAttributes([...attributes, newAttribute]);
   }
 
-  function handleDeleteAttribute(name) {
-    const attibutesFilter = attributes.filter(item => item.name !== name);
+  function handleDeleteAttribute(nome) {
+    const attibutesFilter = attributes.filter(item => item.nome !== nome);
     setAttributes(attibutesFilter);
   }
 
@@ -50,8 +50,8 @@ export function Attibutes({attributes, setAttributes}) {
                     <FormControl 
                       id="name" 
                       className="border-0"
-                      onChange={(e) => setName(e.target.value)} 
-                      value={attribute.name}
+                      onChange={(e) => setNome(e.target.value)} 
+                      value={attribute.nome}
                       disabled
                     />
                   </InputGroup>
@@ -62,7 +62,7 @@ export function Attibutes({attributes, setAttributes}) {
                 <div className="w-100 h-100 d-md-flex justify-content-end align-items-end pb-md-2">
                   <Button 
                     className="p-0 m-0 bg-secondary border-0" 
-                    onClick={() => handleDeleteAttribute(attribute.name)}>
+                    onClick={() => handleDeleteAttribute(attribute.nome)}>
                       <MdOutlineClose color="#ffffff" size={34}/>
                   </Button>
                 </div>
@@ -83,12 +83,12 @@ export function Attibutes({attributes, setAttributes}) {
                   <InputGroup className={`m-0 p-0 w-100 rounded ${styled.shadow_input}`}>
                     <FormControl 
                       id="name" 
-                      className={`${errorName ? 'border border-danger' : 'border border-white'}`} 
-                      onChange={(e) => setName(e.target.value)} 
-                      value={name}
+                      className={`${errorNome ? 'border border-danger' : 'border border-white'}`} 
+                      onChange={(e) => setNome(e.target.value)} 
+                      value={nome}
                     />
                   </InputGroup>
-                  <Form.Text className="text-danger">{errorName && errorName}</Form.Text>
+                  <Form.Text className="text-danger">{errorNome && errorNome}</Form.Text>
                 </Container>
               </Col>
               <Col sm={2} md={1} xs={2} className="p-0">
