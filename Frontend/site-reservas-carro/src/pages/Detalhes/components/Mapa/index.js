@@ -15,7 +15,8 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-export function Map() {
+export function Map({localizacao}) {
+  let local = [localizacao.lat, localizacao.longi];
   return (
     <Container as="section" fluid className="bg-light p-0">
       <Container fluid className="border-bottom border-primary border-2 p-0">
@@ -24,20 +25,16 @@ export function Map() {
         </Container>
       </Container>
       <Container fluid className="max-width-1180 py-3">
-        <MapContainer center={[-23.548670, -46.638248]} zoom={12} style={{height: 450}}>
+        <MapContainer center={local} zoom={12} style={{height: 450}}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[-23.548670, -46.638248]}>
+          <Marker position={local}>
             <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
+              {localizacao.nome}
             </Popup>
           </Marker>
-          <Marker position={[-23.531570, -46.789890]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          
         </MapContainer>    
       </Container>
     </Container>

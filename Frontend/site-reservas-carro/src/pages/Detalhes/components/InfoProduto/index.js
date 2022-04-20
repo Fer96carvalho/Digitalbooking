@@ -5,7 +5,7 @@ import { BsGeoAltFill } from "react-icons/bs";
 
 import "./style.css";
 
-export default function InfoProduto({ nome, categoria, cidade, pais }) {
+export default function InfoProduto({ nome, categoria, cidade, pais, endereco }) {
 const navigate = useNavigate();
 
     function goBack() {
@@ -31,7 +31,7 @@ const navigate = useNavigate();
                                 </div>
                                 <div className="div-info">
                                 <p className="localiz">{ cidade }, { pais }</p>
-                                <p className="info-add">1 kilomentro do Morumbi</p>
+                                <p className="info-add">{endereco}</p>
                                 </div>
                             </div>
 

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import api from "../../../../services/api";
 
-export default function DetalhesReserva({id, token, nome, categoria, cidade, pais , horario, datas, userID, cnh}) {
+export default function DetalhesReserva({id, token, nome, categoria, cidade, pais , horario, datas, userID, cnh, endereco}) {
 
   const [listaImagens, setListaImagens] = useState([]);
   const [dataReserva, setDataReserva] = useState('__/__/____');
@@ -113,7 +113,7 @@ let imageGalery = [];
             </div>
             <div className="div-info">
               <p className="localiz">{cidade}, {pais}</p>
-              <p className="info-add">1 kilomentro do Morumbi</p>
+              <p className="info-add">{endereco}</p>
             </div>
           </div>
         </div>
