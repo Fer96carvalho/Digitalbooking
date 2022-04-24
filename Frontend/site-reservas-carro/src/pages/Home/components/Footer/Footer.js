@@ -8,26 +8,6 @@ import CookieConsent from 'react-cookie-consent';
 import './style.css'
 
 
-
-// const handleCookies = (e) => {
-
-//     e.preventDefault();
-//     document.querySelector(".box-cookies").classList.add('hide');
-//     localStorage.setItem("avsCookies", "accept");
-
-// }
-
-// const avsCookies = () => {
-    
-//     if (!localStorage.getItem("avsCookies")) {
-//         document.querySelector(".box-cookies").classList.remove('hide');
-//     }
-
-// }
-
-// avsCookies();
-
-
 function Footer () {
 
 
@@ -35,15 +15,6 @@ function Footer () {
     return (
         <>
             <footer className="rodape">
-
-                {/* <div className="box-cookies hide">
-                    <p className="msg-cookies">
-                        Nosso site utiliza cookies para melhorar sua experiência em nossos serviços. Ao navegar, você concorda com nossa política de privacidade.
-                    </p>
-                    <Button className="btn-cookies" onClick={handleCookies}>
-                        Entendi
-                    </Button>
-                </div> */}
 
                 <div className="rodape__Copyright">
                     <p className="copyright">@2022 Digital Booking</p>
