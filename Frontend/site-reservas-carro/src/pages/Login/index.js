@@ -70,6 +70,7 @@ export function Login() {
         }
 
         createSession(user);
+
         Swal.fire(
           'Login realizado com sucesso!',
           '',

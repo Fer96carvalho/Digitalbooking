@@ -3,27 +3,27 @@ import facebook from '../../../../Assets/img/facebook-brands.svg';
 import linkedin from '../../../../Assets/img/linkedin-in-brands.svg';
 import twitter from '../../../../Assets/img/twitter-brands.svg';
 import instagram from '../../../../Assets/img/instagram-brands.svg';
-import { Button } from 'react-bootstrap';
+import CookieConsent from 'react-cookie-consent';
 
 import './style.css'
 
 
 
-const handleCookies = (e) => {
+// const handleCookies = (e) => {
 
-    e.preventDefault();
-    document.querySelector(".box-cookies").classList.add('hide');
-    localStorage.setItem("avsCookies", "accept");
+//     e.preventDefault();
+//     document.querySelector(".box-cookies").classList.add('hide');
+//     localStorage.setItem("avsCookies", "accept");
 
-}
+// }
 
-const avsCookies = () => {
+// const avsCookies = () => {
     
-    if (!localStorage.getItem("avsCookies")) {
-        document.querySelector(".box-cookies").classList.remove('hide');
-    }
+//     if (!localStorage.getItem("avsCookies")) {
+//         document.querySelector(".box-cookies").classList.remove('hide');
+//     }
 
-}
+// }
 
 // avsCookies();
 
@@ -36,14 +36,14 @@ function Footer () {
         <>
             <footer className="rodape">
 
-                <div className="box-cookies hide">
+                {/* <div className="box-cookies hide">
                     <p className="msg-cookies">
                         Nosso site utiliza cookies para melhorar sua experiência em nossos serviços. Ao navegar, você concorda com nossa política de privacidade.
                     </p>
                     <Button className="btn-cookies" onClick={handleCookies}>
                         Entendi
                     </Button>
-                </div>
+                </div> */}
 
                 <div className="rodape__Copyright">
                     <p className="copyright">@2022 Digital Booking</p>
@@ -56,7 +56,31 @@ function Footer () {
                         <li><img src={instagram} alt="Instagram" /></li>
                     </ul>
                 </div>
+
+                <CookieConsent
+                    location="bottom"
+                    style={{
+                        background: 'rgba(0, 0, 0, 0.8)',
+                        textAlign: "left",
+                        marginBottom: '70px',
+                        fontSize: '13px',
+                        alignItems: 'center'
+                    }}
+                    buttonStyle={{
+                        color: '#000',
+                        fontSize: '14px',
+                        borderRadius: '5px',
+                    }}
+                    buttonText="Entendi"
+                    expires={365}
+                    >
+                    Este site utiliza cookies para melhorar sua experiência em nossos serviços. Ao navegar, você concorda com nossa política de privacidade.
+                </CookieConsent>
+
             </footer>
+
+
+
         </>
     )
 }

@@ -69,7 +69,7 @@ const autoCompleteValores = autoComplete(value);
 function getValueCidade(e){
     if (e.target.tagName === 'LI'){
     inputCidade.value = e.currentTarget.textContent;
-    sugestoes.setAttribute('display', 'display:none');
+    sugestoes.setAttribute('style', 'display:none');
     }
 }
 
@@ -126,7 +126,7 @@ const handleSubmit = (e) => {
 
         inputCidade.value = cidade;
 
-        console.log(dadosGeolocation.address.state);
+        console.log(dadosGeolocation.address.city_district);
 
     }
 
