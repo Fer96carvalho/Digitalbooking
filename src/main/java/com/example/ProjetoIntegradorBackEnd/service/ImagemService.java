@@ -1,7 +1,6 @@
 package com.example.ProjetoIntegradorBackEnd.service;
 
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Imagem;
-import com.example.ProjetoIntegradorBackEnd.persistence.entities.Produto;
 import com.example.ProjetoIntegradorBackEnd.persistence.repository.ImagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +23,9 @@ public class ImagemService {
 
     public List<Imagem> findByProdutoID(Integer produtoID) {
         return repository.findByProdutoID(produtoID);
+    }
+
+    public Imagem createImagem(Imagem imagem){
+        return repository.save(imagem);
     }
 }

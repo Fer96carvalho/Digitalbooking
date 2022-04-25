@@ -1,7 +1,6 @@
 package com.example.ProjetoIntegradorBackEnd.controller;
 
 import com.example.ProjetoIntegradorBackEnd.persistence.entities.Imagem;
-import com.example.ProjetoIntegradorBackEnd.persistence.entities.Produto;
 import com.example.ProjetoIntegradorBackEnd.service.ImagemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +32,11 @@ public class ImagemController {
     @GetMapping("/produto/{produtoID}")
     public List<Imagem> getImagemByProdutoID(@PathVariable Integer produtoID) {
         return service.findByProdutoID(produtoID);
+    }
+
+    @PostMapping()
+    public Imagem createImagem(@RequestBody Imagem imagem){
+        return service.createImagem(imagem);
     }
 
 
