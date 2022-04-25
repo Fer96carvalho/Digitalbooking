@@ -50,6 +50,11 @@ public class ProdutoController {
         return service.listarProdutoByDate(id,inicioDate,fimDate);
     }
 
+    @GetMapping("/nome/{nome}")
+    public Produto getProdutoByName(@PathVariable String nome){
+        return service.listarProdutoNome(nome);
+    }
+
     @PostMapping
     public Produto postProduto(@RequestBody Produto produto){
         return service.createProduto(produto);

@@ -41,4 +41,8 @@ public class ProdutoService {
     public List<Produto> listarProdutoByDate(Integer id, LocalDate inicio, LocalDate fim){
         return repository.findByDateAndCity(id,inicio,fim);
     }
+
+    public Produto listarProdutoNome(String nome){
+        return repository.findByNome(nome);
+    }
 }

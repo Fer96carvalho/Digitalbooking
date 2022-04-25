@@ -22,4 +22,7 @@ public interface ProdutoRepository extends JpaRepository<Produto,Integer> {
 
     @Query("select p from Reserva r join Produto p on r.produto.id = p.id where p.cidade.id = ?1")
     List<Produto> findByCity(Integer cidadeID);
+
+    @Query("select p from Produto p where p.nome = ?1")
+    Produto findByNome(String nome);
 }
