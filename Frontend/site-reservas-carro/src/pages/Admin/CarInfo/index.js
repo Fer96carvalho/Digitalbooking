@@ -70,20 +70,6 @@ export function CarInfo({ Controller, control, register, errors, category, city}
         
         <Col className="p-sm-2" sm={6}>
           <Container fluid className="m-0 p-0 mb-2">
-          <Form.Label htmlFor="address" className="m-0 p-0 fs-14 mb-1 font-500">Endereço</Form.Label>
-            <InputGroup className={`m-0 p-0 rounded ${styled.shadow_input}`}>
-              <FormControl 
-                id="address" 
-                className={`${errors?.address ? 'border border-danger' : 'border border-white'}`} 
-                {...register("address")}
-              />
-            </InputGroup>
-            <Form.Text className="text-danger">{errors?.address?.message}</Form.Text>
-          </Container>
-        </Col>
-        
-        <Col className="p-sm-2" sm={6}>
-          <Container fluid className="m-0 p-0 mb-2">
             <Form.Label htmlFor="city" className="m-0 p-0 fs-14 mb-1 font-500">Cidade</Form.Label>
             <Controller
               control={control}

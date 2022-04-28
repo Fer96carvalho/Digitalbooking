@@ -86,7 +86,6 @@ export function Images({images, setImages}) {
             </div>
           </Col>
           <Form.Text className="text-danger">{errorUrl && errorUrl}</Form.Text>
-
         </Row>
       </Container>
     </Container>
