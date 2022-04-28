@@ -116,7 +116,7 @@ const handleSubmit = (e) => {
 
     const clickGeolocation = () => {
 
-        setCidade(dadosGeolocation.address.city_district)
+        setCidade(dadosGeolocation.address.city)
 
         const data = {
             cidade, rangeReserva
@@ -126,7 +126,7 @@ const handleSubmit = (e) => {
 
         inputCidade.value = cidade;
 
-        console.log(dadosGeolocation.address.city_district);
+        //console.log(dadosGeolocation.address.);
 
     }
 
