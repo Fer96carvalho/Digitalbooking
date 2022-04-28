@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import api from "../../../../services/api";
 
-export default function DetalhesReserva({id, token, nome, categoria, cidade, pais , horario, datas, userID, cnh}) {
+export default function DetalhesReserva({id, token, nome, categoria, cidade, pais , horario, datas, userID, cnh, endereco}) {
 
   const [listaImagens, setListaImagens] = useState([]);
   const [dataReserva, setDataReserva] = useState('__/__/____');
@@ -51,14 +51,12 @@ let imageGalery = [];
     async function criarReserva(){
       let dataBancoReserva = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(datas[0]);
       let dataBancoDevolucao = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(datas[1]);
-      console.log(token);
-      console.log(cnh)
 
       const reserva = {
         horaReserva: `${horario[0]}`,
         horaDevolucao: `${horario[1]}`,
-        inicioReserva: `${dataBancoReserva}`,
-        fimReserva: `${dataBancoDevolucao}`,
+        inicioReserva: dataBancoReserva,
+        fimReserva: dataBancoDevolucao,
         cnh: `${cnh}`,
         produto:{
           id:`${id}`
@@ -115,7 +113,7 @@ let imageGalery = [];
             </div>
             <div className="div-info">
               <p className="localiz">{cidade}, {pais}</p>
-              <p className="info-add">1 kilomentro do Morumbi</p>
+              <p className="info-add">{endereco}</p>
             </div>
           </div>
         </div>

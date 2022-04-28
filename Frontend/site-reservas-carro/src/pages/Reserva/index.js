@@ -21,38 +21,14 @@ export default function Reserva() {
   const [endDate, setEndDate] = useState();
   const dates = [startDate, endDate];
   const [cnhValue, setCnhValue] = useState();
-  const [dataDates, setDataDates] = useState([]);
 
-  async function datasReservas() {
-    let datasRes = [];
-    await api.get(`/reserva/${id}`, {
-    headers:{
-      'Authorization': `Bearer ${dataUser.token}` 
-    }
-  }).then((response)=>{
-    console.log("REESPONSE DATA", response)
-    const temp = response.data.map(({inicioReserva, fimReserva})=>{
-      return {
-        start: new Date(inicioReserva[0], (inicioReserva[1]-1), inicioReserva[2]),
-        end: new Date(fimReserva[0], (fimReserva[1]-1), fimReserva[2])
-      }
-    }); 
-    setDataDates(temp);
-  })
-    // setDataDates(datasRes);
-    // console.log(datasRes);
-      console.log(dataDates);
-}
 
-// console.log("ALGUMA COISA", dataDates);
-
-useEffect(() => {
+  useEffect(() => {
     async function getProduto() {
       await api.get(`/produto/id/${id}`)
         .then(response => setProduto(response.data))
     }
     getProduto();
-    datasReservas();
   }, []);
 
   if (!produto.nome) {
@@ -63,17 +39,17 @@ useEffect(() => {
   return (
     <>
       <section>
-        <BannerInfo categoria={produto.categoria.titulo} nome={produto.nome} id={id}/>
+        <BannerInfo categoria={produto.categoria.titulo} nome={produto.nome} id={id} />
       </section>
       <section className="body-reserva">
         <section className="main-reserva">
           <div className="section-form">
-            <FormsCliente data={dataUser} setCnhValue={setCnhValue}/>
+            <FormsCliente data={dataUser} setCnhValue={setCnhValue} />
           </div>
           <div>
             <div className="div-calendar">
               <h2 className=" text-primary fs-4 font-500 mb-4">Selecione a data da reserva</h2>
-              <Calendar selected={selected} setStartDate={setStartDate} setEndDate={setEndDate} startDate={startDate} endDate={endDate} />
+              <Calendar selected={selected} setStartDate={setStartDate} setEndDate={setEndDate} startDate={startDate} endDate={endDate} id={id} token={dataUser.token} />
             </div>
           </div>
           <div>
@@ -81,7 +57,7 @@ useEffect(() => {
           </div>
         </section>
         <section className="section-detalhe-reserva">
-          <DetalhesReserva id={id} token={dataUser.token} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} horario={horaReserva} datas={dates} userID={dataUser.user.id} cnh={cnhValue}/>
+          <DetalhesReserva id={id} token={dataUser.token} nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} horario={horaReserva} datas={dates} userID={dataUser.user.id} cnh={cnhValue} endereco={produto.endereco}/>
         </section>
       </section>
       <section>

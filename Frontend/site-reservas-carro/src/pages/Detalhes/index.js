@@ -67,7 +67,7 @@ function Detalhes() {
 
   return (
     <>
-      <InfoProduto nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} />
+      <InfoProduto nome={produto.nome} categoria={produto.categoria.titulo} cidade={produto.cidade.nome} pais={produto.cidade.pais} endereco={produto.endereco}/>
       <Galery id={id}/>
       <Descricao descricao={produto.descricao} />
       <Items caracteristicas={produto.caracteristicas} />
@@ -83,7 +83,7 @@ function Detalhes() {
           </div>
         </Container>
       </Container>
-      <Map />
+      <Map localizacao={produto.cidade}/>
       <Politicas />
     </>
   )

@@ -33,10 +33,40 @@ export function Admin() {
     resolver: yupResolver(schema),
   });
 
-  function handleSubmitForm(data) {
-    console.log("DATA", data);
-    console.log("IMAGES", images);
-    console.log("attributes", attributes);
+ async function handleSubmitForm(data) {
+  const dataUser = JSON.parse(localStorage.getItem("@SESSION"));
+  console.log("DATA", data);
+  console.log("IMAGES", images);
+  console.log("attributes", attributes);
+    const resgistrarReserva = await api.post('/produto', {
+      nome: data.name_vehicle,
+      descricao: data.description,
+      cidade: {
+        id: data.city
+      },
+      categoria: {
+        id: data.category
+      },
+      caracteristicas: attributes,
+      regras: data.car_rules,
+      cancelar: data.cancel,
+      seguranca: data.security,
+      imagem: "Imagens",
+      endereco: data.address      
+    }, {
+      headers:{
+        'Authorization': `Bearer ${dataUser.token}` 
+      }
+    }).then((response)=>{
+      if (response.status === 200){
+        console.log("Criação de Produto Efetuada com sucesso!")
+      } else {
+        console.log("Erro não corrigivel a tempo!")
+      }
+    })
+
+
+    
   }
 
   const [dataCidades, setDataCidades] = useState([]);
@@ -46,9 +76,9 @@ export function Admin() {
 const getCidades = async () => {
   await api.get('/cidade')
   .then(response => {
-    const data1 = response.data.map(({nome})=>{
+    const data1 = response.data.map(({id, nome})=>{
       return {
-        value: nome, label: nome
+        value: id, label: nome
       }
     })
     setDataCidades(data1)
@@ -60,9 +90,9 @@ const getCidades = async () => {
 const getCategorias =  () => {
   api.get('/categoria')
   .then(response => {
-    const data = response.data.map(({titulo})=>{
+    const data = response.data.map(({id, titulo})=>{
       return {
-        value: titulo, label: titulo
+        value: id, label: titulo
       }
     })
     setDataCategorias(data)
