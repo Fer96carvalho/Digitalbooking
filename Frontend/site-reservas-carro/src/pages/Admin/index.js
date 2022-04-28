@@ -1,4 +1,6 @@
 import { Container, Button } from 'react-bootstrap';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 import { CarInfo } from './CarInfo';
 import { Attibutes } from './Attributes';
 import { Images } from './Images';
@@ -21,7 +23,7 @@ export function Admin() {
   const schema = yup.object({
     name_vehicle: yup.string().required("Campo obrigatório."),
     category: yup.string().required("Campo obrigatório."),
-    address: yup.string().required("Campo obrigatório."),
+    // address: yup.string().required("Campo obrigatório."),
     description: yup.string().required("Campo obrigatório."),
     city: yup.string().required("Campo obrigatório."),
     car_rules: yup.string().required("Campo obrigatório."),
@@ -59,15 +61,17 @@ export function Admin() {
       }
     }).then((response) => {
       if (response.status === 200) {
+        console.log(data.name_vehicle);
         api.get(`/produto/nome/${data.name_vehicle}`, {
           header: {
             'Authorization': `Bearer ${dataUser.token}`
           }
         }).then((response) => {
           if (response.status === 200) {
+
             let id = response.data.id;
             for (let i = 0; i <= images.length; i++) {
-              api.post('/imagens', {
+              api.post('/imagem', {
                 url: images[i].url,
                 produto: {
                   id: id
@@ -75,6 +79,22 @@ export function Admin() {
               }, {
                 header: {
                   'Authorization': `Bearer ${dataUser.token}`
+                }
+              }).then((response)=>{
+                if (response.satus === 200){
+                  Swal.fire(
+                    'Produto criado com sucesso!',
+                    ``,
+                    'success'
+                  )
+                } else{
+                  return (
+                    Swal.fire(
+                      'Houve um problema ao criar o seu produto!',
+                      ``,
+                      'error'
+                    )
+                  )
                 }
               })
             }}
